@@ -12,12 +12,12 @@
 	$db_found = mysqli_select_db($db_handle, "amazece");
 
 while (!feof($fichierR)){
-	$requette = fgets($fichierR, filesize('bdd.sql'));
-	mysqli_query($db_handle,$requette) ;
+	$request = fgets($fichierR, filesize('bdd.sql'));
+	mysqli_query($db_handle,$request) ;
 }
 
 		fclose($fichierR);
 
-	echo "coucou;jhgkjgv";
+	echo "Base de donnée crée avec succès";
 
 ?>
