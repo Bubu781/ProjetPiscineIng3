@@ -1,6 +1,6 @@
 <?php
 	function displayCards($table){
-		$result = sendRequest("SELECT * FROM " . $table . ", Item WHERE " . $table . ".item = Item.Id ORDER BY Item.Nb_Ventes DESC");
+		$result = sendRequest("SELECT * FROM " . $table . ", Item, Media WHERE " . $table . ".item = Item.Id AND Item.media = Media.id ORDER BY Item.Nb_Ventes DESC");
 		$nbDisplayed = 0;
 		while($data = mysqli_fetch_assoc($result)){
 			if($nbDisplayed == 4){
@@ -10,7 +10,7 @@
 				echo '<div class="row">';
 			}
 			echo '<div class="card col-sm-6"><a href="#">';
-			echo '<img class="card-img-top" src="img.jpeg" alt="Card image">';
+			echo '<img class="card-img-top" src="' . $data['Path1'] . '" alt="Card image">';
 			echo '<div class="card-img-overlay">';
 			echo '<h4 class="card-title">' . $data['Nom'] . '</h4>';
 			echo '</div></a></div>';

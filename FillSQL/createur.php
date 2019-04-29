@@ -1,7 +1,7 @@
 		
 <?php
 
-	$db_handle = mysqli_connect('localhost', 'root', '');	
+	$db_handle = mysqli_connect('localhost', 'root', 'root');	
 
 	$fichierR = fopen('bdd.sql','r');
 

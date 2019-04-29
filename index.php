@@ -17,6 +17,8 @@
 </head>
 <body>
 	
+	<!--Les ventes flash, affichées dans un container, le container contient 4 div, chaque div contient 
+	un titre h2 et au maximum 4 produits relatifs à la catégorie choisie -->
 	<h1>Ventes flash</h1>
 	<div id="container">
 		<div class="row">
