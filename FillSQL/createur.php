@@ -4,8 +4,6 @@
 	$db_handle = mysqli_connect('localhost', 'root', '');	
 
 	$fichierR = fopen('bdd.sql','r');
-	$bdd = fread($fichierR, filesize('bdd.sql'));
-	fclose($fichierR);
 
 
 	mysqli_query($db_handle,"DROP DATABASE IF EXISTS amazece;") ;
@@ -13,7 +11,12 @@
 
 	$db_found = mysqli_select_db($db_handle, "amazece");
 
-	mysqli_query($db_handle,$bdd) ;
+while (!feof($fichierR)){
+	$requette = fgets($fichierR, filesize('bdd.sql'));
+	mysqli_query($db_handle,$requette) ;
+}
+
+		fclose($fichierR);
 
 	echo "coucou;jhgkjgv";
 
