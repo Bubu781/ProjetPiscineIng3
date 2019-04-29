@@ -4,5 +4,17 @@
 		while($data = mysqli_fetch_assoc($result)){
 			$_SESSION['ID_people'] = $data['Id'];
 		}
+		$result = sendRequest("SELECT * FROM Admin, People WHERE Admin.people=" . $_SESSION['ID_people'])
+		while($data = mysqli_fetch_assoc($result)){
+			$_SESSION['type_utilisateur'] = 0;
+		}
+		$result = sendRequest("SELECT * FROM Vendeur, People WHERE Vendeur.people=" . $_SESSION['ID_people'])
+		while($data = mysqli_fetch_assoc($result)){
+			$_SESSION['type_utilisateur'] = 1;
+		}
+		$result = sendRequest("SELECT * FROM Client, People WHERE Client.people=" . $_SESSION['ID_people'])
+		while($data = mysqli_fetch_assoc($result)){
+			$_SESSION['type_utilisateur'] = 0;
+		}
 	}
 ?>
