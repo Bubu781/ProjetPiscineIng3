@@ -1,5 +1,5 @@
 <?php
-	function openDB($sql){
+	function sendRequest($sql){
 		$database = "amazece";
 		global $result;
 		$db_handle = mysqli_connect('localhost','root','');
