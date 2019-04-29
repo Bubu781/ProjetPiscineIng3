@@ -64,4 +64,4 @@ INSERT INTO Musiques(Auteur, Type, Duree, Style, Version, item) VALUES( "Taio Cr
 INSERT INTO Sport_Et_Loisir(Code, Poids, Taille, item) VALUES( "Velo", 2.5, 1.03,5)
 
 --Remplissage de la table media
-INSERT INTO Media(Path1) VALUES( "Media/img.jpg")
+INSERT INTO Media(Path1) VALUES( "Media/img.jpeg")
