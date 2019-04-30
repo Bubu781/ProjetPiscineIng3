@@ -15,6 +15,7 @@
 	        <a class="dropdown-item" href="boutique.php?categorie=1">Musique</a>
 	        <a class="dropdown-item" href="boutique.php?categorie=2">Livres</a>
 	        <a class="dropdown-item" href="boutique.php?categorie=3">Sport & Loisirs</a>
+	        <a class="dropdown-item" href="boutique.php?categorie=4">Toutes Catégories</a>
 	      </div>
 	    </li>
 

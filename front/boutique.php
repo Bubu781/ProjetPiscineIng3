@@ -22,7 +22,7 @@
 	?>
 	<!--Vérification que la catégorie envoyée existe, sinon on n'affiche rien -->
 	<?php
-		if( isset($_GET['categorie']) && ($_GET['categorie'] == "0" || $_GET['categorie'] == "1" || $_GET['categorie'] == "2" || $_GET['categorie'] == "3")){
+		if( isset($_GET['categorie']) && ($_GET['categorie'] == "0" || $_GET['categorie'] == "1" || $_GET['categorie'] == "2" || $_GET['categorie'] == "3") || $_GET['categorie'] == 4){
 	?>
 	<!--Les ventes flash, affichées dans un container, le container contient 4 div, chaque div contient 
 	un titre h2 et au maximum 4 produits relatifs à la catégorie choisie -->
@@ -33,8 +33,10 @@
 			echo "Musiques";
 		}else if($_GET['categorie'] == 2){
 			echo "Livres";
-		}else{
+		}else if($_GET['categorie'] == 2){
 			echo "Sports et Loisirs";
+		}else{
+			echo "Toutes catégories";
 		}
 	?></h1>
 	<div id="container">
