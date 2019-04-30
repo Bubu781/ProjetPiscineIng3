@@ -1,7 +1,7 @@
 <?php
 	function sendRequest($sql){
 		$database = "amazece";
-		$db_handle = mysqli_connect('localhost','root','root');
+		$db_handle = mysqli_connect('localhost','root','');
 		$db_found = mysqli_select_db($db_handle,$database);
 
 		if($db_found){
