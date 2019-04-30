@@ -88,7 +88,7 @@ INSERT INTO Vetements(Taille, Couleur, Genre, Matiere, Type, item) VALUES( 'XS',
 -- Remplissage de la table Livres
 INSERT INTO Livres(Auteur, Nb_Pages, Date_Sortie, Genre, Format, item) VALUES( 'JK Rolling', '203', '1997-06-26', 'Fantastique', 'Poche',3);
 -- Remplissage de la table Musiques
-INSERT INTO Musiques(Auteur, Type, Duree, Style, Format, item) VALUES( "Taio Cruz", 'Morceau', '3:01', "Pop","Dematerialise",4;
+INSERT INTO Musiques(Auteur, Type, Duree, Style, Format, item) VALUES( "Taio Cruz", 'Morceau', '3:01', "Pop","Dematerialise",4);
 INSERT INTO Musiques(Auteur, Type, Duree, Style, Format, item) VALUES( "Michael Jackson", 'Morceau', '2:01', "Pop","Dematerialise",6);
 INSERT INTO Musiques(Auteur, Type, Duree, Style, Format, item) VALUES( "Edith Piaf", 'Morceau', '3:35', "Pop","disque",7);
 INSERT INTO Musiques(Auteur, Type, Duree, Style, Format, item) VALUES( "Shakira", 'Morceau', '3:22', "Pop","Dematerialise",8);
