@@ -1,3 +1,10 @@
+<!-- Initialisation de la session -->
+<?php
+	session_start();
+	include("../sendRequest.php");
+	include("../autoConnect.php");
+?>
+
 <!DOCTYPE html>
 <head>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> <!-- JQUERY -->
