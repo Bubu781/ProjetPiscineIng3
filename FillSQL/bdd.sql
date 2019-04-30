@@ -30,6 +30,8 @@ CREATE TABLE Sport_Et_Loisir(Code varchar(50) NOT NULL, Poids float NOT NULL, Ta
 -- TABLES DE COMMANDES 
 -- Création de la table panier
 CREATE TABLE Panier(Id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, Objet int NOT NULL, FOREIGN KEY(Objet) REFERENCES Item(Id), Client int NOT NULL, FOREIGN KEY(Client) REFERENCES people(Id), Quantite int NOT NULL);
+-- Création de la table de commandes
+CREATE TABLE Commandes(Id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, Objet int NOT NULL, FOREIGN KEY(Objet) REFERENCES Item(Id), Client int NOT NULL, FOREIGN KEY(Client) REFERENCES people(Id), Quantite int NOT NULL, Date_Livraison Date NOT NULL);
 
 
 /*
@@ -58,8 +60,8 @@ INSERT INTO Admin(people) VALUES( 2);
 
 -- TABLES OBJETS
 -- Remplissage de la table item
-INSERT INTO Item(Nom, Categorie, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( 'teesirt simple', 'Vetements', 67, 'simple en bon etat','Levis',2,1,4);
-INSERT INTO Item(Nom, Categorie, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( 'teesirt double', 'Vetements', 90, 'simple en mauvais etat','Ramon',0,0,4);
+INSERT INTO Item(Nom, Categorie, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( 'teeshirt simple', 'Vetements', 67, 'simple en bon etat','Levis',2,1,4);
+INSERT INTO Item(Nom, Categorie, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( 'teeshirt double', 'Vetements', 90, 'simple en mauvais etat','Ramon',0,0,4);
 INSERT INTO Item(Nom, Categorie, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( "Harry Potter a l'ecole des sorciers", 'Livres', 10, 'Livre epique','Ombre blanche',19,12,2);
 INSERT INTO Item(Nom, Categorie, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( "Hangover", 'Musiques', 1, "musique d'ambiance","disque d'or",6,3,5);
 INSERT INTO Item(Nom, Categorie, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( "velo de course", 'Sport et Loisir', 652, "velo de course pour debutant","decatlon",2,0,3);
@@ -77,3 +79,5 @@ INSERT INTO Sport_Et_Loisir(Code, Poids, Taille, item) VALUES( "Velo", 2.5, 1.03
 --Remplissage de la table panier
 INSERT INTO Panier(Objet, Client, Quantite) VALUES( 1,1,3);
 INSERT INTO Panier(Objet, Client, Quantite) VALUES( 1,3,1);
+--Remplissage de la table de commandes 
+INSERT INTO Commandes(Objet, Client, Quantite, Date_Livraison) VALUES( 1,2,1, "2019-05-06");
