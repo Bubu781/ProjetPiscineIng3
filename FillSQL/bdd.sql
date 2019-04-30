@@ -20,7 +20,7 @@ CREATE TABLE Admin(people int NOT NULL, FOREIGN KEY(people) REFERENCES people(Id
 
 -- TABLES OBJETS
 -- Création de la	 table Item
-CREATE TABLE Item(Id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,Nb_Click int NOT NULL, Nb_Ventes int NOT NULL, Nom varchar(50) NOT NULL,Categorie varchar(50) NOT NULL,Prix float NOT NULL,Description text(1000) NOT NULL,Marque varchar(50) NOT NULL,media int NOT NULL, FOREIGN KEY(media) REFERENCES media(Id));
+CREATE TABLE Item(Id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,Nb_Click int NOT NULL, Nb_Ventes int NOT NULL, Nom varchar(50) NOT NULL, Prix float NOT NULL,Description text(1000) NOT NULL,Marque varchar(50) NOT NULL,media int NOT NULL, FOREIGN KEY(media) REFERENCES media(Id));
 -- Création de la sous-table vetements
 CREATE TABLE Vetements(Taille varchar(50) NOT NULL, Couleur varchar(20) NOT NULL, Genre varchar(50) NOT NULL, Matiere varchar(50) NOT NULL, Type varchar(50) NOT NULL, item int NOT NULL, FOREIGN KEY(item) REFERENCES item(Id));
 -- Création de la table Livres
@@ -72,23 +72,23 @@ INSERT INTO Admin(people) VALUES( 2);
 
 -- TABLES OBJETS
 -- Remplissage de la table item
-INSERT INTO Item(Nom, Categorie, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( 'teeshirt simple', 'Vetements', 67, 'simple en bon etat','Levis',2,1,4);
-INSERT INTO Item(Nom, Categorie, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( 'teeshirt double', 'Vetements', 90, 'simple en mauvais etat','Ramon',0,0,4);
-INSERT INTO Item(Nom, Categorie, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( "Harry Potter a l'ecole des sorciers", 'Livres', 10, 'Livre epique','Ombre blanche',19,12,2);
-INSERT INTO Item(Nom, Categorie, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( "Hangover", 'Musiques', 1, "musique d'ambiance","disque d'or",6,3,5);
-INSERT INTO Item(Nom, Categorie, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( "velo de course", 'Sport et Loisir', 652, "velo de course pour debutant","decatlon",2,0,3);
-INSERT INTO Item(Nom, Categorie, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( "Billie Jean", 'Musiques', 1, "musique d'ambiance","Jackson record",24,9,6);
-INSERT INTO Item(Nom, Categorie, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( "La vie en rose", 'Musiques', 1, "musique romatique","foule record",6,3,9);
-INSERT INTO Item(Nom, Categorie, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( "Waka Waka", 'Musiques', 1, "musique d'ambiance","disque d'or",16,1,7);
-INSERT INTO Item(Nom, Categorie, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( "Bloero de Ravel", 'Musiques', 1, "musique classique pour orchestre","cher d'orchestre",12,4,10);
-INSERT INTO Item(Nom, Categorie, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( "Bangarang", 'Musiques', 1, "son clulte du compositeur skrillex","Diplo",51,6,8);
+INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( 'teeshirt simple', 67, 'simple en bon etat','Levis',2,1,4);
+INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( 'teeshirt double', 90, 'simple en mauvais etat','Ramon',0,0,4);
+INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( "Harry Potter a l'ecole des sorciers",  10, 'Livre epique','Ombre blanche',19,12,2);
+INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( "Hangover",  1, "musique d'ambiance","disque d'or",6,3,5);
+INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( "velo de course",   652, "velo de course pour debutant","decatlon",2,0,3);
+INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( "Billie Jean", 1, "musique d'ambiance","Jackson record",24,9,6);
+INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( "La vie en rose",  1, "musique romatique","foule record",6,3,9);
+INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( "Waka Waka",  1, "musique d'ambiance","disque d'or",16,1,7);
+INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( "Bloero de Ravel", 1, "musique classique pour orchestre","cher d'orchestre",12,4,10);
+INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( "Bangarang", 1, "son clulte du compositeur skrillex","Diplo",51,6,8);
 -- Remplissage de la table Vetements
 INSERT INTO Vetements(Taille, Couleur, Genre, Matiere, Type, item) VALUES( 'M', 'Rouge', 'M', 'Lin', 'teesirt',1);
 INSERT INTO Vetements(Taille, Couleur, Genre, Matiere, Type, item) VALUES( 'XS', 'Bleu', 'M', 'Coton', 'teesirt',2);
 -- Remplissage de la table Livres
 INSERT INTO Livres(Auteur, Nb_Pages, Date_Sortie, Genre, Format, item) VALUES( 'JK Rolling', '203', '1997-06-26', 'Fantastique', 'Poche',3);
 -- Remplissage de la table Musiques
-INSERT INTO Musiques(Auteur, Type, Duree, Style, Format, item) VALUES( "Taio Cruz", 'Morceau', '3:01', "Pop","Dematerialise",4;
+INSERT INTO Musiques(Auteur, Type, Duree, Style, Format, item) VALUES( "Taio Cruz", 'Morceau', '3:01', "Pop","Dematerialise",4);
 INSERT INTO Musiques(Auteur, Type, Duree, Style, Format, item) VALUES( "Michael Jackson", 'Morceau', '2:01', "Pop","Dematerialise",6);
 INSERT INTO Musiques(Auteur, Type, Duree, Style, Format, item) VALUES( "Edith Piaf", 'Morceau', '3:35', "Pop","disque",7);
 INSERT INTO Musiques(Auteur, Type, Duree, Style, Format, item) VALUES( "Shakira", 'Morceau', '3:22', "Pop","Dematerialise",8);
