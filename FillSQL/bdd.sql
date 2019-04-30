@@ -4,6 +4,9 @@ CREATION DES TABLES
 -- TABLES OUTILS
 -- Création de la table media
 CREATE TABLE Media(Id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, Path1 varchar(50) NOT NULL,Path2 varchar(50),Path3 varchar(50),Path4 varchar(50),Path5 varchar(50));
+-- Création de la table avis client (note /5)
+CREATE TABLE Avis_Client(Id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, Objet int NOT NULL, FOREIGN KEY(Objet) REFERENCES Item(Id), Client int NOT NULL, FOREIGN KEY(Client) REFERENCES people(Id), Note int NOT NULL);
+
 
 -- TABLES PERSONNE
 -- Création de la table people
@@ -32,6 +35,8 @@ CREATE TABLE Sport_Et_Loisir(Code varchar(50) NOT NULL, Poids float NOT NULL, Ta
 CREATE TABLE Panier(Id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, Objet int NOT NULL, FOREIGN KEY(Objet) REFERENCES Item(Id), Client int NOT NULL, FOREIGN KEY(Client) REFERENCES people(Id), Quantite int NOT NULL);
 -- Création de la table de commandes
 CREATE TABLE Commandes(Id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, Objet int NOT NULL, FOREIGN KEY(Objet) REFERENCES Item(Id), Client int NOT NULL, FOREIGN KEY(Client) REFERENCES people(Id), Quantite int NOT NULL, Date_Livraison Date NOT NULL);
+-- Création de la table des Produits
+CREATE TABLE Produits(Id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, Objet int NOT NULL, FOREIGN KEY(Objet) REFERENCES Item(Id), Vendeur int NOT NULL, FOREIGN KEY(Vendeur) REFERENCES people(Id), Quantite int NOT NULL);
 
 
 /*
@@ -45,6 +50,8 @@ INSERT INTO Media(Path1) VALUES( "Media/1.jpeg");
 INSERT INTO Media(Path1) VALUES( "Media/2.jpeg");
 INSERT INTO Media(Path1) VALUES( "Media/3.jpeg");
 INSERT INTO Media(Path1) VALUES( "Media/4.jpeg");
+-- Remplissage de la table Avis client
+INSERT INTO Avis_Client(Objet, Client, Note) VALUES( 5,1,4);
 
 -- TABLES PERSONNE
 -- Remplissage de la table People
@@ -80,4 +87,10 @@ INSERT INTO Sport_Et_Loisir(Code, Poids, Taille, item) VALUES( "Velo", 2.5, 1.03
 INSERT INTO Panier(Objet, Client, Quantite) VALUES( 1,1,3);
 INSERT INTO Panier(Objet, Client, Quantite) VALUES( 1,3,1);
 --Remplissage de la table de commandes 
-INSERT INTO Commandes(Objet, Client, Quantite, Date_Livraison) VALUES( 1,2,1, "2019-05-06");
+INSERT INTO Commandes(Objet, Client, Quantite, Date_Livraison) VALUES( 1,1,1, "2019-05-06");
+--Remplissage de la table des produits
+INSERT INTO Produits(Objet, Vendeur, Quantite) VALUES( 1,3,1);
+INSERT INTO Produits(Objet, Vendeur, Quantite) VALUES( 2,3,7);
+INSERT INTO Produits(Objet, Vendeur, Quantite) VALUES( 3,3,2);
+INSERT INTO Produits(Objet, Vendeur, Quantite) VALUES( 4,3,16);
+INSERT INTO Produits(Objet, Vendeur, Quantite) VALUES( 5,3,4);
