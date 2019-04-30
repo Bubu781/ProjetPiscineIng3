@@ -12,7 +12,7 @@
 		$erreur .= "Le champ mot de passe est vide. <br>";
 	}
 	if($erreur != ""){
-		header("Location:connexionPage.php");
+		header("Location: front/connexionPage.php");
 	}else{
 		$result = sendRequest("SELECT Id FROM People WHERE Pseudo ='".$pseudo . "' AND Mot_De_Passe ='" .$mdp ."'");
 		while($data = mysqli_fetch_assoc($result)){
@@ -35,9 +35,9 @@
 				setcookie('pseudo', $pseudo, time() + 365*24*3600, null, null, false, true);
 				setcookie('password', $mdp, time() + 365*24*3600, null, null, false, true);
 			}
-			header("Location: index.php");
+			header("Location: front/index.php");
 		}else{
-			header("Location:connexionPage.php");
+			header("Location: front/connexionPage.php");
 		}
 	}
 ?>
