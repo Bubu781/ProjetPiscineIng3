@@ -78,10 +78,25 @@
 
 	</div>
 
-	Date_Expiration_Carte, Nom_Carte, Num_Carte, Type_Carte,Adresse_L1,Adresse_L2,Ville,Code_Postal,Pays,people
+	 Type_Carte,Adresse_L1,Adresse_L2,Ville,Code_Postal,Pays,people
 
 	<div id="formulaireDown" >
 		<table>
+
+			<tr class="form-group">
+				<td>Numéro de carte :</td>
+				<td><input type="text" id="Num_Carte" class="form-control" placeholder="Saisisez le numero de la carte "></td>
+			</tr>
+
+			<tr class="form-group">
+				<td>nom sur la carte :</td>
+				<td><input type="text" id="Nom_Carte" class="form-control" placeholder="Saisisez le nom écris sur la carte "></td>
+			</tr>
+
+			<tr class="form-group">
+				<td>date d'expiration de la carte :</td>
+				<td><input type="date" id="Date_Expiration_Carte" class="form-control" placeholder="Saisisez la date d'expiration de la carte "></td>
+			</tr>
 
 			<tr class="form-group">
 				<td>code de carte :</td>
