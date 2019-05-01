@@ -1,0 +1,71 @@
+
+
+h1 {
+  margin: 0;
+  height: 3vmin;
+  width: 30vmin;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+h1::before {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: -1;
+  top: -2vmin;
+  left: 17vmin;
+  width: 8vmin;
+  height: 8vmin;
+ 
+}
+
+em {
+  font-family: 'Josefin Sans', sans-serif;
+  color: white;
+  font-size: 4vmin;
+  font-style: normal;
+  width: 10vmin;
+  text-align: left;
+}
+
+em.planet {
+  -webkit-animation: planet-rotate 4s linear infinite;
+  animation: planet-rotate 4s linear infinite;
+  position: relative;
+}
+
+em.planet::before {
+  content: "";
+  position: relative;
+  top: -1vmin;
+  left: 3vmin;
+  z-index: -1;
+  width: 3vmin;
+  height: 3vmin;
+  border-radius: 50%;
+  background: black;
+}
+
+em.planet.left {
+  -webkit-transform-origin: 6vmin 2vmin;
+  transform-origin: 6vmin 2vmin;
+}
+
+em.planet.right {
+  -webkit-transform-origin: -3vmin 2vmin;
+  transform-origin: -4vmin 2vmin;
+}
+
+@-webkit-keyframes planet-rotate {
+  to {
+    -webkit-transform: rotate(1turn);
+  }
+}
+
+@keyframes planet-rotate {
+  to {
+    transform: rotate(1turn);
+  }
+}
