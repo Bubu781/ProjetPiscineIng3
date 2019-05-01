@@ -14,12 +14,12 @@
 	}
 	$result = sendRequest("SELECT * FROM People WHERE '".$_SESSION['ID_people']."'=Id");
 	while($data=mysqli_fetch_assoc($result)){
-		$Nom = $data['Nom'];
-		$Pseudo = $data['Pseudo'];
-		$Prenom = $data['Prenom'];
-		$Tel = $data['Tel'];
-		$Mail = $data['Mail'];
-		$Mdp = $data['Mot_De_Passe'];
+		$Nom = isset($data['Nom'])? $data['Nom']:"";
+		$Pseudo = isset($data['Pseudo'])? $data['Pseudo']:"";
+		$Prenom = isset($data['Prenom'])? $data['Prenom']:"";
+		$Tel = isset($data['Tel'])? $data['Tel'] :"";
+		$Mail = isset($data['Mail'])? $data['Mail']:"";
+		$Mdp = isset($data['Mot_De_Passe'])? $data['Mot_De_Passe']:"";
 	}
 	
 ?>
@@ -75,12 +75,12 @@
 		if($_SESSION['type_utilisateur'] == 2){
 			$result = sendRequest("SELECT * FROM Client, People WHERE Client.people=" . $_SESSION['ID_people']);
 			while($data = mysqli_fetch_assoc($result)){
-				$Porte_Monnaie = $data['Porte_Monnaie'];
-				$Adresse_L1 = $data['Adresse_L1'];
-				$Adresse_L2 = $data['Adresse_L2'];
-				$Ville = $data['Ville'];
-				$Code_Postal = $data['Code_Postal'];
-				$Pays = $data['Pays'];
+				$Porte_Monnaie = isset($data['Porte_Monnaie'])? $data['Porte_Monnaie']:"" ;
+				$Adresse_L1 = isset($data['Adresse_L1'])? $data['Adresse_L1']:"";
+				$Adresse_L2 = isset($data['Adresse_L2'])? $data['Adresse_L2']:"";
+				$Ville = isset($data['Ville'])? $data['Ville']:"";
+				$Code_Postal = isset($data['Code_Postal'])? $data['Code_Postal']:"";
+				$Pays = isset($data['Pays'])? $data['Pays']:"";
 		}
 	?>
 	<!-- Info Client -->
@@ -114,7 +114,7 @@
 		}else if($_SESSION['type_utilisateur'] == 1){
 		$result = sendRequest("SELECT * FROM Vendeur, People WHERE Vendeur.people=" . $_SESSION['ID_people']);
 		while($data = mysqli_fetch_assoc($result)){
-		$Porte_Monnaie = $data['Porte_Monnaie'];
+		$Porte_Monnaie = isset($data['Porte_Monnaie'])? $data['Porte_Monnaie']:"" ;
 			}
 	?>
 	<!-- Info Vendeur -->
