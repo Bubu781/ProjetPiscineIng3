@@ -260,5 +260,5 @@ if ($mdp1 != $mdp2){
 	//alert("Le Mot de passe est invalide\nles 2 mots de passe saisis ne correspondent pas");
 }
 
-}
+
 
