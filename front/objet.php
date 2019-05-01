@@ -2,11 +2,9 @@
 <?php
 	session_start();
 	include("../sendRequest.php");
-	include("../autoConnect.php");
-	include("../createCard.php");
 ?>
 <?php
-$result = sendRequest("SELECT * FROM Item WHERE '".$_SESSION['Id']."'=Id");
+$result = sendRequest("SELECT * FROM Item, Media WHERE '".$_GET['ID']."'=Item.Id AND Media.id = item.media ");
 	while($data=mysqli_fetch_assoc($result)){
 		$Nom = isset($data['Nom'])? $data['Nom']:"";
 		$Description = isset($data['Description'])? $data['Description']:"";
@@ -36,12 +34,12 @@ $result = sendRequest("SELECT * FROM Item WHERE '".$_SESSION['Id']."'=Id");
 		<tr>
 			<td>
 				<!--Photo de l'objet-->
-				<?php echo <img class="card-img" src="' .$Image. '" alt="Image">; ?>
+				<?php echo '<img class="card-img" src="' .$Image. '" alt="Image">'; ?>
 			</td>
 			<td><h2><?php echo $Nom; ; ?></h2></td>
 		</tr>
 			<td><strong>Prix: </strong></td>
-			<td><?php echo $Prix; ?></td>
+			<td><?php echo $Prix . '€'; ?></td>
 		<tr>
 			<td><strong>Description: </strong></td>
 			<td><?php echo $Description; ?></td>
@@ -52,37 +50,17 @@ $result = sendRequest("SELECT * FROM Item WHERE '".$_SESSION['Id']."'=Id");
 </div>
 
 <?php
-		if($_GET['categorie'] == 0{
+		if($_GET['categorie'] == 0){
 
 
-			}else if($_GET['categorie'] == 1){
+		}else if($_GET['categorie'] == 1){
 			
 		}else if($_GET['categorie'] == 2){
 			
 		}else if($_GET['categorie'] == 2){
-			
-			$result = sendRequest("SELECT * FROM );
-			while($data = mysqli_fetch_assoc($result)){
-			}
+		
+		}
 	?>
-		<tr>
-
-
-			<td><strong>Prénom: </strong></td>
-			<td><?php echo $Prenom; ?></td>
-		</tr>
-		<tr>
-			<td><strong>Tel: </strong></td>
-			<td><?php echo $Tel; ?></td>
-		</tr>
-		<tr>
-			<td><strong>Mail: </strong></td>
-			<td><?php echo $Mail; ?></td>
-		</tr>
-
-			
-	</table>
-</div>
 <?php
 	include ("footer.php");
 	?>

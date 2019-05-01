@@ -9,7 +9,7 @@
 			if($nbDisplayed % 2 == 0){
 				echo '<div class="row">';
 			}
-			echo '<div class="card col-sm-6"><a href="#">';
+			echo '<div class="card col-sm-6"><a href="objet.php?ID=' . $data['item'] . '&amp;categorie=' . $table . '">';
 			echo '<img class="card-img-top" src="' . $data['Path1'] . '" alt="Card image">';
 			echo '<div class="card-img-overlay">';
 			echo '<h4 class="card-title">' . $data['Nom'] . '</h4>';

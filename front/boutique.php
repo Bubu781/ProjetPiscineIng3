@@ -2,6 +2,7 @@
 <?php
 	session_start();
 	include("../sendRequest.php");
+	include("../createArticles.php");
 ?>
 
 <!DOCTYPE html>
