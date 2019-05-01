@@ -9,12 +9,7 @@
 ?>
 
 <?php
-	
-	$nom = isset($_POST["nom"])? $_POST["nom"] : ""; //if-then-else
-	$Marque = isset($_POST["Marque"])? $_POST["Marque"] : ""; //if-then-else
-	$description = isset($_POST["description"])? $_POST["description"] : ""; //if-then-else
-	$prix = isset($_POST["prix"])? $_POST["prix"] : ""; //if-then-else
-	$categorie = isset($_POST["categorie"])? $_POST["categorie"] : ""; //if-then-else
+
 
 	if (isset($_FILES['photo1']) AND $_FILES['photo1']['error'] == 0){
     // Testons si le fichier n'est pas trop gros
@@ -95,18 +90,30 @@
 	// media
 	sendRequest('INSERT INTO Media(Path1,Path2,Path3,Path4,Path5) VALUES( "Media/'.$_FILES['photo1']['name'].'","Media/'.$_FILES['photo2']['name'].'","Media/'.$_FILES['photo3']['name'].'","Media/'.$_FILES['photo4']['name'].'","Media/'.$_FILES['photo5']['name'].'");');
 	$media = sendRequest('SELECT MAX(Id) FROM media');
+	$idMedia = mysqli_fetch_assoc($media);
+
+
+
+  $nom = isset($_POST["nom"])? $_POST["nom"] : ""; //if-then-else
+  $Marque = isset($_POST["Marque"])? $_POST["Marque"] : ""; //if-then-else
+  $description = isset($_POST["description"])? $_POST["description"] : ""; //if-then-else
+  $prix = isset($_POST["prix"])? $_POST["prix"] : ""; //if-then-else
+  $categorie = isset($_POST["categorie"])? $_POST["categorie"] : ""; //if-then-else
+
+
+	echo 'INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES("'.$nom.'","'.$prix.'","'.$description.'","'.$Marque.'",0,0,'.$idMedia['MAX(Id)'].');';
+	sendRequest('INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES("'.$nom.'","'.$prix.'","'.$description.'","'.$Marque.'",0,0,'.$idMedia['MAX(Id)'].');');
+	$media = sendRequest('SELECT MAX(Id) FROM Item');
 	$data = mysqli_fetch_assoc($media);
 
+	if ($categorie == 'Vendeur'){
 
-	//echo 'INSERT INTO People(Nom, Prenom, Pseudo, Mail, N_Telephonne, Mot_De_Passe,media) VALUES("'.$nom.'","'.$prenom.'","'.$pseudo.'","'.$mail.'","'.$tel.'","'.$mdp1.'",'.$data['MAX(Id)'].');';
-	//sendRequest('INSERT INTO People(Nom, Prenom, Pseudo, Mail, N_Telephonne, Mot_De_Passe,media) VALUES("'.$nom.'","'.$prenom.'","'.$pseudo.'","'.$mail.'","'.$tel.'","'.$mdp1.'",'.$data['MAX(Id)'].');');
-	//$media = sendRequest('SELECT MAX(Id) FROM People');
-	//$data = mysqli_fetch_assoc($media);
 
-	if ($categorie == 'vendeur'){
 		$banque = isset($_POST["banque"])? $_POST["banque"] : ""; //if-then-else
 
 		sendRequest('INSERT INTO Vendeur(Porte_Monnaie,people) VALUES( '.$banque.', '.$data['MAX(Id)'].');');
+
+    
 	}
 	else if ($categorie == 'client'){
 
