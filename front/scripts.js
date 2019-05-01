@@ -243,5 +243,18 @@ loadFormulaireNewPeople = () =>{
 
 }
 
+validatePwd = () =>{
+$mdp1 = $('#mdp1').val();
+$mdp2 = $('#mdp2').val();
+console.log($mdp1);
+console.log($mdp2);
+if ($mdp1 != $mdp2){
+//	alert("Le Mot de passe est invalide\nles 2 mots de passe saisis ne correspondent pas");	
+//	$('#mdp1').remove();
+	//$('#ranmdp1').append('<input type="password" name="mdp2" id="mdp2" class="form-control" placeholder="Saisisez à nouveau le mot de passe"required>')
 
+	alert("Le Mot de passe est invalide\nles 2 mots de passe saisis ne correspondent pas");
+}
+
+}
 
