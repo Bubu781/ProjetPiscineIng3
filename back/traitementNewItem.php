@@ -41,9 +41,9 @@
       if (in_array($extension_upload, $extensions_autorisees)){
               move_uploaded_file($_FILES['photo2']['tmp_name'], '../front/Media/' . basename($_FILES['photo2']['name']));}
       else{echo 'extention non-autorisee';}}
-    else{echo 'image1 trop grosse';}
+    else{echo 'image2 trop grosse';}
   }
-	else {echo'Pb image 1';}
+	else {echo'Pb image 2';}
 
 
 
@@ -57,9 +57,9 @@
       if (in_array($extension_upload, $extensions_autorisees)){
               move_uploaded_file($_FILES['photo3']['tmp_name'], '../front/Media/' . basename($_FILES['photo3']['name']));}
       else{echo 'extention non-autorisee';}}
-    else{echo 'image1 trop grosse';}
+    else{echo 'image3 trop grosse';}
   }
-	else {echo'Pb image 1';}
+	else {echo'Pb image 3';}
 
 
 
@@ -73,9 +73,9 @@
       if (in_array($extension_upload, $extensions_autorisees)){
               move_uploaded_file($_FILES['photo4']['tmp_name'], '../front/Media/' . basename($_FILES['photo4']['name']));}
       else{echo 'extention non-autorisee';}}
-    else{echo 'image1 trop grosse';}
+    else{echo 'image4 trop grosse';}
   }
-	else {echo'Pb image 1';}
+	else {echo'Pb image 4';}
 
 
 	if (isset($_FILES['photo5']) AND $_FILES['photo5']['error'] == 0){
@@ -88,20 +88,20 @@
       if (in_array($extension_upload, $extensions_autorisees)){
               move_uploaded_file($_FILES['photo5']['tmp_name'], '../front/Media/' . basename($_FILES['photo5']['name']));}
       else{echo 'extention non-autorisee';}}
-    else{echo 'image1 trop grosse';}
+    else{echo 'image5 trop grosse';}
   }
-	else {echo'Pb image 1';}
+	else {echo'Pb image 5';}
 
 	// media
-	sendRequest('INSERT INTO Media(Path1,Path2,Path3,Path4,Path5) VALUES( "Media/'.$_FILES['photo1']['name'].'");');
+	sendRequest('INSERT INTO Media(Path1,Path2,Path3,Path4,Path5) VALUES( "Media/'.$_FILES['photo1']['name'].'","Media/'.$_FILES['photo2']['name'].'","Media/'.$_FILES['photo3']['name'].'","Media/'.$_FILES['photo4']['name'].'","Media/'.$_FILES['photo5']['name'].'");');
 	$media = sendRequest('SELECT MAX(Id) FROM media');
 	$data = mysqli_fetch_assoc($media);
 
 
 	//echo 'INSERT INTO People(Nom, Prenom, Pseudo, Mail, N_Telephonne, Mot_De_Passe,media) VALUES("'.$nom.'","'.$prenom.'","'.$pseudo.'","'.$mail.'","'.$tel.'","'.$mdp1.'",'.$data['MAX(Id)'].');';
-	sendRequest('INSERT INTO People(Nom, Prenom, Pseudo, Mail, N_Telephonne, Mot_De_Passe,media) VALUES("'.$nom.'","'.$prenom.'","'.$pseudo.'","'.$mail.'","'.$tel.'","'.$mdp1.'",'.$data['MAX(Id)'].');');
-	$media = sendRequest('SELECT MAX(Id) FROM People');
-	$data = mysqli_fetch_assoc($media);
+	//sendRequest('INSERT INTO People(Nom, Prenom, Pseudo, Mail, N_Telephonne, Mot_De_Passe,media) VALUES("'.$nom.'","'.$prenom.'","'.$pseudo.'","'.$mail.'","'.$tel.'","'.$mdp1.'",'.$data['MAX(Id)'].');');
+	//$media = sendRequest('SELECT MAX(Id) FROM People');
+	//$data = mysqli_fetch_assoc($media);
 
 	if ($categorie == 'vendeur'){
 		$banque = isset($_POST["banque"])? $_POST["banque"] : ""; //if-then-else
