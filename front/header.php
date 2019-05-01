@@ -32,7 +32,7 @@
 	    	if(isset($_SESSION['ID_people']) && $_SESSION['type_utilisateur'] == 2){
 	    ?>
 	    <li class="nav-item">
-	      <a class="nav-link" href="#">Mon Panier</a>
+	      <a class="nav-link" href="panier.php">Mon Panier</a>
 	    </li>
 			<?php
 				}else if(isset($_SESSION['ID_people']) && $_SESSION['type_utilisateur'] == 1){
