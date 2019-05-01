@@ -106,45 +106,6 @@
 					</td>
 				</tr>
 
-
-				<tr class="form-group">
-					<td>Auteur :</td>
-					<td><input type="text" id="auteur" class="form-control" placeholder="Saisisez l'auteur"></td>
-				</tr>
-
-				<tr class="form-group">
-					<td>Style :</td>
-					<td><input type="text" id="style" class="form-control" placeholder="Saisisez le style. ex : Pop"></td>
-				</tr>
-
-				<tr class="form-group">
-					<td>Durée :</td>
-					<td><input type="time" id="time" class="form-control" placeholder="Saisisez la durée"></td>
-				</tr>
-
-				<tr class="form-group">
-					<td>Format :</td>
-					<td>
-						<SELECT id="type" class="form-control">
-						<OPTION VALUE="morceau" selected="selected" >Morceau Simple</OPTION>
-						<OPTION VALUE="album">Album</OPTION>
-						</SELECT>
-					</td>
-				</tr>
-
-				<tr class="form-group">
-					<td>Type :</td>
-					<td>
-						<SELECT id="type" class="form-control">
-						<OPTION VALUE="dematerialise" selected="selected" >Dématerialisé</OPTION>
-						<OPTION VALUE="disque">Disque</OPTION>
-						</SELECT>
-					</td>
-				</tr>
-
-
-
-
 		</table>
 	</div>
 	
