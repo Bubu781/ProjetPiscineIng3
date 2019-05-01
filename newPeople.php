@@ -78,8 +78,6 @@
 
 	</div>
 
-	 Ville,Code_Postal,Pays,people
-
 	<div id="formulaireDown" >
 		<table>
 
@@ -142,7 +140,6 @@
 				<td>Porte monnaie :</td>
 				<td><input type="text" id="banque" class="form-control" placeholder="Saisisez la quantité d'argent dans la banque "></td>
 			</tr>
-
 
 		</table>
 	</div>

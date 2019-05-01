@@ -155,7 +155,76 @@ loadFormulaireNewPeople = () =>{
 
 
 	if($categorie == "client"){
-		$('#formulaireDown').html('client');
+		$('#formulaireDown').html(''+
+
+		'<table>'+
+
+			'<tr class="form-group">'+
+				'<td>Pays :</td>'+
+				'<td><input type="text" id="pays" class="form-control" placeholder="Saisisez le pays"></td>'+
+			'</tr>'+
+
+			'<tr class="form-group">'+
+				'<td>Code Postal :</td>'+
+				'<td><input type="number" id="code_postal" class="form-control" placeholder="Saisisez le code postal"></td>'+
+			'</tr>'+
+
+			'<tr class="form-group">'+
+				'<td>Ville :</td>'+
+				'<td><input type="text" id="ville" class="form-control" placeholder="Saisisez la ville"></td>'+
+			'</tr>'+
+
+			'<tr class="form-group">'+
+				'<td>Adresse L1 :</td>'+
+				'<td><textarea type="text" id="adresse_l1" class="form-control" placeholder="ligne 1"></textarea> </td>'+
+			'</tr>'+
+
+			'<tr class="form-group">'+
+				'<td>Adresse L2 :</td>'+
+				'<td><textarea type="text" id="adresse_l2" class="form-control" placeholder="ligne 2"></textarea> </td>'+
+			'</tr>'+
+
+			'<tr class="form-group">'+
+				'<td>Type de carte :</td>'+
+				'<td>'+
+					'<SELECT id="type_carte" class="form-control">'+
+					'<OPTION VALUE="visa" selected="selected" >Visa </OPTION>'+
+					'<OPTION VALUE="master">MasterCard</OPTION>'+
+					'</SELECT>'+
+				'</td>'+
+			'</tr>'+
+
+			'<tr class="form-group">'+
+				'<td>Numéro de carte :</td>'+
+				'<td><input type="text" id="Num_Carte" class="form-control" placeholder="Saisisez le numero de la carte "></td>'+
+			'</tr>'+
+
+			'<tr class="form-group">'+
+			'	<td>nom sur la carte :</td>'+
+				'<td><input type="text" id="Nom_Carte" class="form-control" placeholder="Saisisez le nom écris sur la carte "></td>'+
+			'</tr>'+
+
+			'<tr class="form-group">'+
+				'<td>date d'+"'"+'expiration de la carte :</td>'+
+				'<td><input type="date" id="Date_Expiration_Carte" class="form-control" placeholder="Saisisez la date d'+"'"+'expiration de la carte "></td>'+
+		'	</tr>'+
+
+			'<tr class="form-group">'+
+				'<td>code de carte :</td>'+
+				'<td><input type="text" id="code_carte" class="form-control" placeholder="Saisisez le code de la carte "></td>'+
+			'</tr>'+
+
+			'<tr class="form-group">'+
+				'<td>Porte monnaie :</td>'+
+				'<td><input type="text" id="banque" class="form-control" placeholder="Saisisez la quantité d'+"'"+'argent dans la banque "></td>'+
+			'</tr>'+
+
+
+		'</table>'
+
+
+
+		);
 	}
 
 	else if($categorie == "vendeur"){
