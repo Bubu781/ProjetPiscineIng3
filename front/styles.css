@@ -1,10 +1,19 @@
-div h2{
-	text-align: center;
+a{
+	color:black;
+	text-decoration:none;
 }
 
-.block{
-	display: inline-block;
-	border: 1px black;
+a:hover{
+	color:black;
+	text-decoration:none;
+}
+
+a:hover .article{
+	background-color:gray;
+}
+
+div h2{
+	text-align: center;
 }
 
 #ok{
@@ -12,39 +21,34 @@ div h2{
 }
 
 #ok2{
-	width: 200px;
 	height: 100px;
+	width: 200px;
 }
 
-.bouton{
-	margin: 5px;
-}
-a{
-	color:black;
-	text-decoration:none;
-}
-a:hover{
-	color:black;
-	text-decoration:none;
-}
-a:hover .article{
-	background-color:gray;
-}
 .article{
-	padding-Top:5px;
-	margin-left:1px;
-	margin-right:1px;
+	border-color: grey;
 	border-style: solid;
 	border-width: 1px 0 0 0;
-	border-color: grey;
 	color: black;
+	padding-Top:5px;
 }
+
 .article div h2{
 	font-size:1.5em;
 	text-align: left;
 }
+
+.block{
+	border: 1px black;
+	display: inline-block;
+}
+
 .card-title{
 	color: black;
 	text-align: center;
 	text-shadow: 1px 0 0 white, 1px 1px 0 white, 0 1px 0 white, -1px 1px 0 white, -1px 0 0 white, -1px -1px 0 white, 0 -1px 0 white, 1px -1px 0 white;
+}
+
+.bouton{
+	margin: 5px;
 }

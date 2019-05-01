@@ -4,9 +4,6 @@
 	include("../sendRequest.php");
 	include("../autoConnect.php");
 	include("../createCard.php");
-	//a supprimer
-	$_SESSION['type_utilisateur'] = 2;
-	$_SESSION['ID_people'] = 1;
 ?>
 <?php
 	if(isset($_SESSION['ID_people'])){
