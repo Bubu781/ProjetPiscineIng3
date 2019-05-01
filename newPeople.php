@@ -78,10 +78,25 @@
 
 	</div>
 
-	 Adresse_L1,Adresse_L2,Ville,Code_Postal,Pays,people
+	 Ville,Code_Postal,Pays,people
 
 	<div id="formulaireDown" >
 		<table>
+
+			<tr class="form-group">
+				<td>Pays :</td>
+				<td><input type="text" id="pays" class="form-control" placeholder="Saisisez le pays"></td>
+			</tr>
+
+			<tr class="form-group">
+				<td>Code Postal :</td>
+				<td><input type="number" id="code_postal" class="form-control" placeholder="Saisisez le code postal"></td>
+			</tr>
+
+			<tr class="form-group">
+				<td>Ville :</td>
+				<td><input type="text" id="ville" class="form-control" placeholder="Saisisez la ville"></td>
+			</tr>
 
 			<tr class="form-group">
 				<td>Adresse L1 :</td>
