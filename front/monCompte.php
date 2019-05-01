@@ -34,32 +34,32 @@
 		include("header.php");
 	?>
 
-	<h1>Mon Compte</h1>
+	<h1>Mon Compte</h1><br>
 	<div class="block" >
 	<table>
 		<tr>
 			<td>
 				<!--Photo de profil-->
-				<img class="img-responsive" src="personne.jpg" alt="Bootstrap" class="img-thumbnail" width="80" height="80">
+				<img class="img-responsive" src="personne.jpg" alt="Bootstrap" class="img-thumbnail" width="120" height="110"><br><br>
 			</td>
 		</tr>
-			<td><strong>Pseudo: </strong></td>
-			<td><?php echo $Pseudo; ?></td>
+			<td class="titre">Pseudo: </td>
+			<td><?php echo $Pseudo; ?><br> </td>
 		<tr>
-			<td><strong>Nom: </strong></td>
-			<td><?php echo $Nom; ?></td>
+			<td class="titre">Nom: </td>
+			<td><?php echo $Nom; ?><br> </td>
 		</tr>
 		<tr>
-			<td><strong>Prénom: </strong></td>
-			<td><?php echo $Prenom; ?></td>
+			<td class="titre">Prénom: </td>
+			<td><?php echo $Prenom; ?><br></td>
 		</tr>
 		<tr>
-			<td><strong>Tel: </strong></td>
-			<td><?php echo $Tel; ?></td>
+			<td class="titre">Tel: </td>
+			<td><?php echo $Tel; ?><br></td>
 		</tr>
 		<tr>
-			<td><strong>Mail: </strong></td>
-			<td><?php echo $Mail; ?></td>
+			<td class="titre">Mail: </td>
+			<td><?php echo $Mail; ?><br></td>
 		</tr>
 
 			
@@ -82,23 +82,23 @@
 	<div class="block col-lg-4" >
 	<table>
 		<tr>
-			<td><strong>Adresse L1: </strong></td>
+			<td class="titre">Adresse L1: </td>
 			<td><?php echo $Adresse_L1; ?></td>
 		</tr> 
-		<tr><td><strong><?php if($Adresse_L2 != NULL || $Adresse_L2 != ""){echo 'Adresse L2 :';} ?> </strong></td>
-					<td><?php echo $Adresse_L2; ?></td>
+		<tr><td><?php if($Adresse_L2 != NULL || $Adresse_L2 != ""){echo 'Adresse L2 :';} ?> </td>
+					<td><?php echo $Adresse_L2; ?><br></td>
 			</tr>
 		<tr>
-			<td><strong>Ville: </strong></td>
-			<td><?php echo $Ville; ?></td>
+			<td class="titre">Ville: </td>
+			<td><?php echo $Ville; ?><br></td>
 		</tr>
 		<tr>
-			<td><strong>Pays: </strong></td>
-			<td><?php echo $Pays; ?></td>
+			<td class="titre">Pays: </td>
+			<td><?php echo $Pays; ?><br></td>
 		</tr>
 		<tr>
-			<td><strong>Argent du compte:  </strong></td>
-			<td><?php echo $Porte_Monnaie; ?> €</td>
+			<td class="titre">Argent du compte: </td>
+			<td><?php echo $Porte_Monnaie; ?> € <br></td>
 		</tr>
 
 	</table>
@@ -115,7 +115,7 @@
 	<!-- Info Vendeur -->
 	<div class="block col-lg-4" >
 	
-			<td><strong>Argent du compte:  </strong></td>
+			<td class="titre">Argent du compte:  </td>
 			<td><?php echo $Porte_Monnaie; ?> €</td>
 		
 

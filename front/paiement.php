@@ -21,11 +21,11 @@
 	<h1>Paiement</h1>
 	<form action="">
 		<table>
-			<tr class="form-group">
-				<td><label for="carte">Type de carte : </label><br>
-				<input class="form-check-input" type="radio" name="carte" value="Carte Bleue">Carte Bleue
-				<input class="form-check-input" type="radio" name="carte" value="Visa">Visa
-				<input class="form-check-input" type="radio" name="carte" value="MasterCard">MasterCard</td>
+			<tr>
+				<tr><td><label for="carte">Type de carte : </label></td>
+				<td><br><input  type="radio" name="carte" value="Carte Bleue">Carte Bleue <br>
+				<input type="radio" name="carte" value="Visa">Visa<br>
+				<input type="radio" name="carte" value="MasterCard">MasterCard </td>
 			</tr>
 			<tr class="form-group">
 				<td><label for="numero">Numéro de carte : </label>
@@ -39,11 +39,11 @@
 			</tr>
 			<tr class="form-group">
 				<td><label for="crypto">Cryptogramme visuel : </label>
-					<input class="form-control" type="text" name="crypto">
+					<input class="form-control" type="text" name="crypto"><br>
 				</td>
 			</tr>
 			<tr class="form-group">
-  			<td><input type="submit" class="btn btn-primary" value="Soumettre"/></td>
+  			<td><input type="submit" class="btn btn-dark" value="Soumettre"/></td>
   		</tr>
 		</table>
 	</form>
