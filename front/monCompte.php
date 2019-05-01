@@ -1,9 +1,9 @@
 <!-- Initialisation de la session -->
 <?php
 	session_start();
-	include("sendRequest.php");
-	include("autoConnect.php");
-	include("createCard.php");
+	include("../sendRequest.php");
+	include("../autoConnect.php");
+	include("../createCard.php");
 	//a supprimer
 	$_SESSION['type_utilisateur'] = 2;
 	$_SESSION['ID_people'] = 1;
@@ -24,6 +24,7 @@
 	
 ?>
 <!DOCTYPE html>
+<html>
 <head>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> <!-- JQUERY -->
 	<script type="text/javascript" src="scripts.js"></script> <!-- JavaScript Page -->
@@ -33,18 +34,18 @@
 	<meta charset="UTF-8">
 	<title>Mon compte</title>
 </head>
-<body>
+<body id = "ok">
 	<?php
 		include("header.php");
 	?>
 
 	<h1>Mon Compte</h1>
-	<div class="block">
+	<div class="block" >
 	<table>
 		<tr>
 			<td>
 				<!--Photo de profil-->
-				<img src="images/photo01.jpg" alt="Bootstrap" class="img-thumbnail">
+				<img class="img-responsive" src="personne.jpg" alt="Bootstrap" class="img-thumbnail" width="80" height="80">
 			</td>
 		</tr>
 			<td><strong>Pseudo: </strong></td>
@@ -83,13 +84,15 @@
 		}
 	?>
 	<!-- Info Client -->
-	<div class="block col-lg-4">
+	<div class="block col-lg-4" >
 	<table>
 		<tr>
-			<td><strong>Adresse : </strong></td>
+			<td><strong>Adresse L1: </strong></td>
 			<td><?php echo $Adresse_L1; ?></td>
-			<td><?php echo $Adresse_L2; ?></td>
-		</tr>
+		</tr> 
+		<tr><td><strong><?php if($Adresse_L2 != NULL || $Adresse_L2 != ""){echo 'Adresse L2 :';} ?> </strong></td>
+					<td><?php echo $Adresse_L2; ?></td>
+			</tr>
 		<tr>
 			<td><strong>Ville: </strong></td>
 			<td><?php echo $Ville; ?></td>
@@ -115,9 +118,9 @@
 			}
 	?>
 	<!-- Info Vendeur -->
-	<div class="block col-lg-6">
+	<div class="block col-lg-4" >
 	
-			<strong>Argent du compte:  </strong></td>
+			<td><strong>Argent du compte:  </strong></td>
 			<td><?php echo $Porte_Monnaie; ?> €</td>
 		
 
@@ -126,11 +129,12 @@
 	<?php
 		}
 	?>
-	<div class="block col-lg-6">
- <button class="btn btn-dark btn-sm" type="submit" name="modifier"> Modifier le mot de passe</button>
-		<button class="btn btn-dark btn-sm" type="submit" name="deconnection"> Se déconnecter</button>
+	<div class="block col-lg-6" id="ok2">
+ <button class="bouton btn btn-dark btn-sm" type="submit" name="modifier"> Modifier le mot de passe</button>
+		<button class="bouton btn btn-dark btn-sm" type="submit" name="deconnection"> Se déconnecter</button>
 		
 	</div>
+
 
  <?php
 	include ("footer.php");
