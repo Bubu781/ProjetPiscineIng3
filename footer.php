@@ -1,0 +1,23 @@
+ <style>
+ 	a{
+ 		color:white;
+ 	}
+ 	a:hover{
+ 		color:white;
+ 	}
+ 	footer{
+		text-align: center;
+		background:#000000;
+		height:60px;
+		color:white;
+	}
+	.underline{
+		text-decoration: underline;
+	}
+ </style>
+ <footer>
+  	<span class="underline">Contactez-nous</span> 
+  	<a href="mailto:adrien.buot@edu.ece.fr">:   adrien.buot@edu.ece.fr  </a> -
+   	<a href="mailto:leo.guicharnaud@edu.ece.fr"> leo.guicharnaud@edu.ece.fr  </a> -
+    <a href="mailto:ilana.torjdman@edu.ece.fr"> ilana.torjdman@edu.ece.fr  </a>
+ </footer>

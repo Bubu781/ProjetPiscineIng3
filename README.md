@@ -4,3 +4,9 @@ $_SESSION['type_utilisateur'] {
 	1 : Vendeur,
 	2 : Client
 }
+$_GET['categorie'] {
+	0 : Vêtements,
+	1 : Musiques,
+	2 : Livres,
+	3 : Sports et Loisirs
+}
