@@ -49,5 +49,8 @@
 			echo "Page non trouvée..";
 		}
 	?>
+	<?php
+		include("footer.php");
+	?>
 </body>
 </html>

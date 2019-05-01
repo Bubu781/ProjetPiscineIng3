@@ -20,7 +20,7 @@
 		include("header.php");
 	?>
 	<!--Formulaire pour se connecter-->
-	<form action="connexion.php" method="post">
+	<form action="../connexion.php" method="post">
 		 <table>
 		 		<tr class="form-group">
 		 		
@@ -45,5 +45,8 @@
 
 		 </table>
 	</form>
+	<?php
+		include("footer.php");
+	?>
 </body>
 </html>
