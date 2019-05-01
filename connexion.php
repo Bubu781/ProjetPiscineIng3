@@ -31,7 +31,7 @@
 			while($data = mysqli_fetch_assoc($result)){
 				$_SESSION['type_utilisateur'] = 2;
 			}
-			if(isset($_POST["remember"])){
+			if(!empty($_POST["remember"])){
 				setcookie('pseudo', $pseudo, time() + 365*24*3600, null, null, false, true);
 				setcookie('password', $mdp, time() + 365*24*3600, null, null, false, true);
 			}
