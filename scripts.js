@@ -148,3 +148,31 @@ loadFormulaireNewItem = () =>{
 			);
 	}
 }
+
+
+loadFormulaireNewPeople = () =>{
+	$categorie = $('#categorie').val();
+
+
+	if($categorie == "client"){
+		$('#formulaireDown').html('client');
+	}
+
+	else if($categorie == "vendeur"){
+		$('#formulaireDown').html(''+
+
+		'<table>'+
+
+			'<tr class="form-group">'+
+				'<td>Porte monnaie :</td>'+
+				'<td><input type="text" id="banque" class="form-control" placeholder="Saisisez la quantité d'+"'"+'argent dans la banque "></td>'+
+			'</tr>'+
+
+		'</table>'
+		);
+	}
+
+}
+
+
+
