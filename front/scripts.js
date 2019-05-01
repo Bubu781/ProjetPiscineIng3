@@ -237,7 +237,14 @@ loadFormulaireNewPeople = () =>{
 				'<td><input type="text" id="banque" name="banque" class="form-control" placeholder="Saisisez la quantité d'+"'"+'argent dans la banque "></td>'+
 			'</tr>'+
 
-		'</table>'
+		'</table>'+
+
+			'<tr class="form-group">'+
+				'<td>Votre image favorite :</td>'+
+				'<td><input type="file" name="photo1" id="photo1" placeholder="votre image "required></td>'+
+			'</tr>'
+
+
 		);
 	}
 

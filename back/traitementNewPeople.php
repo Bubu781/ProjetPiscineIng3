@@ -51,20 +51,65 @@
 
 	// media
 	sendRequest('INSERT INTO Media(Path1) VALUES( "Media/'.$_FILES['photo']['name'].'");');
+
+
+
 	$media = sendRequest('SELECT MAX(Id) FROM media');
 	$data = mysqli_fetch_assoc($media);
+	$idMedia = $data['MAX(Id)'];
 
 
-	//echo 'INSERT INTO People(Nom, Prenom, Pseudo, Mail, N_Telephonne, Mot_De_Passe,media) VALUES("'.$nom.'","'.$prenom.'","'.$pseudo.'","'.$mail.'","'.$tel.'","'.$mdp1.'",'.$data['MAX(Id)'].');';
-	sendRequest('INSERT INTO People(Nom, Prenom, Pseudo, Mail, N_Telephonne, Mot_De_Passe,media) VALUES("'.$nom.'","'.$prenom.'","'.$pseudo.'","'.$mail.'","'.$tel.'","'.$mdp1.'",'.$data['MAX(Id)'].');');
+	sendRequest('INSERT INTO People(Nom, Prenom, Pseudo, Mail, N_Telephonne, Mot_De_Passe,media) VALUES("'.$nom.'","'.$prenom.'","'.$pseudo.'","'.$mail.'","'.$tel.'","'.$mdp1.'",'.$idMedia.');');
 	$media = sendRequest('SELECT MAX(Id) FROM People');
 	$data = mysqli_fetch_assoc($media);
 
+
+
+
+
+
+
 	if ($categorie == 'vendeur'){
+
+
+
+	if (isset($_FILES['photo1']) AND $_FILES['photo1']['error'] == 0){
+    if ($_FILES['photo1']['size'] <= 3145728)
+    {      // Testons si l'extension est autorisée
+      $infosfichier = pathinfo($_FILES['photo1']['name']);
+      $extension_upload = $infosfichier['extension'];
+      $extensions_autorisees = array('jpg', 'jpeg', 'gif', 'png');
+      if (in_array($extension_upload, $extensions_autorisees))      {
+              // On peut valider le fichier et le stocker définitivement
+              move_uploaded_file($_FILES['photo1']['tmp_name'], '../front/Media/' . basename($_FILES['photo1']['name']));              //echo "L'envoi a bien été effectué !";
+      }
+      else      {          echo 'extention non-autorisee';
+      }
+    }
+    else    {        echo 'image trop grosse';
+    }
+	}
+	else {
+	echo'coucou';
+	}
+
 		$banque = isset($_POST["banque"])? $_POST["banque"] : ""; //if-then-else
+
+
+		sendRequest('UPDATE  Media SET Path2 = "Media/'.$_FILES['photo1']['name'].'" WHERE Id = "'.$idMedia.'"');
 
 		sendRequest('INSERT INTO Vendeur(Porte_Monnaie,people) VALUES( '.$banque.', '.$data['MAX(Id)'].');');
 	}
+
+
+
+
+
+
+
+
+
+
 	else if ($categorie == 'client'){
 
 		$banque = isset($_POST["banque"])? $_POST["banque"] : ""; //if-then-else
