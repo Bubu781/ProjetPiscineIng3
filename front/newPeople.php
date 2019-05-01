@@ -23,7 +23,7 @@
 	<?php
 		include("header.php");
 	?>
-	<form action="../back/traitementNewPeople.php" method="post">
+	<form action="../back/traitementNewPeople.php" enctype="multipart/form-data" method="post">
 
 		<div id="formulaireUp" class="block">
 			<table class="was-validated">
@@ -46,7 +46,7 @@
 
 				<tr class="form-group">
 					<td>Mail :</td>
-					<td><input type="mail" name="pseudo" class="form-control" placeholder="Saisisez l'adresse mail"required></td>
+					<td><input type="mail" name="mail" class="form-control" placeholder="Saisisez l'adresse mail"required></td>
 				</tr>
 
 				<tr class="form-group">
@@ -61,13 +61,18 @@
 
 				<tr class="form-group">
 					<td>mot de passe :</td>
-					<td id = "ranmdp1" ><input type="password" name="mdp2" id="mdp2" class="form-control" placeholder="Saisisez à nouveau le mot de passe"required></td>
+					<td><input type="password" name="mdp2" id="mdp2" class="form-control" placeholder="Saisisez à nouveau le mot de passe"required></td>
+				</tr>
+
+				<tr class="form-group">
+					<td>Votre image :</td>
+					<td><input type="file" name="photo" id="photo" placeholder="votre image "required></td>
 				</tr>
 
 				<tr class="form-group">
 					<td>Catégorie :</td>
 					<td>
-						<SELECT name="categorie" id="categorie" class="form-control" onmouseover="loadFormulaireNewPeople()">
+						<SELECT name="categorie" id="categorie" class="form-control" onclick="loadFormulaireNewPeople()">
 						<OPTION VALUE="client" selected="selected">Client</OPTION>
 						<OPTION VALUE="vendeur" >Vendeur</OPTION>
 						</SELECT>
@@ -146,7 +151,7 @@
 		</div>
 
 		<tr class="form-group">
-			<td align="center"><input class="btn btn-primary" type="submit" name="Valider" onclick="validatePwd()"></td>
+			<td align="center"><input class="btn btn-primary" type="submit" name="Valider" onmouseover="validatePwd()"></td>
 			<td align="center"><input class="btn btn-primary" type="reset" name="Réinitialiser"></td>
 		</tr>
 
