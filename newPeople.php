@@ -78,10 +78,30 @@
 
 	</div>
 
-	 Type_Carte,Adresse_L1,Adresse_L2,Ville,Code_Postal,Pays,people
+	 Adresse_L1,Adresse_L2,Ville,Code_Postal,Pays,people
 
 	<div id="formulaireDown" >
 		<table>
+
+			<tr class="form-group">
+				<td>Adresse L1 :</td>
+				<td><textarea type="text" id="adresse_l1" class="form-control" placeholder="ligne 1"></textarea> </td>
+			</tr>
+
+			<tr class="form-group">
+				<td>Adresse L2 :</td>
+				<td><textarea type="text" id="adresse_l2" class="form-control" placeholder="ligne 2"></textarea> </td>
+			</tr>
+
+			<tr class="form-group">
+				<td>Type de carte :</td>
+				<td>
+					<SELECT id="type_carte" class="form-control">
+					<OPTION VALUE="visa" selected="selected" >Visa </OPTION>
+					<OPTION VALUE="master">MasterCard</OPTION>
+					</SELECT>
+				</td>
+			</tr>
 
 			<tr class="form-group">
 				<td>Numéro de carte :</td>
