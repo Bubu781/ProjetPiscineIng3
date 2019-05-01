@@ -18,6 +18,8 @@ div h2{
 
 #ok{
 	background-image: url(fond.jpg);
+	width: 100%;
+	height: 100%;
 }
 
 #ok2{
