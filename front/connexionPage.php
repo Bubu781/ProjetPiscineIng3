@@ -2,7 +2,6 @@
 <?php
 	session_start();
 	include("../sendRequest.php");
-	include("../autoConnect.php");
 ?>
 
 <!DOCTYPE html>
@@ -25,13 +24,14 @@
 		 		<tr class="form-group">
 		 		
 		 		<td><label for="pseudo">Pseudo: </label>
-		 		 <input type="text" class="form-control" name="pseudo"/></td>
+		 		<?php echo '<input type="text" class="form-control" name="pseudo" value="' . (isset($_COOKIE['pseudo'])?$_COOKIE['pseudo']:'') . '"/>'; ?>
+		 		 </td>
 		 		</tr>
 
 		 		<tr class="form-group">
 		 			
 		 			<td><label for="mdp">Mot de passe:</label>
-    			<input type="password" class="form-control" name="mdp"/></td>
+    			<?php echo '<input type="password" class="form-control" name="mdp" value="' . (isset($_COOKIE['password'])?$_COOKIE['password']:'') . '"/>'; ?></td>
 		 		</tr>
 
 		 		<tr class="form-group form-check">

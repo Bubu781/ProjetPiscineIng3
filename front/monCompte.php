@@ -2,8 +2,6 @@
 <?php
 	session_start();
 	include("../sendRequest.php");
-	include("../autoConnect.php");
-	include("../createCard.php");
 ?>
 <?php
 	if(isset($_SESSION['ID_people'])){
@@ -128,8 +126,9 @@
 	?>
 	<div class="block col-lg-6" id="ok2">
  <button class="bouton btn btn-dark btn-sm" type="submit" name="modifier"> Modifier le mot de passe</button>
-		<button class="bouton btn btn-dark btn-sm" type="submit" name="deconnection"> Se déconnecter</button>
-		
+ <form action="../deconnection.php">
+		<input class="bouton btn btn-dark btn-sm" type="submit" name="deconnection" value="Se déconnecter">
+	</form>
 	</div>
 
 
