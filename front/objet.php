@@ -30,16 +30,15 @@ $result = sendRequest("SELECT * FROM Item, Media WHERE '".$_GET['ID']."'=Item.Id
 		include("header.php");
 	?>
 	<div class="row">
-		<?php echo '<img src="' .$Image. '" alt="Image" width="100" height="100">'; ?>
-		<h2><?php echo $Nom; ; ?></h2>
+		<?php echo '<img src="' .$Image. '" alt="Image" width="200" height="200">'; ?>
+		<h1 class="nobjet"><?php echo $Nom; ; ?></h1>
 	</div>
-	<div class="block" >
+	<div class="block col-lg-4" >
 		<table>
-				<td><strong>Prix: </strong></td>
+				<td class="titre">Prix: </td>
 				<td><?php echo $Prix . '€'; ?></td>
-			<tr>
-				<td><strong>Description: </strong></td>
-				<td><?php echo $Description; ?></td>
+			<tr><td class="titre">Description:</td></tr>
+			<tr><td><div class="description"><?php echo $Description; ?></td></div>
 			</tr>
 		</table>
 	</div>
@@ -55,26 +54,26 @@ $result = sendRequest("SELECT * FROM Item, Media WHERE '".$_GET['ID']."'=Item.Id
 				$type = isset($data['Type'])?$data['Type']:"";
 			}
 	?>
-	<div class="block" >
+	<div class="block col-lg-6" >
 		<table>
 			<tr>
-				<td>Taille :</td>
+				<td class="titre">Taille :</td>
 				<td><?php echo $taille; ?></td>
 			</tr>
 			<tr>
-				<td>Couleur :</td>
+				<td class="titre">Couleur :</td>
 				<td><?php echo $couleur; ?></td>
 			</tr>
 			<tr>
-				<td>Genre : </td>
+				<td class="titre">Genre : </td>
 				<td><?php echo $genre; ?></td>
 			</tr>
 			<tr>
-				<td>Matière : </td>
+				<td class="titre">Matière : </td>
 				<td><?php echo $matiere; ?></td>
 			</tr>
 			<tr>
-				<td>Type : </td>
+				<td class="titre">Type : </td>
 				<td><?php echo $type; ?></td>
 			</tr>
 		</table>
@@ -90,26 +89,26 @@ $result = sendRequest("SELECT * FROM Item, Media WHERE '".$_GET['ID']."'=Item.Id
 				$format = isset($data['Format'])?$data['Format']:"";
 			}
 	?>
-	<div class="block">
+	<div class="block col-lg-6">
 		<table>
 			<tr>
-				<td>Auteur : </td>
+				<td class="titre">Auteur : </td>
 				<td><?php echo $auteur; ?></td>
 			</tr>
 			<tr>
-				<td>Type : </td>
+				<td class="titre">Type : </td>
 				<td><?php echo $type; ?></td>
 			</tr>
 			<tr>
-				<td>Duree : </td>
+				<td class="titre">Duree : </td>
 				<td><?php echo $duree; ?></td>
 			</tr>
 			<tr>
-				<td>Style : </td>
+				<td class="titre">Style : </td>
 				<td><?php echo $style; ?></td>
 			</tr>
 			<tr>
-				<td>Format : </td>
+				<td class="titre">Format : </td>
 				<td><?php echo $format; ?></td>
 			</tr>
 		</table>
@@ -126,26 +125,26 @@ $result = sendRequest("SELECT * FROM Item, Media WHERE '".$_GET['ID']."'=Item.Id
 				$format = isset($data['Format'])?$data['Format']:"";
 			}
 	?>
-	<div class="block">
+	<div class="block col-lg-6">
 		<table>
 			<tr>
-				<td>Auteur : </td>
+				<td class="titre">Auteur : </td>
 				<td><?php echo $auteur; ?></td>
 			</tr>
 			<tr>
-				<td>Nombre de pages : </td>
+				<td class="titre">Nombre de pages : </td>
 				<td><?php echo $nb_pages; ?></td>
 			</tr>
 			<tr>
-				<td>Date de sortie : </td>
+				<td class="titre">Date de sortie : </td>
 				<td><?php echo $date_sortie; ?></td>
 			</tr>
 			<tr>
-				<td>Genre : </td>
+				<td class="titre">Genre : </td>
 				<td><?php echo $genre; ?></td>
 			</tr>
 			<tr>
-				<td>Format : </td>
+				<td class="titre">Format : </td>
 				<td><?php echo $format; ?></td>
 			</tr>
 		</table>
@@ -160,18 +159,18 @@ $result = sendRequest("SELECT * FROM Item, Media WHERE '".$_GET['ID']."'=Item.Id
 				$taille = isset($data['Taille'])?$data['Taille']:"";
 			}
 	?>
-	<div class="block">
+	<div class="block col-lg-6">
 		<table>
 			<tr>
-				<td>Code : </td>
+				<td class="titre">Code : </td>
 				<td><?php echo $code; ?></td>
 			</tr>
 			<tr>
-				<td>Poids : </td>
+				<td class="titre">Poids : </td>
 				<td><?php echo $poids; ?></td>
 			</tr>
 			<tr>
-				<td>Taille : </td>
+				<td class="titre">Taille : </td>
 				<td><?php echo $taille; ?></td>
 			</tr>
 		</table>

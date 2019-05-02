@@ -16,12 +16,27 @@ h1{
  	font:left;
  }
 
-div h2{
+.title{
 	text-align: center;
-	border: 3px black solid ;
-	background-color: #C0C0C0;
+	border: 2px black solid ;
+	background-color: #87CEEB;
+	/*arrondir les coins en haut à gauche et en bas à droite*/
+	-moz-border-radius:10px 0;
+	-webkit-border-radius:10px 0;
+	border-radius:10px 0;
 }
 
+.description{
+	text-align: center;
+	border: 2px black solid ;
+	 word-wrap: break-word;  
+	 width:400px;
+}
+.nobjet{
+	margin: 70px 50px;
+	text-align: center;
+	text-decoration: underline ;
+}
 #ok{
 	background-image: url(fond.jpg);
 	width: 100%;
