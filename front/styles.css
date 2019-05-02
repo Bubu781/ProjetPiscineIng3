@@ -15,7 +15,9 @@ h1{
  	font-style: bold;
  	font:left;
  }
-
+body, html{
+	height:100vh;
+}
 .title{
 	text-align: center;
 	border: 2px black solid ;
@@ -111,4 +113,6 @@ h1{
 }
 p, h1,h2, h3, body{
 	font-family:Verdana, Geneva, sans-serif;
+
 }
+
