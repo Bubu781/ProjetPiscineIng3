@@ -46,7 +46,7 @@
 	      <a class="nav-link" href="produit.php">Mon Panier</a>
 	    </li>
 			<li class="nav-item">
-	      <a class="nav-link" href="produit.php">Mes Produits en vente</a>
+	      <a class="nav-link" href="mesVentes.php">Mes Produits en vente</a>
 	    </li>
 	    <?php
 	    	}else if(isset($_SESSION['ID_people'])){

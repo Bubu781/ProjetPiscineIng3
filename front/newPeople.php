@@ -13,12 +13,13 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="styles.css"> <!-- CSS Page -->
 	<meta charset="UTF-8">
-	<title>Ajouter Item</title>
+	<title>Inscription</title>
 </head>
 <body>
 	<?php
 		include("header.php");
 	?>
+	<h1> Inscription </h1>
 	<form action="../back/traitementNewPeople.php" enctype="multipart/form-data" method="post">
 
 		<div id="formulaireUp" class="block">
