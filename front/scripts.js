@@ -6,10 +6,6 @@ loadFormulaireNewItem = () =>{
 		$('#formulaireDown').html(''+
 
 		'<table>'+
-			'<tr class="form-group">'+
-				'<td>Couleur   :</td>'+
-				'<td><input type="text" id="Couleur" class="form-control" placeholder="Saisisez la couleur"></td>'+
-			'</tr>'+
 
 			'<tr class="form-group">'+
 				'<td>Matière :</td>'+
@@ -31,19 +27,6 @@ loadFormulaireNewItem = () =>{
 				'</td>'+
 			'</tr>'+
 
-			'<tr class="form-group">'+
-				'<td>Taille :</td>'+
-				'<td>'+
-					'<SELECT id="taille" class="form-control">'+
-					'<OPTION VALUE="XS" >XS</OPTION>'+
-					'<OPTION VALUE="S" >S</OPTION>'+
-					'<OPTION VALUE="M" selected="selected" >M</OPTION>'+
-					'<OPTION VALUE="L">L</OPTION>'+
-					'<OPTION VALUE="XL">XL</OPTION>'+
-					'<OPTION VALUE="XXL">XXL</OPTION>'+
-					'</SELECT>'+
-				'</td>'+
-			'</tr>	'+
 
 		'</table>');
 	}

@@ -94,10 +94,14 @@
 		</div>
 		<div id="formulaireDown" >
 			<table>
+				<!--
 					<tr class="form-group">
 						<td>Couleur :</td>
 						<td><input type="text" id="Couleur"  name="Couleur" class="form-control" placeholder="Saisisez la couleur"></td>
 					</tr>
+
+				-->
+
 
 					<tr class="form-group">
 						<td>Matière :</td>
@@ -118,6 +122,7 @@
 							</SELECT>
 						</td>
 					</tr>
+					<!--
 
 					<tr class="form-group">
 						<td>Taille :</td>
@@ -132,6 +137,7 @@
 							</SELECT>
 						</td>
 					</tr>
+					-->
 
 			</table>
 		</div>
