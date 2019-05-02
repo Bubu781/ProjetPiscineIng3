@@ -11,9 +11,15 @@ a:hover{
 a:hover .article{
 	background-color:gray;
 }
+h1{
+ 	font-style: bold;
+ 	font:left;
+ }
 
 div h2{
 	text-align: center;
+	border: 3px black solid ;
+	background-color: #C0C0C0;
 }
 
 #ok{
@@ -27,6 +33,17 @@ div h2{
 	width: 200px;
 }
 
+    #amaz{
+
+      
+text-shadow:0 0 20px #00FFFC,2px 3px 3px #141414, 0 0 100px #00D4D1;color:#ffffff;
+
+
+font-family: Verdana, Geneva, sans-serif;
+  font:left;
+  width: 100%;
+  height: 100%;
+    }
 .article{
 	border-color: grey;
 	border-style: solid;
@@ -53,4 +70,11 @@ div h2{
 
 .bouton{
 	margin: 5px;
+}
+
+.titre{
+	font-weight: bold;
+}
+p, h1,h2, h3, body{
+	font-family:Verdana, Geneva, sans-serif;
 }

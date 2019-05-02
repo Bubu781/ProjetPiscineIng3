@@ -1,10 +1,9 @@
-<head>
-	<link rel="stylesheet" type="text/css" href="header.css">
-</head>
 <!--Header avec la navigation-->
 <nav class="navbar navbar-inverse navbar-expand-sm bg-dark navbar-dark">
 	<!-- Nom du site -->
-	<a class="navbar-brand" href="index.php"><h1><em>Amaz </em><em class="planet left">e</em><em> c</em><em class="planet right">e</em></h1></a>
+	<a class="navbar-brand" href="index.php"><h3><em id="amaz">AmazECE</em></h3></a>
+
+
 	<div class="container-fluid">
 	  <!-- Liens -->
 	  <ul class="nav navbar-nav">
@@ -62,3 +61,4 @@
 		</form>
 	</div>
 </nav>
+</html>
