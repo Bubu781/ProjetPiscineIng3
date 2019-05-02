@@ -125,7 +125,9 @@
 		}
 	?>
 	<div class="block col-lg-6" id="ok2">
- <button class="bouton btn btn-dark btn-sm" type="submit" name="modifier"> Modifier le mot de passe</button>
+ <form action="modifierMesInfos.php">
+ <button class="bouton btn btn-dark btn-sm" type="submit" name="modifier"> Modifier mes informations</button>
+	</form>
  <form action="../deconnection.php">
 		<input class="bouton btn btn-dark btn-sm" type="submit" name="deconnection" value="Se déconnecter">
 	</form>
