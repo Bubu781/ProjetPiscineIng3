@@ -19,14 +19,14 @@
 	<?php
 		include("header.php");
 	?>
-	<h1>Votre Pannier</h1>
+	<h1 >Votre Panier</h1>
 	<div class="block col-sm-8 row">
 		<?php
 			displayPanier();
 		?>
 	</div>
 	<div class="block col-sm-4">
-		<a href="#"><input type="button" value="Payer"></a>
+		<a href="#"><button class="btn btn-sm" type="submit" >Payer</button></a>
 	</div>
 	<?php
 		include("footer.php");

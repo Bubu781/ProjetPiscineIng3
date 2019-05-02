@@ -23,27 +23,28 @@
 	<form action="../back/traitementNewItem.php" enctype="multipart/form-data" method="post">
 
 		<div class="formulaireUp" class="block">
+			<h1>Ajouter un objet</h1>
 
 			<table>
 
 				<tr class="form-group">
 					<td>Nom :</td>
-					<td><input type="text" id="nom" name="nom" class="form-control" placeholder="Saisisez le nom" required></td>
+					<td><input type="text" id="nom" name="nom" class="form-control" placeholder="Saisissez le nom" required></td>
 				</tr>
 
 				<tr class="form-group">
 					<td>Marque :</td>
-					<td><input type="text" id="Marque" name="Marque" class="form-control" placeholder="Saisisez le nom" required></td>
+					<td><input type="text" id="Marque" name="Marque" class="form-control" placeholder="Saisissez la marque" required></td>
 				</tr>
 
 				<tr class="form-group">
 					<td>Descrition :</td>
-					<td><textarea type="text" id="description" name="description" class="form-control" placeholder="Saisisez la description ici" required></textarea> </td>
+					<td><textarea type="text" id="description" name="description" class="form-control" placeholder="Saisissez la description ici" required></textarea> </td>
 				</tr>
 
 				<tr class="form-group">
 					<td>Prix :</td>
-					<td><input type="number" step="0.01" id="prix" name="prix" class="form-control" placeholder="Saisisez le prix" required></td>
+					<td><input type="number" step="0.01" id="prix" name="prix" class="form-control" placeholder="Saisissez le prix" required></td>
 				</tr>
 
 				<tr class="form-group">
