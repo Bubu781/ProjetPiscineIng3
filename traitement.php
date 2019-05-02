@@ -69,7 +69,13 @@
 				echo "</div></a>";
 			}
 		}else{
-			$result = sendRequest("SELECT * FROM Media,Item WHERE Item.media = Media.id");
+			if (!isset($_SESSION['type_utilisateur']) || $_SESSION['type_utilisateur'] == 2 )
+			{
+				$result = sendRequest("SELECT * FROM   Media,Item, produits WHERE Item.media = Media.id AND produits.Objet = item.Id");
+			}
+			else {
+				$result = sendRequest("SELECT * FROM Media, Item  WHERE Item.media = Media.id");
+			}
 			while($data = mysqli_fetch_assoc($result)){
 				$test = sendRequest("SELECT Id FROM Item, Vetements WHERE Item.Id = ".$data['Id']." AND vetements.item = item.Id ");
 				if (mysqli_fetch_assoc($test) != NULL){$categorie = 0;}
@@ -91,14 +97,50 @@
 		}
 	}
 
+	function displayGestionItems(){
+		$result = sendRequest("SELECT * FROM Media,Item WHERE Item.media = Media.id");
+		$categorie;
+		while($data = mysqli_fetch_assoc($result)){
+			$test = sendRequest("SELECT Id FROM Item, Vetements WHERE Item.Id = ".$data['Id']." AND vetements.item = item.Id ");
+			if (mysqli_fetch_assoc($test) != NULL){$categorie = 0;}
+			$test = sendRequest("SELECT Id FROM Item, Musiques WHERE Item.Id = ".$data['Id']." AND Musiques.item = item.Id ");
+			if (mysqli_fetch_assoc($test) != NULL){$categorie = 1;}
+			$test = sendRequest("SELECT Id FROM Item, Livres WHERE Item.Id = ".$data['Id']." AND Livres.item = item.Id ");
+			if (mysqli_fetch_assoc($test) != NULL){$categorie = 2;}
+			$test = sendRequest("SELECT Id FROM Item, Sport_Et_Loisir WHERE Item.Id = ".$data['Id']." AND Sport_Et_Loisir.item = item.Id ");
+			if (mysqli_fetch_assoc($test) != NULL){$categorie = 3;}
+				echo '<form action="../back/deleteItem.php" method="post">';
+				echo '<input type="hidden" name="id" value = "'. $data['Id'] .'">';
+				echo '<input type="hidden" name="categorie" value = "'. $categorie .'">';
+				echo "<div class='article row'>";
+					echo '<div class="col-sm-1"><img class="card-img" src="' . $data['Path1'] . '" alt="Image"></div>';
+					echo '<div class="col-sm-9">';
+						echo '<h2>' . $data['Nom'] .'</h2>';
+						echo '<p>' . $data['Description'] . '</p>';
+					echo '</div>';
+				echo '<div class="col-sm-1"><input class="bouton btn btn-sm" type="submit" value="Supprimer"></div>';
+				echo "</div></form>";
+		}
+	}
+
+	function displayVendeurs(){
+		$result = sendRequest("SELECT * FROM Media,People, Vendeur WHERE Vendeur.people = People.Id AND Media.Id = People.media ");
+		while($data = mysqli_fetch_assoc($result)){
+				echo '<form action="../back/deleteVendeur.php" method="post">';
+				echo '<input type="hidden" name="id" value = "'. $data['Id'] .'">';
+				echo "<div class='article row'>";
+					echo '<div class="col-sm-1"><img class="card-img" src="' . $data['Path1'] . '" alt="Image"></div>';
+					echo '<div class="col-sm-9">';
+						echo '<h2>' . $data['Pseudo'] .'</h2>';
+						echo '<p>' . $data['Nom'] . ', ' .$data['Prenom'] . '</p>';
+					echo '</div>';
+				echo '<div class="col-sm-1"><input class="bouton btn btn-sm" type="submit" value="Supprimer"></div>';
+				echo "</div></form>";
+		}
+	}
+
 	function displayRecherche($Item){
 		$result = sendRequest("SELECT * FROM Media, Item WHERE Item.Nom LIKE '%" . $Item . "%' AND Item.media = Media.id");
-		/*
-
-			ce qu'il faut écrire pour pouvoir savoir dans quelle catégorie est l'item :
-			on doit avoir l'id de l'item, on le stoque dans $Id_Item
-		*/
-
 		while($data = mysqli_fetch_assoc($result)){
 			$test = sendRequest("SELECT Id FROM Item, Vetements WHERE Item.Id = ".$data['Id']." AND vetements.item = item.Id ");
 			if (mysqli_fetch_assoc($test) != NULL){$categorie = 0;}
@@ -120,8 +162,13 @@
 	}
 
 	function displayCards($table){
-
-		$result = sendRequest("SELECT * FROM " . $table . ", Item, Media WHERE " . $table . ".item = Item.Id AND Item.media = Media.id ORDER BY Item.Nb_Ventes DESC");
+		if (!isset($_SESSION['type_utilisateur']) || $_SESSION['type_utilisateur'] == 2 )
+			{
+				$result = sendRequest("SELECT * FROM " . $table . ", Item, Media, produits WHERE " . $table . ".item = Item.Id AND Item.media = Media.id AND produits.Objet = item.Id ORDER BY Item.Nb_Ventes DESC");
+			}
+			else {
+				$result = sendRequest("SELECT * FROM " . $table . ", Item, Media WHERE " . $table . ".item = Item.Id AND Item.media = Media.id ORDER BY Item.Nb_Ventes DESC");
+			}
 		$nbDisplayed = 0;
 		while($data = mysqli_fetch_assoc($result)){
 			if($nbDisplayed == 4){

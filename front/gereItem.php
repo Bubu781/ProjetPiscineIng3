@@ -13,20 +13,17 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="styles.css"> <!-- CSS Page -->
 	<meta charset="UTF-8">
-	<title>Panier</title>
+	<title>Gérer les items</title>
 </head>
 <body>
 	<?php
 		include("header.php");
 	?>
-	<h1 >Votre Panier</h1>
-	<div class="block col-sm-8 row">
+	<h1>Gérer les items</h1>
+	<div id="container">
 		<?php
-			displayPanier();
+			displayGestionItems();
 		?>
-	</div>
-	<div class="block col-sm-4">
-		<a href="paiement.php"><button class="btn btn-sm" type="submit" >Payer</button></a>
 	</div>
 	<?php
 		include("footer.php");
