@@ -46,7 +46,7 @@ loadFormulaireNewItem = () =>{
 
 				'<tr class="form-group">'+
 					'<td>Date de sortie :</td>'+
-					'<td><input type="date" name="type" id="type" required class="form-control" placeholder="Saisisez la date de sortie du livre"></td>'+
+					'<td><input type="date" name="sortie" id="sortie" required class="form-control" placeholder="Saisisez la date de sortie du livre"></td>'+
 				'</tr>'+
 
 				'<tr class="form-group">'+

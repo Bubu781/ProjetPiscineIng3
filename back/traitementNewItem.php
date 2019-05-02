@@ -38,7 +38,7 @@
       else{echo 'extention non-autorisee';}}
     else{echo 'image2 trop grosse';}
   }
-	else {echo'Pb image 2';}
+	else {}
 
 
 
@@ -54,7 +54,7 @@
       else{echo 'extention non-autorisee';}}
     else{echo 'image3 trop grosse';}
   }
-	else {echo'Pb image 3';}
+	else {}
 
 
 
@@ -70,7 +70,7 @@
       else{echo 'extention non-autorisee';}}
     else{echo 'image4 trop grosse';}
   }
-	else {echo'Pb image 4';}
+	else {}
 
 
 	if (isset($_FILES['photo5']) AND $_FILES['photo5']['error'] == 0){
@@ -85,7 +85,7 @@
       else{echo 'extention non-autorisee';}}
     else{echo 'image5 trop grosse';}
   }
-	else {echo'Pb image 5';}
+	else {}
 
 	// media
 	sendRequest('INSERT INTO Media(Path1,Path2,Path3,Path4,Path5) VALUES( "Media/'.$_FILES['photo1']['name'].'","Media/'.$_FILES['photo2']['name'].'","Media/'.$_FILES['photo3']['name'].'","Media/'.$_FILES['photo4']['name'].'","Media/'.$_FILES['photo5']['name'].'");');
@@ -101,7 +101,6 @@
   $categorie = isset($_POST["categorie"])? $_POST["categorie"] : ""; //if-then-else
 
 
-	echo 'INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES("'.$nom.'","'.$prix.'","'.$description.'","'.$Marque.'",0,0,'.$idMedia['MAX(Id)'].');';
 	sendRequest('INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES("'.$nom.'","'.$prix.'","'.$description.'","'.$Marque.'",0,0,'.$idMedia['MAX(Id)'].');');
 	$media = sendRequest('SELECT MAX(Id) FROM Item');
 	$data = mysqli_fetch_assoc($media);
@@ -113,7 +112,7 @@
 ///   TRAITEMENT DES CATEGORIES
 
 //cas du vetements
-	if ($categorie == 'Vetements'){
+  if ($categorie == 'Vetements'){
 
 
     $matiere = isset($_POST["matiere"])? $_POST["matiere"] : ""; //if-then-else
@@ -123,24 +122,23 @@
 
     sendRequest("INSERT INTO Vetements(Genre, Matiere, Type, item) VALUES( '".$genre."', '".$matiere."', '".$type."',".$id_Item.");");
 
-	}
+  }
+//cas du Livre
+  else if ($categorie == 'Livres'){
 
-	else if ($categorie == 'client'){
 
-		$banque = isset($_POST["banque"])? $_POST["banque"] : ""; //if-then-else
-		$pays = isset($_POST["pays"])? $_POST["pays"] : ""; //if-then-else
-		$code_postal = isset($_POST["code_postal"])? $_POST["code_postal"] : ""; //if-then-else
-		$ville = isset($_POST["ville"])? $_POST["ville"] : ""; //if-then-else
-		$adresse_l1 = isset($_POST["adresse_l1"])? $_POST["adresse_l1"] : ""; //if-then-else
-		$adresse_l2 = isset($_POST["adresse_l2"])? $_POST["adresse_l2"] : ""; //if-then-else
-		$type_carte = isset($_POST["type_carte"])? $_POST["type_carte"] : ""; //if-then-else
-		$Date_Expiration_Carte = isset($_POST["Date_Expiration_Carte"])? $_POST["Date_Expiration_Carte"] : ""; //if-then-else
-		$code_carte = isset($_POST["code_carte"])? $_POST["code_carte"] : ""; //if-then-else
-		$nom_Carte = isset($_POST["nom_Carte"])? $_POST["nom_Carte"] : ""; //if-then-else
-		$Num_Carte = isset($_POST["Num_Carte"])? $_POST["Num_Carte"] : ""; //if-then-else
+    $auteur = isset($_POST["auteur"])? $_POST["auteur"] : ""; //if-then-else
+    $genre = isset($_POST["genre"])? $_POST["genre"] : ""; //if-then-else
+    $sortie = isset($_POST["sortie"])? $_POST["sortie"] : ""; //if-then-else
+    $nb_Pages = isset($_POST["nb_Pages"])? $_POST["nb_Pages"] : ""; //if-then-else
+    $format = isset($_POST["format"])? $_POST["format"] : ""; //if-then-else
 
-		sendRequest('	INSERT INTO Client(Porte_Monnaie, Code_Carte, Date_Expiration_Carte, Nom_Carte, Num_Carte, Type_Carte, Adresse_L1, Adresse_L2, Ville, Code_Postal, Pays, people) VALUES( '.$banque.', "'.$code_carte.'", "'.$Date_Expiration_Carte.'", "'.$nom_Carte.'","'.$Num_Carte.'","'.$type_carte.'", "'.$adresse_l1.'", "'.$adresse_l2.'", "'.$ville.'", '.$code_postal.', "'.$pays.'", '.$data['MAX(Id)'].');');
 
-	}
+  
+    sendRequest( "INSERT INTO Livres(Auteur, Nb_Pages, Date_Sortie, Genre, Format, item) VALUES(  '".$auteur."', ".$nb_Pages.", '".$sortie."', '".$genre."', '".$format."',".$id_Item.");");
+
+
+  }
+
 
 ?>
