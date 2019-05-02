@@ -2,14 +2,10 @@
 	session_start();
 
 	include("../sendRequest.php");
-	include("../autoConnect.php");
-
-	$_SESSION['type_utilisateur'] = 1;
-	$_SESSION['ID_people'] = 3;
 ?>
 
 <?php
-
+//modif
 
 	if (isset($_FILES['photo1']) AND $_FILES['photo1']['error'] == 0){
     // Testons si le fichier n'est pas trop gros
@@ -170,5 +166,6 @@
 
   }
 
+  header("Location: ../front/index.php");
 
 ?>

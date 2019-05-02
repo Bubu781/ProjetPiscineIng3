@@ -11,6 +11,18 @@
 		}
 	}
 
+	function displayProduit(){
+		$result = sendRequest("SELECT * FROM Panier, Item, Media WHERE Client = '" . $_SESSION['ID_people'] . "' AND Panier.Objet = Item.id AND Item.media = Media.id");
+		while($data = mysqli_fetch_assoc($result)){
+			echo '<div class="row">';
+			echo '<div class="col-sm-1"><img class="card-img" src="' . $data['Path1'] . '" alt="' . $data['Nom'] .'"></div>';
+			echo '<div class="col-sm-11"><span>' . $data['Nom'] . '</span>';
+			echo '<span> Prix : ' . $data['Prix'] . '€ </span>';
+			echo '<span> Quantité : <input style="width:30px;" type="number" value="' . $data['Quantite'] . '"></span>';
+			echo '</div></div>';
+		}
+	}
+
 	function displayList($categorie){
 		if($categorie < 4){
 			if($categorie == 0){
@@ -22,7 +34,14 @@
 			}else{
 				$nomCategorie = "Sport_Et_Loisir";
 			}
-			$result = sendRequest("SELECT * FROM " . $nomCategorie . ", Item, Media WHERE " . $nomCategorie . ".item = Item.Id AND Item.media = Media.id");
+
+			if (!isset($_SESSION['type_utilisateur']) || $_SESSION['type_utilisateur'] == 2 )
+			{
+				$result = sendRequest("SELECT * FROM " . $nomCategorie . ", Item, Media, produits WHERE " . $nomCategorie . ".item = Item.Id AND Item.media = Media.id AND produits.Objet = item.Id");
+			}
+			else {
+				$result = sendRequest("SELECT * FROM " . $nomCategorie . ", Item, Media WHERE " . $nomCategorie . ".item = Item.Id AND Item.media = Media.id");
+			}
 			while($data = mysqli_fetch_assoc($result)){
 				echo "<a href='objet.php?ID=" . $data['item'] ."&amp;categorie=" . $categorie . "'><div class='article row'>";
 					echo '<div class="col-sm-1"><img class="card-img" src="' . $data['Path1'] . '" alt="Image"></div>';
@@ -50,6 +69,24 @@
 
 	function displayRecherche($Item){
 		$result = sendRequest("SELECT * FROM Item, Media WHERE Item.Nom LIKE '%" . $Item . "%' AND Item.media = Media.id");
+		/*
+
+			ce qu'il faut écrire pour pouvoir savoir dans quelle catégorie est l'item :
+			on doit avoir l'id de l'item, on le stoque dans $Id_Item
+			
+			$categorie = 3;
+			$test = sendRequest("SELECT * FROM Item, Vetements WHERE Item.Id = ".$Id_Item." AND vetements.item = item.Id );
+			if (mysqli_fetch_assoc($test)[id] == NULL){$categorie = 0;}
+			$test = sendRequest("SELECT * FROM Item, Musiques WHERE Item.Id = ".$Id_Item." AND Musiques.item = item.Id );
+			if (mysqli_fetch_assoc($test)[id] == NULL){$categorie = 1;}
+			$test = sendRequest("SELECT * FROM Item, Livres WHERE Item.Id = ".$Id_Item." AND Livres.item = item.Id );
+			if (mysqli_fetch_assoc($test)[id] == NULL){$categorie = 2;}
+			$test = sendRequest("SELECT * FROM Item, Sport_Et_Loisir WHERE Item.Id = ".$Id_Item." AND Sport_Et_Loisir.item = item.Id );
+			if (mysqli_fetch_assoc($test)[id] == NULL){$categorie = 3;}
+
+
+
+		*/
 		while($data = mysqli_fetch_assoc($result)){
 			echo "<a href='#'><div class='article row'>";
 				echo '<div class="col-sm-1"><img class="card-img" src="' . $data['Path1'] . '" alt="Image"></div>';
@@ -63,6 +100,7 @@
 	}
 
 	function displayCards($table){
+
 		$result = sendRequest("SELECT * FROM " . $table . ", Item, Media WHERE " . $table . ".item = Item.Id AND Item.media = Media.id ORDER BY Item.Nb_Ventes DESC");
 		$nbDisplayed = 0;
 		while($data = mysqli_fetch_assoc($result)){
@@ -72,6 +110,20 @@
 			if($nbDisplayed % 2 == 0){
 				echo '<div class="row">';
 			}
+
+			if($table == 'Vetements'){
+				$table = 0;
+			}
+			else if($table == 'musiques'){
+				$table = 1;
+			}
+			else if($table == 'livres'){
+				$table = 2;
+			}
+			else if($table == 'sport_et_loisir'){
+				$table = 3;
+			}	
+
 			echo '<div class="card col-sm-6"><a href="objet.php?ID=' . $data['item'] . '&amp;categorie=' . $table . '">';
 			echo '<img class="card-img-top" src="' . $data['Path1'] . '" alt="Card image">';
 			echo '<div class="card-img-overlay">';
