@@ -26,28 +26,28 @@
 
 	<form action="../back/traitementNewItem.php" enctype="multipart/form-data" method="post">
 
-		<div class="formulaireUp">
+		<div class="formulaireUp" class="block">
 
 			<table>
 
 				<tr class="form-group">
 					<td>Nom :</td>
-					<td><input type="text" id="nom" name="nom" class="form-control" placeholder="Saisisez le nom"></td>
+					<td><input type="text" id="nom" name="nom" class="form-control" placeholder="Saisisez le nom" required></td>
 				</tr>
 
 				<tr class="form-group">
 					<td>Marque :</td>
-					<td><input type="text" id="Marque" name="Marque" class="form-control" placeholder="Saisisez le nom"></td>
+					<td><input type="text" id="Marque" name="Marque" class="form-control" placeholder="Saisisez le nom" required></td>
 				</tr>
 
 				<tr class="form-group">
 					<td>Descrition :</td>
-					<td><textarea type="text" id="description" name="description" class="form-control" placeholder="Saisisez la description ici"></textarea> </td>
+					<td><textarea type="text" id="description" name="description" class="form-control" placeholder="Saisisez la description ici" required></textarea> </td>
 				</tr>
 
 				<tr class="form-group">
 					<td>Prix :</td>
-					<td><input type="number" step="0.01" id="prix" name="prix" class="form-control" placeholder="Saisisez le prix"></td>
+					<td><input type="number" step="0.01" id="prix" name="prix" class="form-control" placeholder="Saisisez le prix" required></td>
 				</tr>
 
 				<tr class="form-group">
@@ -92,7 +92,7 @@
 		</table>
 
 		</div>
-		<div id="formulaireDown" >
+		<div id="formulaireDown" class="block">
 			<table>
 				<!--
 					<tr class="form-group">
@@ -105,20 +105,20 @@
 
 					<tr class="form-group">
 						<td>Matière :</td>
-						<td><input type="text" id="matiere" name="matiere" class="form-control" placeholder="Saisisez la matière. ex : lin"></td>
+						<td><input type="text" id="matiere" name="matiere" class="form-control" placeholder="Saisisez la matière. ex : lin" required></td>
 					</tr>
 
 					<tr class="form-group">
 						<td>type :</td>
-						<td><input type="text" id="type" name="type" class="form-control" placeholder="Saisisez le type. ex : teeshirt"></td>
+						<td><input type="text" id="type" name="type" class="form-control" placeholder="Saisisez le type. ex : teeshirt" required></td>
 					</tr>
 
 					<tr class="form-group">
 						<td>Genre :</td>
 						<td>
-							<SELECT id="genre" name="genre" class="form-control">
-							<OPTION VALUE="homme" selected="selected" >Homme</OPTION>
-							<OPTION VALUE="femme">Femme</OPTION>
+							<SELECT id="genre" required name="genre" class="form-control">
+							<OPTION VALUE="M" selected="selected" >Homme</OPTION>
+							<OPTION VALUE="F">Femme</OPTION>
 							</SELECT>
 						</td>
 					</tr>

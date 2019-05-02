@@ -105,16 +105,26 @@
 	sendRequest('INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES("'.$nom.'","'.$prix.'","'.$description.'","'.$Marque.'",0,0,'.$idMedia['MAX(Id)'].');');
 	$media = sendRequest('SELECT MAX(Id) FROM Item');
 	$data = mysqli_fetch_assoc($media);
+  $id_Item = $data['MAX(Id)'];
 
-	if ($categorie == 'Vendeur'){
 
 
-		$banque = isset($_POST["banque"])? $_POST["banque"] : ""; //if-then-else
 
-		sendRequest('INSERT INTO Vendeur(Porte_Monnaie,people) VALUES( '.$banque.', '.$data['MAX(Id)'].');');
+///   TRAITEMENT DES CATEGORIES
 
-    
+//cas du vetements
+	if ($categorie == 'Vetements'){
+
+
+    $matiere = isset($_POST["matiere"])? $_POST["matiere"] : ""; //if-then-else
+    $type = isset($_POST["type"])? $_POST["type"] : ""; //if-then-else
+    $genre = isset($_POST["genre"])? $_POST["genre"] : ""; //if-then-else
+
+
+    sendRequest("INSERT INTO Vetements(Genre, Matiere, Type, item) VALUES( '".$genre."', '".$matiere."', '".$type."',".$id_Item.");");
+
 	}
+
 	else if ($categorie == 'client'){
 
 		$banque = isset($_POST["banque"])? $_POST["banque"] : ""; //if-then-else
