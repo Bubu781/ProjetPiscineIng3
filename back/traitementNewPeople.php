@@ -2,10 +2,6 @@
 	session_start();
 
 	include("../sendRequest.php");
-	include("../autoConnect.php");
-
-	$_SESSION['type_utilisateur'] = 1;
-	$_SESSION['ID_people'] = 3;
 ?>
 
 <?php
@@ -127,5 +123,7 @@
 		sendRequest('	INSERT INTO Client(Porte_Monnaie, Code_Carte, Date_Expiration_Carte, Nom_Carte, Num_Carte, Type_Carte, Adresse_L1, Adresse_L2, Ville, Code_Postal, Pays, people) VALUES( '.$banque.', "'.$code_carte.'", "'.$Date_Expiration_Carte.'", "'.$nom_Carte.'","'.$Num_Carte.'","'.$type_carte.'", "'.$adresse_l1.'", "'.$adresse_l2.'", "'.$ville.'", '.$code_postal.', "'.$pays.'", '.$data['MAX(Id)'].');');
 
 	}
+
+	header("Location: ../front/connexionPage.php");
 
 ?>

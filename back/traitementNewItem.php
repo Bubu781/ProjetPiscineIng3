@@ -2,10 +2,6 @@
 	session_start();
 
 	include("../sendRequest.php");
-	include("../autoConnect.php");
-
-	$_SESSION['type_utilisateur'] = 1;
-	$_SESSION['ID_people'] = 3;
 ?>
 
 <?php
