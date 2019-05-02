@@ -10,8 +10,8 @@ $result = sendRequest("SELECT * FROM Item, Media WHERE '".$_GET['ID']."'=Item.Id
 		$Description = isset($data['Description'])? $data['Description']:"";
 		$Image = isset($data['Path1'])? $data['Path1']:"";
 		$Prix = isset($data['Prix'])? $data['Prix']:"";
-		
 	}
+	$_POST['ID'] = $_GET['ID'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -42,7 +42,6 @@ $result = sendRequest("SELECT * FROM Item, Media WHERE '".$_GET['ID']."'=Item.Id
 			</tr>
 		</table>
 	</div>
-
 	<?php
 		if($_GET['categorie'] == 0){
 			$result = sendRequest("SELECT * FROM Vetements, Item WHERE Item.Id = '" . $_GET['ID'] . "' AND Vetements.item = Item.Id");
@@ -55,8 +54,9 @@ $result = sendRequest("SELECT * FROM Item, Media WHERE '".$_GET['ID']."'=Item.Id
 			}
 	?>
 	<div class="block col-lg-6" >
-		<table>
-			<tr>
+		<form action="../ajouterPanier.php" method="POST">
+			<table>
+				<tr>
 				<td class="titre">Taille :</td>
 				<td><?php echo $taille; ?></td>
 			</tr>
@@ -76,8 +76,6 @@ $result = sendRequest("SELECT * FROM Item, Media WHERE '".$_GET['ID']."'=Item.Id
 				<td class="titre">Type : </td>
 				<td><?php echo $type; ?></td>
 			</tr>
-		</table>
-	</div>
 	<?php
 		}else if($_GET['categorie'] == 1){
 			$result = sendRequest("SELECT * FROM Musiques, Item WHERE Item.Id = '" . $_GET['ID'] . "' AND Musiques.item = Item.Id");
@@ -90,6 +88,7 @@ $result = sendRequest("SELECT * FROM Item, Media WHERE '".$_GET['ID']."'=Item.Id
 			}
 	?>
 	<div class="block col-lg-6">
+		<form action="../ajouterPanier.php" method="POST">
 		<table>
 			<tr>
 				<td class="titre">Auteur : </td>
@@ -111,9 +110,6 @@ $result = sendRequest("SELECT * FROM Item, Media WHERE '".$_GET['ID']."'=Item.Id
 				<td class="titre">Format : </td>
 				<td><?php echo $format; ?></td>
 			</tr>
-		</table>
-	</div>
-
 	<?php
 		}else if($_GET['categorie'] == 2){
 			$result = sendRequest("SELECT * FROM Livres, Item WHERE Item.Id = '" . $_GET['ID'] . "' AND Livres.item = Item.Id");
@@ -126,6 +122,7 @@ $result = sendRequest("SELECT * FROM Item, Media WHERE '".$_GET['ID']."'=Item.Id
 			}
 	?>
 	<div class="block col-lg-6">
+		<form action="../ajouterPanier.php" method="POST">
 		<table>
 			<tr>
 				<td class="titre">Auteur : </td>
@@ -147,9 +144,6 @@ $result = sendRequest("SELECT * FROM Item, Media WHERE '".$_GET['ID']."'=Item.Id
 				<td class="titre">Format : </td>
 				<td><?php echo $format; ?></td>
 			</tr>
-		</table>
-	</div>
-
 	<?php
 		}else if($_GET['categorie'] == 3){
 			$result = sendRequest("SELECT * FROM Sport_et_Loisir, Item WHERE Item.Id = '" . $_GET['ID'] . "' AND Sport_et_Loisir.item = Item.Id");
@@ -160,6 +154,7 @@ $result = sendRequest("SELECT * FROM Item, Media WHERE '".$_GET['ID']."'=Item.Id
 			}
 	?>
 	<div class="block col-lg-6">
+		<form action="../ajouterPanier.php" method="POST">
 		<table>
 			<tr>
 				<td class="titre">Code : </td>
@@ -173,13 +168,17 @@ $result = sendRequest("SELECT * FROM Item, Media WHERE '".$_GET['ID']."'=Item.Id
 				<td class="titre">Taille : </td>
 				<td><?php echo $taille; ?></td>
 			</tr>
-		</table>
-	</div>
 	<?php
 		}
-		include ("footer.php");
 	?>
 
-	<button class="bouton btn btn-dark btn-sm" type="submit" name="ajout"> Ajouter au panier </button>
+			</table>
+			<?php echo '<input type="hidden" name="ID" value="' . $_GET['ID'] . '">'; ?>
+			<input class="bouton btn btn-dark btn-sm" type="submit" value="Ajouter au panier" />
+		</form>
+	</div>
+	<?php
+		include ("footer.php");
+	?>
 </body>
 </html>

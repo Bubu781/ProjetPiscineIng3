@@ -48,6 +48,20 @@
 		}
 	}
 
+	function displayRecherche($Item){
+		$result = sendRequest("SELECT * FROM Item, Media WHERE Item.Nom LIKE '%" . $Item . "%' AND Item.media = Media.id");
+		while($data = mysqli_fetch_assoc($result)){
+			echo "<a href='#'><div class='article row'>";
+				echo '<div class="col-sm-1"><img class="card-img" src="' . $data['Path1'] . '" alt="Image"></div>';
+				echo '<div class="col-sm-9">';
+					echo '<h2>' . $data['Nom'] .'</h2>';
+					echo '<p>' . $data['Description'] . '</p>';
+				echo '</div>';
+				echo '<div class="col-sm-1"><p><strong>Prix :</strong> ' . $data['Prix'] . '€</p></div>';
+			echo "</div></a>";
+		}
+	}
+
 	function displayCards($table){
 		$result = sendRequest("SELECT * FROM " . $table . ", Item, Media WHERE " . $table . ".item = Item.Id AND Item.media = Media.id ORDER BY Item.Nb_Ventes DESC");
 		$nbDisplayed = 0;
