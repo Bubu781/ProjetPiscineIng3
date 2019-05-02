@@ -76,6 +76,10 @@ $result = sendRequest("SELECT * FROM Item, Media WHERE '".$_GET['ID']."'=Item.Id
 				<td class="titre">Type : </td>
 				<td><?php echo $type; ?></td>
 			</tr>
+				<tr class="titre">
+					<td>Quantité :</td>
+					<td><input type="number" id="Qte" name="Qte" value = 1 ></td>
+				</tr>
 	<?php
 		}else if($_GET['categorie'] == 1){
 			$result = sendRequest("SELECT * FROM Musiques, Item WHERE Item.Id = '" . $_GET['ID'] . "' AND Musiques.item = Item.Id");
