@@ -2,6 +2,7 @@
 <?php
 	session_start();
 	include("../sendRequest.php");
+	include("../traitement.php");
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +22,7 @@
 	<h1>Votre Pannier</h1>
 	<div class="block col-sm-8 row">
 		<?php
-			include("../articlesPanier.php");
+			displayPanier();
 		?>
 	</div>
 	<div class="block col-sm-4">

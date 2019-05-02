@@ -1,5 +1,17 @@
 <?php
-	function displayArticles($categorie){
+	function displayPanier(){
+		$result = sendRequest("SELECT * FROM Panier, Item, Media WHERE Client = '" . $_SESSION['ID_people'] . "' AND Panier.Objet = Item.id AND Item.media = Media.id");
+		while($data = mysqli_fetch_assoc($result)){
+			echo '<div class="row">';
+			echo '<div class="col-sm-1"><img class="card-img" src="' . $data['Path1'] . '" alt="' . $data['Nom'] .'"></div>';
+			echo '<div class="col-sm-11"><span>' . $data['Nom'] . '</span>';
+			echo '<span> Prix : ' . $data['Prix'] . '€ </span>';
+			echo '<span> Quantité : <input style="width:30px;" type="number" value="' . $data['Quantite'] . '"></span>';
+			echo '</div></div>';
+		}
+	}
+
+	function displayList($categorie){
 		if($categorie < 4){
 			if($categorie == 0){
 				$nomCategorie = "Vetements";
@@ -33,6 +45,31 @@
 					echo '<div class="col-sm-1"><p><strong>Prix :</strong> ' . $data['Prix'] . '€</p></div>';
 				echo "</div></a>";
 			}
+		}
+	}
+
+	function displayCards($table){
+		$result = sendRequest("SELECT * FROM " . $table . ", Item, Media WHERE " . $table . ".item = Item.Id AND Item.media = Media.id ORDER BY Item.Nb_Ventes DESC");
+		$nbDisplayed = 0;
+		while($data = mysqli_fetch_assoc($result)){
+			if($nbDisplayed == 4){
+				break;
+			}
+			if($nbDisplayed % 2 == 0){
+				echo '<div class="row">';
+			}
+			echo '<div class="card col-sm-6"><a href="objet.php?ID=' . $data['item'] . '&amp;categorie=' . $table . '">';
+			echo '<img class="card-img-top" src="' . $data['Path1'] . '" alt="Card image">';
+			echo '<div class="card-img-overlay">';
+			echo '<h4 class="card-title">' . $data['Nom'] . '</h4>';
+			echo '</div></a></div>';
+			if($nbDisplayed % 2 == 1){
+				echo '</div>';
+			}
+			$nbDisplayed++;
+		}
+		if($nbDisplayed < 4 && $nbDisplayed % 2 == 1){
+			echo '</div>';
 		}
 	}
 ?>

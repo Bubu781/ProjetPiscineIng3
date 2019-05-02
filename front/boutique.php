@@ -2,7 +2,7 @@
 <?php
 	session_start();
 	include("../sendRequest.php");
-	include("../createArticles.php");
+	include("../traitement.php");
 ?>
 
 <!DOCTYPE html>
@@ -40,7 +40,7 @@
 	?></h1>
 	<div id="container">
 		<?php
-			displayArticles($_GET['categorie']);
+			displayList($_GET['categorie']);
 		?>
 	</div>
 	<?php

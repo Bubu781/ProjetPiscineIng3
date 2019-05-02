@@ -2,7 +2,7 @@
 <?php
 	session_start();
 	include("../sendRequest.php");
-	include("../createCard.php");
+	include("../traitement.php");
 ?>
 
 <!DOCTYPE html>
