@@ -92,6 +92,20 @@
 			if($nbDisplayed % 2 == 0){
 				echo '<div class="row">';
 			}
+
+			if($table == 'Vetements'){
+				$table = 0;
+			}
+			else if($table == 'musiques'){
+				$table = 1;
+			}
+			else if($table == 'livres'){
+				$table = 2;
+			}
+			else if($table == 'sport_et_loisir'){
+				$table = 3;
+			}	
+
 			echo '<div class="card col-sm-6"><a href="objet.php?ID=' . $data['item'] . '&amp;categorie=' . $table . '">';
 			echo '<img class="card-img-top" src="' . $data['Path1'] . '" alt="Card image">';
 			echo '<div class="card-img-overlay">';
