@@ -46,6 +46,9 @@
 	    	}else if(isset($_SESSION['ID_people'])){
 	    ?>
 	    <li class="nav-item">
+	      <a class="nav-link" href="#">Gérer items</a>
+	    </li>
+	    <li class="nav-item">
 	      <a class="nav-link" href="#">Gérer vendeurs</a>
 	    </li>
 	    <?php
