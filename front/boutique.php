@@ -32,7 +32,7 @@
 			echo "Musiques";
 		}else if($_GET['categorie'] == 2){
 			echo "Livres";
-		}else if($_GET['categorie'] == 2){
+		}else if($_GET['categorie'] == 3){
 			echo "Sports et Loisirs";
 		}else{
 			echo "Toutes catégories";

@@ -53,42 +53,46 @@
 				echo "</div></a>";
 			}
 		}else{
-			$result = sendRequest("SELECT * FROM Item, Media WHERE Item.media = Media.id");
+			$result = sendRequest("SELECT * FROM Media,Item WHERE Item.media = Media.id");
 			while($data = mysqli_fetch_assoc($result)){
-				echo "<a href='#'><div class='article row'>";
-					echo '<div class="col-sm-1"><img class="card-img" src="' . $data['Path1'] . '" alt="Image"></div>';
-					echo '<div class="col-sm-9">';
-						echo '<h2>' . $data['Nom'] .'</h2>';
-						echo '<p>' . $data['Description'] . '</p>';
-					echo '</div>';
-					echo '<div class="col-sm-1"><p><strong>Prix :</strong> ' . $data['Prix'] . '€</p></div>';
-				echo "</div></a>";
-			}
+				$test = sendRequest("SELECT Id FROM Item, Vetements WHERE Item.Id = ".$data['Id']." AND vetements.item = item.Id ");
+				if (mysqli_fetch_assoc($test) != NULL){$categorie = 0;}
+				$test = sendRequest("SELECT Id FROM Item, Musiques WHERE Item.Id = ".$data['Id']." AND Musiques.item = item.Id ");
+				if (mysqli_fetch_assoc($test) != NULL){$categorie = 1;}
+				$test = sendRequest("SELECT Id FROM Item, Livres WHERE Item.Id = ".$data['Id']." AND Livres.item = item.Id ");
+				if (mysqli_fetch_assoc($test) != NULL){$categorie = 2;}
+				$test = sendRequest("SELECT Id FROM Item, Sport_Et_Loisir WHERE Item.Id = ".$data['Id']." AND Sport_Et_Loisir.item = item.Id ");
+				if (mysqli_fetch_assoc($test) != NULL){$categorie = 3;}
+					echo "<a href='objet.php?ID=" . $data['Id'] ."&amp;categorie=" . $categorie . "'><div class='article row'>";
+						echo '<div class="col-sm-1"><img class="card-img" src="' . $data['Path1'] . '" alt="Image"></div>';
+						echo '<div class="col-sm-9">';
+							echo '<h2>' . $data['Nom'] .'</h2>';
+							echo '<p>' . $data['Description'] . '</p>';
+						echo '</div>';
+						echo '<div class="col-sm-1"><p><strong>Prix :</strong> ' . $data['Prix'] . '€</p></div>';
+					echo "</div></a>";
+				}
 		}
 	}
 
 	function displayRecherche($Item){
-		$result = sendRequest("SELECT * FROM Item, Media WHERE Item.Nom LIKE '%" . $Item . "%' AND Item.media = Media.id");
+		$result = sendRequest("SELECT * FROM Media, Item WHERE Item.Nom LIKE '%" . $Item . "%' AND Item.media = Media.id");
 		/*
 
 			ce qu'il faut écrire pour pouvoir savoir dans quelle catégorie est l'item :
 			on doit avoir l'id de l'item, on le stoque dans $Id_Item
-			
-			$categorie = 3;
-			$test = sendRequest("SELECT * FROM Item, Vetements WHERE Item.Id = ".$Id_Item." AND vetements.item = item.Id );
-			if (mysqli_fetch_assoc($test)[id] == NULL){$categorie = 0;}
-			$test = sendRequest("SELECT * FROM Item, Musiques WHERE Item.Id = ".$Id_Item." AND Musiques.item = item.Id );
-			if (mysqli_fetch_assoc($test)[id] == NULL){$categorie = 1;}
-			$test = sendRequest("SELECT * FROM Item, Livres WHERE Item.Id = ".$Id_Item." AND Livres.item = item.Id );
-			if (mysqli_fetch_assoc($test)[id] == NULL){$categorie = 2;}
-			$test = sendRequest("SELECT * FROM Item, Sport_Et_Loisir WHERE Item.Id = ".$Id_Item." AND Sport_Et_Loisir.item = item.Id );
-			if (mysqli_fetch_assoc($test)[id] == NULL){$categorie = 3;}
-
-
-
 		*/
+
 		while($data = mysqli_fetch_assoc($result)){
-			echo "<a href='#'><div class='article row'>";
+			$test = sendRequest("SELECT Id FROM Item, Vetements WHERE Item.Id = ".$data['Id']." AND vetements.item = item.Id ");
+			if (mysqli_fetch_assoc($test) != NULL){$categorie = 0;}
+			$test = sendRequest("SELECT Id FROM Item, Musiques WHERE Item.Id = ".$data['Id']." AND Musiques.item = item.Id ");
+			if (mysqli_fetch_assoc($test) != NULL){$categorie = 1;}
+			$test = sendRequest("SELECT Id FROM Item, Livres WHERE Item.Id = ".$data['Id']." AND Livres.item = item.Id ");
+			if (mysqli_fetch_assoc($test) != NULL){$categorie = 2;}
+			$test = sendRequest("SELECT Id FROM Item, Sport_Et_Loisir WHERE Item.Id = ".$data['Id']." AND Sport_Et_Loisir.item = item.Id ");
+			if (mysqli_fetch_assoc($test) != NULL){$categorie = 3;}
+			echo "<a href='objet.php?ID=" . $data['Id'] ."&amp;categorie=" . $categorie . "'><div class='article row'>";
 				echo '<div class="col-sm-1"><img class="card-img" src="' . $data['Path1'] . '" alt="Image"></div>';
 				echo '<div class="col-sm-9">';
 					echo '<h2>' . $data['Nom'] .'</h2>';
