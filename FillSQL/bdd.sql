@@ -82,9 +82,11 @@ INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALU
 INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( "Waka Waka",  1, "musique d'ambiance","disque d'or",16,1,7);
 INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( "Bloero de Ravel", 1, "musique classique pour orchestre","cher d'orchestre",12,4,10);
 INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( "Bangarang", 1, "son clulte du compositeur skrillex","Diplo",51,6,8);
+INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( 'teeshirt triple', 90, 'simple en mauvais etat','Ramon',0,0,4);
 -- Remplissage de la table Vetements
 INSERT INTO Vetements(Genre, Matiere, Type, item) VALUES( 'M', 'Lin', 'teesirt',1);
 INSERT INTO Vetements(Genre, Matiere, Type, item) VALUES( 'M', 'Coton', 'teesirt',2);
+INSERT INTO Vetements(Genre, Matiere, Type, item) VALUES( 'M', 'Coton', 'teesirt',11);
 -- Remplissage de la table Livres
 INSERT INTO Livres(Auteur, Nb_Pages, Date_Sortie, Genre, Format, item) VALUES( 'JK Rolling', '203', '1997-06-26', 'Fantastique', 'Poche',3);
 -- Remplissage de la table Musiques

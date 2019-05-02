@@ -19,8 +19,9 @@
 		include("header.php");
 	?>
 	<!--Formulaire pour se connecter-->
-	<form action="../connexion.php" method="post">
-		 <table>
+
+		 <table>	
+		 	<form action="../connexion.php" method="post">
 		 		<tr class="form-group">
 		 		
 		 		<td><label for="pseudo">Pseudo: </label>
@@ -40,11 +41,13 @@
    				</label> </td>
   			</tr>
   			<tr>
-  				<td><input type="submit" class="btn btn-primary" value="Soumettre"/></td>
+  				<td><input type="submit" class="btn btn-primary" value="Soumettre"/></td>	
+  			</form>
+  				<td>	<form action="newPeople.php" method="post"><input type="submit" class="btn btn-primary" value="S'inscrire"/></td></form>
   			</tr>
 
 		 </table>
-	</form>
+
 	<?php
 		include("footer.php");
 	?>
