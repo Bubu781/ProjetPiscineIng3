@@ -45,7 +45,7 @@ REMPLISSAGE DES TABLES
 
 -- TABLES OUTILS
 -- Remplissage de la table media
-INSERT INTO Media(Path1) VALUES( "Media/img.jpeg");
+INSERT INTO Media(Path1,Path2) VALUES( "Media/img.jpeg","Media/suisse.jpg");
 INSERT INTO Media(Path1) VALUES( "Media/1.jpeg");
 INSERT INTO Media(Path1) VALUES( "Media/2.jpeg");
 INSERT INTO Media(Path1) VALUES( "Media/3.jpeg");
