@@ -32,9 +32,9 @@ CREATE TABLE Sport_Et_Loisir(Code varchar(50) NOT NULL, Poids float NOT NULL, Ta
 
 -- TABLES DE COMMANDES 
 -- Création de la table panier
-CREATE TABLE Panier(Id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, Objet int NOT NULL, FOREIGN KEY(Objet) REFERENCES Item(Id), Client int NOT NULL, FOREIGN KEY(Client) REFERENCES people(Id), Quantite int NOT NULL);
+CREATE TABLE Panier(Id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,Couleur varchar(50), Taille varchar(10), Objet int NOT NULL, FOREIGN KEY(Objet) REFERENCES Item(Id), Client int NOT NULL, FOREIGN KEY(Client) REFERENCES people(Id), Quantite int NOT NULL);
 -- Création de la table de commandes
-CREATE TABLE Commandes(Id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, Objet int NOT NULL, FOREIGN KEY(Objet) REFERENCES Item(Id), Client int NOT NULL, FOREIGN KEY(Client) REFERENCES people(Id), Quantite int NOT NULL, Date_Livraison Date NOT NULL);
+CREATE TABLE Commandes(Id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,Couleur varchar(50), Taille varchar(10), Objet int NOT NULL, FOREIGN KEY(Objet) REFERENCES Item(Id), Client int NOT NULL, FOREIGN KEY(Client) REFERENCES people(Id), Quantite int NOT NULL, Date_Livraison Date NOT NULL);
 -- Création de la table des Produits
 CREATE TABLE Produits(Id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,Couleur varchar(50), Taille varchar(10), Objet int NOT NULL, FOREIGN KEY(Objet) REFERENCES Item(Id), Vendeur int NOT NULL, FOREIGN KEY(Vendeur) REFERENCES people(Id), Quantite int NOT NULL);
 
@@ -99,10 +99,10 @@ INSERT INTO Sport_Et_Loisir(Code, Poids, Taille, item) VALUES( "Velo", 2.5, 1.03
 
 -- TABLES DE COMMANDES 
 --Remplissage de la table panier
-INSERT INTO Panier(Objet, Client, Quantite) VALUES( 1,1,3);
-INSERT INTO Panier(Objet, Client, Quantite) VALUES( 1,3,1);
+INSERT INTO Panier(Objet, Client, Quantite, Couleur, Taille) VALUES( 1,1,3,"Bleu", "XS");
+INSERT INTO Panier(Objet, Client, Quantite, Couleur, Taille) VALUES( 1,3,1,"Bleu", "XS");
 --Remplissage de la table de commandes 
-INSERT INTO Commandes(Objet, Client, Quantite, Date_Livraison) VALUES( 1,1,1, "2019-05-06");
+INSERT INTO Commandes(Objet, Client, Quantite, Date_Livraison, Couleur, Taille) VALUES( 1,1,1, "2019-05-06", "Bleu", "XS");
 --Remplissage de la table des produits
 INSERT INTO Produits(Objet, Vendeur, Quantite, Couleur, Taille) VALUES( 1,3,1, "Bleu", "XS");
 INSERT INTO Produits(Objet, Vendeur, Quantite, Couleur, Taille) VALUES( 2,3,7, "Rouge", "L");
