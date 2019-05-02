@@ -53,9 +53,9 @@
 	    ?>
 	  </ul>
 	  <!-- Barre de recherche -->
-	  <form class="navbar-form navbar-right form-inline" action="" method="post">
+	  <form class="navbar-form navbar-right form-inline" action="../search.php" method="post">
 	  	 <div class="form-group">
-	  	    <input class="form-control mr-sm-2" type="text" placeholder="Rechercher"/>
+	  	    <input class="form-control mr-sm-2" type="text" placeholder="Rechercher" name="search"/>
 	    		<button class="btn btn-primary btn-sm" type="submit">Rechercher</button>
 	  		</div>
 		</form>
