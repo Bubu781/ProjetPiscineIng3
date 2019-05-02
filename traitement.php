@@ -22,7 +22,14 @@
 			}else{
 				$nomCategorie = "Sport_Et_Loisir";
 			}
-			$result = sendRequest("SELECT * FROM " . $nomCategorie . ", Item, Media WHERE " . $nomCategorie . ".item = Item.Id AND Item.media = Media.id");
+
+			if (!isset($_SESSION['type_utilisateur']) || $_SESSION['type_utilisateur'] == 2 )
+			{
+				$result = sendRequest("SELECT * FROM " . $nomCategorie . ", Item, Media, produits WHERE " . $nomCategorie . ".item = Item.Id AND Item.media = Media.id AND produits.Objet = item.Id");
+			}
+			else {
+				$result = sendRequest("SELECT * FROM " . $nomCategorie . ", Item, Media WHERE " . $nomCategorie . ".item = Item.Id AND Item.media = Media.id");
+			}
 			while($data = mysqli_fetch_assoc($result)){
 				echo "<a href='objet.php?ID=" . $data['item'] ."&amp;categorie=" . $categorie . "'><div class='article row'>";
 					echo '<div class="col-sm-1"><img class="card-img" src="' . $data['Path1'] . '" alt="Image"></div>';
@@ -63,6 +70,7 @@
 	}
 
 	function displayCards($table){
+
 		$result = sendRequest("SELECT * FROM " . $table . ", Item, Media WHERE " . $table . ".item = Item.Id AND Item.media = Media.id ORDER BY Item.Nb_Ventes DESC");
 		$nbDisplayed = 0;
 		while($data = mysqli_fetch_assoc($result)){
