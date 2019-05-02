@@ -157,5 +157,18 @@
 
   }
 
+//cas d'un Sport_Et_Loisir
+  else if ($categorie == 'Sport_Et_Loisir'){
+
+
+    $code = isset($_POST["code"])? $_POST["code"] : ""; //if-then-else
+    $poid = isset($_POST["poid"])? $_POST["poid"] : ""; //if-then-else
+    $taille = isset($_POST["taille"])? $_POST["taille"] : ""; //if-then-else
+
+   sendRequest( 'INSERT INTO Sport_Et_Loisir(Code, Poids, Taille, item) VALUES( "'.$code.'", '.$poid.', '.$taille.','.$id_Item.');');
+
+
+  }
+
 
 ?>
