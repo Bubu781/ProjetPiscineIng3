@@ -56,29 +56,39 @@ $result = sendRequest("SELECT * FROM Item, Media WHERE '".$_GET['ID']."'=Item.Id
 	<div class="block col-lg-6" >
 		<form action="../ajouterPanier.php" method="POST">
 			<table>
+<div class="taille" >
+
+</div>
+   <script>
+				jQuery(document).ready(function(){
+  console.log("jQuery est prêt !");
+  		$('#taille').html('coocu'+
+				'<tr>'+
+					'<td class="titre">Taille :</td>'+
+				'</tr>'
+
+			);
+});
+   </script>
 				<tr>
-				<td class="titre">Taille :</td>
-				<td><?php echo $taille; ?></td>
-			</tr>
-			<tr>
-				<td class="titre">Couleur :</td>
-				<td><?php echo $couleur; ?></td>
-			</tr>
-			<tr>
-				<td class="titre">Genre : </td>
-				<td><?php echo $genre; ?></td>
-			</tr>
-			<tr>
-				<td class="titre">Matière : </td>
-				<td><?php echo $matiere; ?></td>
-			</tr>
-			<tr>
-				<td class="titre">Type : </td>
-				<td><?php echo $type; ?></td>
-			</tr>
-				<tr class="titre">
-					<td>Quantité :</td>
-					<td><input type="number" id="Qte" name="Qte" value = 1 ></td>
+					<td class="titre">Couleur :</td>
+					<td><?php echo $couleur; ?></td>
+				</tr>
+				<tr>
+					<td class="titre">Genre : </td>
+					<td><?php echo $genre; ?></td>
+				</tr>
+				<tr>
+					<td class="titre">Matière : </td>
+					<td><?php echo $matiere; ?></td>
+				</tr>
+				<tr>
+					<td class="titre">Type : </td>
+					<td><?php echo $type; ?></td>
+				</tr>
+					<tr class="titre">
+						<td>Quantité :</td>
+						<td><input type="number" id="Qte" name="Qte" value = 1 ></td>
 				</tr>
 	<?php
 		}else if($_GET['categorie'] == 1){
