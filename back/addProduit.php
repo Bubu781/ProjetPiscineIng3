@@ -1,21 +1,23 @@
 <?php
-	foreach ($_POST['quantite'] as $key => $value) {
+	include("../sendRequest.php");
+	session_start();
 
-echo $_POST['quantite'][$key] .' : '. $_POST['id'][$key]. $_POST['Taille'][$key]. $_POST['Couleur'][$key].'....';
+	foreach ($_POST['quantite'] as $key => $value) {
 
 		if ($_POST['Taille'][$key] == "")
 		{
-			echo 'INSERT INTO Produits(Objet, Vendeur, Quantite) VALUES( 10,3,150);';
+		sendRequest ('INSERT INTO Produits(Objet, Vendeur, Quantite) VALUES( '. $_POST['id'][$key].','.$_SESSION['ID_people'].','.$_POST['quantite'][$key].');');
 		}
 	else {
-		echo 'INSERT INTO Produits(Objet, Vendeur, Quantite, Couleur, Taille) VALUES( 2,3,7, "Rouge", "L");';
+		sendRequest ('INSERT INTO Produits(Objet, Vendeur, Quantite, Couleur, Taille) VALUES( '. $_POST['id'][$key].','.$_SESSION['ID_people'].','.$_POST['quantite'][$key].', "'. $_POST['Couleur'][$key].'", "'. $_POST['Taille'][$key].'");');
+	}
+
+	sendRequest ('DELETE FROM Panier WHERE Client = '.$_SESSION['ID_people'].';');
+
+
 	}
 
 
+  header("Location: ../front/produit.php");
 
-
-		$_POST['quantite'][$key] .' : '. $_POST['id'][$key]. $_POST['Taille'][$key]. $_POST['Couleur'][$key].'....';
-
-
-	}
 ?>
