@@ -52,10 +52,10 @@
 	    	}else if(isset($_SESSION['ID_people'])){
 	    ?>
 	    <li class="nav-item">
-	      <a class="nav-link" href="#">Gérer items</a>
+	      <a class="nav-link" href="gereItem.php">Gérer items</a>
 	    </li>
 	    <li class="nav-item">
-	      <a class="nav-link" href="#">Gérer vendeurs</a>
+	      <a class="nav-link" href="gererVendeur.php">Gérer vendeurs</a>
 	    </li>
 	    <?php
 	    	}
