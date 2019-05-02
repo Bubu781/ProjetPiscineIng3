@@ -100,7 +100,7 @@ loadFormulaireNewItem = () =>{
 				'<tr class="form-group">'+
 					'<td>Format :</td>'+
 				'	<td>'+
-						'<SELECT name="type" id="type" required class="form-control">'+
+						'<SELECT name="format" id="format" required class="form-control">'+
 						'<OPTION VALUE="morceau" selected="selected" >Morceau Simple</OPTION>'+
 						'<OPTION VALUE="album">Album</OPTION>'+
 						'</SELECT>'+

@@ -141,4 +141,21 @@
   }
 
 
+//cas d'une musique
+  else if ($categorie == 'Musiques'){
+
+
+    $auteur = isset($_POST["auteur"])? $_POST["auteur"] : ""; //if-then-else
+    $style = isset($_POST["style"])? $_POST["style"] : ""; //if-then-else
+    $time = isset($_POST["time"])? $_POST["time"] : ""; //if-then-else
+    $type = isset($_POST["type"])? $_POST["type"] : ""; //if-then-else
+    $format = isset($_POST["format"])? $_POST["format"] : ""; //if-then-else
+
+
+   sendRequest( 'INSERT INTO Musiques(Auteur, Type, Duree, Style, Format, item) VALUES( "'.$auteur.'", "'.$format.'", "'.$time.'", "'.$style.'","'.$type.'",'.$id_Item.');');
+
+
+  }
+
+
 ?>
