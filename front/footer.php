@@ -10,14 +10,13 @@
 		height:60px;
 		width:100%;
 		color:#66CDAA;
-		position:relative;
 		bottom: 0;
 	}
 	.underline{
 		text-decoration: underline;
 	}
  </style>
- <footer class="bg-dark">
+ <footer class="footer bg-dark">
   	<span class="underline">Contactez-nous</span> 
   	<a href="mailto:adrien.buot@edu.ece.fr">:   adrien.buot@edu.ece.fr  </a> -
    	<a href="mailto:leo.guicharnaud@edu.ece.fr"> leo.guicharnaud@edu.ece.fr  </a> -

@@ -1,6 +1,9 @@
 $(document).ready(function(){
-	$('html').css('min-height',$(window).height());
-	$('body').css('min-height',$(window).height());
+	if($(document).height() <= $(window).height()){
+		$('footer').css('position','absolute');
+	}else{
+		$('footer').css('position','relative');
+	}
 })
 	
 
@@ -195,7 +198,7 @@ loadFormulaireNewPeople = () =>{
 
 			'<tr class="form-group">'+
 				'<td>date d'+"'"+'expiration de la carte :</td>'+
-				'<td><input type="date" id="Date_Expiration_Carte" required name="Date_Expiration_Carte" class="form-control" placeholder="Saisisez la date d'+"'"+'expiration de la carte "></td>'+
+				'<td><input type="month" id="Date_Expiration_Carte" required name="Date_Expiration_Carte" class="form-control" placeholder="Saisisez la date d'+"'"+'expiration de la carte "></td>'+
 		'	</tr>'+
 
 			'<tr class="form-group">'+
@@ -237,6 +240,40 @@ loadFormulaireNewPeople = () =>{
 		);
 	}
 
+}
+$(document).ready(function() {
+	loadCouleurDispo();
+});
+loadCouleurDispo = () =>{
+	$taille = $('#taille').val();
+
+
+/*
+					'<?php'+
+						'$result = sendRequest("SELECT produits.Couleur FROM produits, item WHERE item.Id = produits.Objet AND produits.Taille = &quot;". $taille ."&quot; AND item.id = " . $_GET[&quot;ID&quot;] );'+
+						'while($data = mysqli_fetch_assoc($result)){'+
+							'$couldispo = isset($data["Couleur"])?$data["Couleur"]:"";'+
+							'echo &quot;<OPTION VALUE="&quot;.$couldispo.&quot;" >&quot;.$couldispo.&quot;</OPTION>&quot;;'+
+						'}	'+
+					'?>'+
+					*/
+		var url = '../back/getColors.php?ID='+ $('#ID').val() +'&taille='+$taille;
+    $.post(url, function(data){
+    	$('#Color').html(''+
+						'<tr>'+
+						'<td class="titre">Couleur :</td>'+
+						'<td>'+
+						'<SELECT id="couleur" name="Couleur" class="form-control">'+
+							data+
+						'</SELECT>'+
+					'</td>'+
+				'</tr>'
+
+		);
+    });
+		
+		
+	
 }
 
 validatePwd = () =>{

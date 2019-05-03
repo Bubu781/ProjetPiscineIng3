@@ -1,13 +1,15 @@
 <?php
 	function displayPanier(){
-		$result = sendRequest("SELECT * FROM Panier, Item, Media WHERE Client = '" . $_SESSION['ID_people'] . "' AND Panier.Objet = Item.id AND Item.media = Media.id");
+		$result = sendRequest("SELECT * FROM Panier, Media, Item WHERE Client = '" . $_SESSION['ID_people'] . "' AND Panier.Objet = Item.id AND Item.media = Media.id");
 		while($data = mysqli_fetch_assoc($result)){
 			echo '<div class="row panier">';
 			echo '<div class="col-sm-1"><br><img width="100" height="100" src="' . $data['Path1'] . '" alt="' . $data['Nom'] .'"></div>';
-			echo '<div class="col-sm-11" ><br><span class="pobjet">' . $data['Nom'] . '</span>';
+			echo '<div class="col-sm-10" ><br><span class="pobjet">' . $data['Nom'] . '</span>';
 			echo '<span> Prix : ' . $data['Prix'] . '€ </span>';
-			echo '<span> Quantité : <input style="width:50px;" type="number" value="' . $data['Quantite'] . '"></span>';
-			echo '</div></div>';
+			echo '<span> Quantité : <input style="width:50px;" type="number" name="quantite[]" value="' . $data['Quantite'] . '"></span>';
+			echo '</div>';
+			echo '<input name="idPeople" type="hidden" value="'. $_SESSION['ID_people'] .'"><input name="id[]" type="hidden" value="'. $data['Id'] .'">';
+			echo '</div>';
 		}
 	}
 	function displayPanierDeProduits(){
