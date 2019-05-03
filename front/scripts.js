@@ -1,6 +1,9 @@
 $(document).ready(function(){
-	$('html').css('min-height',$(window).height());
-	$('body').css('min-height',$(window).height());
+	if($(document).height() <= $(window).height()){
+		$('footer').css('position','absolute');
+	}else{
+		$('footer').css('position','relative');
+	}
 })
 	
 
@@ -195,7 +198,7 @@ loadFormulaireNewPeople = () =>{
 
 			'<tr class="form-group">'+
 				'<td>date d'+"'"+'expiration de la carte :</td>'+
-				'<td><input type="date" id="Date_Expiration_Carte" required name="Date_Expiration_Carte" class="form-control" placeholder="Saisisez la date d'+"'"+'expiration de la carte "></td>'+
+				'<td><input type="month" id="Date_Expiration_Carte" required name="Date_Expiration_Carte" class="form-control" placeholder="Saisisez la date d'+"'"+'expiration de la carte "></td>'+
 		'	</tr>'+
 
 			'<tr class="form-group">'+
