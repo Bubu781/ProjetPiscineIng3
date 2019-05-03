@@ -55,6 +55,19 @@ INSERT INTO Media(Path1) VALUES( "Media/6.jpeg");
 INSERT INTO Media(Path1) VALUES( "Media/7.jpeg");
 INSERT INTO Media(Path1) VALUES( "Media/8.jpeg");
 INSERT INTO Media(Path1) VALUES( "Media/9.jpeg");
+INSERT INTO Media(Path1,Path2) VALUES( "Media/jupe1.jpg","Media/jupe2.jpg");
+INSERT INTO Media(Path1,Path2,Path3) VALUES( "Media/pull3.jpg","Media/pull1.jpg","Media/pull2.jpg");
+INSERT INTO Media(Path1,Path2) VALUES( "Media/debardeur1.jpg","Media/debardeur2.jpg");
+INSERT INTO Media(Path1) VALUES( "Media/jean.jpg");
+INSERT INTO Media(Path1,Path2) VALUES( "Media/roller1.jpg","Media/roller2.jpg");
+INSERT INTO Media(Path1,Path2) VALUES( "Media/skate1.jpg","Media/roller2.jpg");
+INSERT INTO Media(Path1,Path2) VALUES( "Media/corde1.jpg","Media/corde2.jpg");
+INSERT INTO Media(Path1) VALUES( "Media/hunger.jpeg");
+INSERT INTO Media(Path1) VALUES( "Media/cinquante.jpg");
+INSERT INTO Media(Path1) VALUES( "Media/miserable.jpeg");
+
+
+
 -- Remplissage de la table Avis client
 INSERT INTO Avis_Client(Objet, Client, Note) VALUES( 5,1,4);
 
@@ -72,23 +85,38 @@ INSERT INTO Admin(people) VALUES( 2);
 
 -- TABLES OBJETS
 -- Remplissage de la table item
-INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( 'teeshirt simple', 67, 'simple en bon etat','Levis',2,1,4);
-INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( 'teeshirt double', 90, 'simple en mauvais etat','Ramon',0,0,4);
-INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( "Harry Potter a l'ecole des sorciers",  10, 'Livre epique','Ombre blanche',19,12,2);
-INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( "Hangover",  1, "musique d'ambiance","disque d'or",6,3,5);
-INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( "velo de course",   652, "velo de course pour debutant","decatlon",2,0,3);
-INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( "Billie Jean", 1, "musique d'ambiance","Jackson record",24,9,6);
-INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( "La vie en rose",  1, "musique romatique","foule record",6,3,9);
-INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( "Waka Waka",  1, "musique d'ambiance","disque d'or",16,1,7);
-INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( "Bloero de Ravel", 1, "musique classique pour orchestre","cher d'orchestre",12,4,10);
-INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( "Bangarang", 1, "son clulte du compositeur skrillex","Diplo",51,6,8);
-INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( 'teeshirt triple', 90, 'simple en mauvais etat','Ramon',0,0,4);
+INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( 'Teeshirt basique', 67, 'Simple, et en bon etat.','Levis',2,1,4);
+INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( 'Debardeur', 90, 'Tres chic pour vos soirees mondaines.','Ramon',10,2,13);
+INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( "Harry Potter a l'ecole des sorciers",  10, 'Livre fantastique. Des 10 ans. Pour toute la famille.','Ombre blanche',19,12,2);
+INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( "Hangover",  1, "Musique d'ambiance","Disque d'or",6,3,5);
+INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( "Velo de course",   652, "Velo de course pour debutant. Des 12 ans.","Decatlon",2,0,3);
+INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( "Billie Jean", 1, "Musique d'ambiance","Jackson record",24,9,6);
+INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( "La vie en rose",  1, "Musique romatique et douce. Une referance musicale.","foule record",6,3,9);
+INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( "Waka Waka",  1, "Musique pop d'ambiance. A ecouter sans moderation!","Disque d'or",16,1,7);
+INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( "Bloero de Ravel", 1, "Musique classique. Parfaite pour se detendre.","Cher d'orchestre",12,4,10);
+INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( "Bangarang", 1, "Le son culte du compositeur skrillex!","Diplo",51,6,8);
+INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( 'Jean flex', 90, 'Jean flexible. Ce jean vous fera des jambes de reve.','Ramon',0,0,14);
+INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( 'Jupe', 100, 'Se porte aussi bien en journee que pour vos soirees. Elegante','Mango',10,8,11);
+INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( 'Pull', 100, 'Tres confortable. Se porte de preference avec un jean','Zara',50,30,12);
+INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( 'Les miserables', 8, 'Un classique. Une histoire poignante du tres celebre Victor Hugo.','Gilbert Jeune',50,30,20);
+INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( 'Hunger games', 15, 'Poignant et passionnant, vous ne pourrez plus le lacher!','Le livre de Poche',10,8,18);
+INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( 'Cinquante nuances de HTML', 100, "Un livre pour en apprendre plus sur l'Html",'Larousse',50,30,19);
+INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( 'Roller', 50, 'A la fois design et tres confortable. Parfait pour vos ballades en amoureux ou en famille.','GoSport',50,30,15);
+INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( 'Skateboard', 200, "Ce Skateboard vous permettra d'aller plus vite que la lumiere",'Vaans',50,30,16);
+INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( 'Corde a sauter', 19, 'Corde a sauter hehe! Super pour battre vos records.','Decatlon',50,30,17);
+
 -- Remplissage de la table Vetements
-INSERT INTO Vetements(Genre, Matiere, Type, item) VALUES( 'M', 'Lin', 'teesirt',1);
-INSERT INTO Vetements(Genre, Matiere, Type, item) VALUES( 'M', 'Coton', 'teesirt',2);
-INSERT INTO Vetements(Genre, Matiere, Type, item) VALUES( 'M', 'Coton', 'teesirt',11);
+INSERT INTO Vetements(Genre, Matiere, Type, item) VALUES( 'M', 'Lin', 'Teeshirt',1);
+INSERT INTO Vetements(Genre, Matiere, Type, item) VALUES( 'F', 'Coton', 'Debardeur',2);
+INSERT INTO Vetements(Genre, Matiere, Type, item) VALUES( 'F', 'Coton', 'Jean flex',11);
+INSERT INTO Vetements(Genre, Matiere, Type, item) VALUES( 'F', 'Laine', 'Jupe',12);
+INSERT INTO Vetements(Genre, Matiere, Type, item) VALUES( 'M', 'Coton', 'Pull',13);
 -- Remplissage de la table Livres
 INSERT INTO Livres(Auteur, Nb_Pages, Date_Sortie, Genre, Format, item) VALUES( 'JK Rolling', '203', '1997-06-26', 'Fantastique', 'Poche',3);
+INSERT INTO Livres(Auteur, Nb_Pages, Date_Sortie, Genre, Format, item) VALUES( 'Victor Hugo', '603', '1805-06-13', 'Roman', 'Poche',14);
+INSERT INTO Livres(Auteur, Nb_Pages, Date_Sortie, Genre, Format, item) VALUES( 'Suzanne Collins', '453', '2013-06-06', 'Siences Fiction', 'Poche',15);
+INSERT INTO Livres(Auteur, Nb_Pages, Date_Sortie, Genre, Format, item) VALUES( 'Manolo Hina', '103', '2016-06-14', 'Informatique', 'Poche',16);
+
 -- Remplissage de la table Musiques
 INSERT INTO Musiques(Auteur, Type, Duree, Style, Format, item) VALUES( "Taio Cruz", 'Morceau', '3:01', "Pop","Dematerialise",4);
 INSERT INTO Musiques(Auteur, Type, Duree, Style, Format, item) VALUES( "Michael Jackson", 'Morceau', '2:01', "Pop","Dematerialise",6);
@@ -97,15 +125,17 @@ INSERT INTO Musiques(Auteur, Type, Duree, Style, Format, item) VALUES( "Shakira"
 INSERT INTO Musiques(Auteur, Type, Duree, Style, Format, item) VALUES( "Ravel", 'Morceau', '6:45', "Classique","Dematerialise",9);
 INSERT INTO Musiques(Auteur, Type, Duree, Style, Format, item) VALUES( "Skrillex", 'Morceau', '4:58', "Dupstep","Dematerialise",10);
 -- Remplissage de la table sport et loisirs
-INSERT INTO Sport_Et_Loisir(Code, Poids, Taille, item) VALUES( "Velo", 2.5, 1.03,5);
-
+INSERT INTO Sport_Et_Loisir(Code, Poids, Taille, item) VALUES( "Velo", 5.5, 1.03,5);
+INSERT INTO Sport_Et_Loisir(Code, Poids, Taille, item) VALUES( "Roller", 2, 1.03,17);
+INSERT INTO Sport_Et_Loisir(Code, Poids, Taille, item) VALUES( "Skateboard", 0.5, 1.03,18);
+INSERT INTO Sport_Et_Loisir(Code, Poids, Taille, item) VALUES( "Corde a sauter", 0.25, 1.03,19);
 -- TABLES DE COMMANDES 
---Remplissage de la table panier
+-- Remplissage de la table panier
 INSERT INTO Panier(Objet, Client, Quantite, Couleur, Taille) VALUES( 1,1,3,"Bleu", "XS");
 INSERT INTO Panier(Objet, Client, Quantite, Couleur, Taille) VALUES( 1,3,1,"Bleu", "XS");
---Remplissage de la table de commandes 
+-- Remplissage de la table de commandes 
 INSERT INTO Commandes(Objet, Client, Quantite, Date_Livraison, Couleur, Taille) VALUES( 1,1,1, "2019-05-06", "Bleu", "XS");
---Remplissage de la table des produits
+-- Remplissage de la table des produits
 INSERT INTO Produits(Objet, Vendeur, Quantite, Couleur, Taille) VALUES( 1,3,1, "Bleu", "XS");
 INSERT INTO Produits(Objet, Vendeur, Quantite, Couleur, Taille) VALUES( 2,3,7, "Rouge", "L");
 INSERT INTO Produits(Objet, Vendeur, Quantite) VALUES( 3,3,2);
@@ -116,3 +146,11 @@ INSERT INTO Produits(Objet, Vendeur, Quantite) VALUES( 7,3,14);
 INSERT INTO Produits(Objet, Vendeur, Quantite) VALUES( 8,3,5);
 INSERT INTO Produits(Objet, Vendeur, Quantite) VALUES( 9,3,70);
 INSERT INTO Produits(Objet, Vendeur, Quantite) VALUES( 10,3,150);
+INSERT INTO Produits(Objet, Vendeur, Quantite) VALUES( 12,3,180);
+INSERT INTO Produits(Objet, Vendeur, Quantite) VALUES( 13,3,100);
+INSERT INTO Produits(Objet, Vendeur, Quantite) VALUES( 14,3,24);
+INSERT INTO Produits(Objet, Vendeur, Quantite) VALUES( 15,3,14);
+INSERT INTO Produits(Objet, Vendeur, Quantite) VALUES( 16,3,5);
+INSERT INTO Produits(Objet, Vendeur, Quantite) VALUES( 17,3,70);
+INSERT INTO Produits(Objet, Vendeur, Quantite) VALUES( 18,3,150);
+INSERT INTO Produits(Objet, Vendeur, Quantite) VALUES( 19,3,180);
