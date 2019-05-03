@@ -25,7 +25,7 @@
 
 
 
-	<form action="../back/traitementNewPeople.php" enctype="multipart/form-data" method="post">
+	<form action="../back/traitementUpdatePeople.php" enctype="multipart/form-data" method="post">
 
 		<div id="formulaireUp" class="block">
 			<table class="was-validated">
@@ -61,111 +61,108 @@
 				echo'	<td><input type="text" name="tel" value='.$data['N_Telephonne'].'  class="form-control" placeholder="Saisisez le numero de telephonne"required></td>';
 			echo'	</tr>';
 
+				
+
+			echo'		<tr class="form-group">';
+			echo'			<td>mot de passe :</td>';
+			echo'			<td><input type="password" name="mdp1"  value='.$data['Mot_De_Passe'].'  id="mdp1" class="form-control" placeholder="Saisisez le mot de passe"required></td>';
+			echo'		</tr>';
+	
+			echo'		<tr class="form-group">';
+			echo'			<td>mot de passe :</td>';
+			echo'			<td><input type="password" name="mdp2"  value='.$data['Mot_De_Passe'].' id="mdp2" class="form-control" placeholder="Saisisez à nouveau le mot de passe"required></td>';
+			echo'		</tr>';
+
+			echo'		<tr class="form-group">';
+			echo'			<td>Votre image :</td>';
+			echo'			<td><input type="file" name="photo" id="photo"  placeholder="votre image "></td>';
+			echo'		</tr>';
+
+
+
+		  if ($_SESSION['type_utilisateur'] == 2){
+
+
+		$media = sendRequest('SELECT * FROM people,client WHERE people.id = '.$_SESSION['ID_people'].' AND people.id = client.people');
+		$data = mysqli_fetch_assoc($media);
+
+		echo'		<tr class="form-group">';
+	echo'				<td>Pays :</td>';
+	echo'				<td><input type="text" name="pays" required  value='.$data['Pays'].' class="form-control" placeholder="Saisisez le pays"></td>';
+	echo'			</tr>';
+
+	echo'			<tr class="form-group">';
+	echo'				<td>Code Postal :</td>';
+	echo'				<td><input type="number" name="code_postal" value='.$data['Code_Postal'].'  required class="form-control" placeholder="Saisisez le code postal"></td>';
+	echo'			</tr>';
+
+	echo'			<tr class="form-group">';
+	echo'				<td>Ville :</td>';
+	echo'				<td><input type="text" name="ville" required value='.$data['Ville'].'  class="form-control" placeholder="Saisisez la ville"></td>';
+	echo'			</tr>';
+
+	echo'			<tr class="form-group">';
+	echo'				<td>Adresse L1 :</td>';
+	echo'				<td><textarea type="text" name="adresse_l1" required   class="form-control" placeholder="ligne 1">'.$data['Adresse_L1'].'</textarea> </td>';
+	echo'			</tr>';
+	echo'			<tr class="form-group">';
+	echo'				<td>Adresse L2 :</td>';
+	echo'				<td><textarea type="text" name="adresse_l2" required  value='.$data['Adresse_L2'].' class="form-control" placeholder="ligne 2"></textarea> </td>';
+	echo'			</tr>';
+
+	echo'			<tr class="form-group">';
+	echo'				<td>Type de carte :</td>';
+	echo'				<td>';
+	echo'					<SELECT name="type_carte" required class="form-control">';
+	echo'					<OPTION VALUE="visa" selected="selected" >Visa </OPTION>';
+	echo'					<OPTION VALUE="master">MasterCard</OPTION>';
+	echo'					</SELECT>';
+	echo'				</td>';
+	echo'			</tr>';
+
+	echo'			<tr class="form-group">';
+	echo'				<td>Numéro de carte :</td>';
+	echo'				<td><input type="text" name="Num_Carte"  value='.$data['Num_Carte'].' class="form-control" required placeholder="Saisisez le numero de la carte "></td>';
+	echo'			</tr>';
+
+	echo'			<tr class="form-group">';
+	echo'				<td>nom sur la carte :</td>';
+	echo'				<td><input type="text" name="Nom_Carte" value='.$data['Nom_Carte'].'  class="form-control" required placeholder="Saisisez le nom écris sur la carte "></td>';
+	echo'			</tr>';
+
+	echo'			<tr class="form-group">';
+	echo'				<td>date d'."'".'expiration de la carte :</td>';
+	echo'				<td><input type="date" name="Date_Expiration_Carte" value='.$data['Date_Expiration_Carte'].'  class="form-control" required placeholder="Saisisez la date d'."'".'expiration de la carte "></td>';
+	echo'			</tr>';
+	echo'			<tr class="form-group">';
+	echo'				<td>code de carte :</td>';
+	echo'				<td><input type="text" name="code_carte" class="form-control"  value='.$data['Code_Carte'].' required placeholder="Saisisez le code de la carte "></td>';
+	echo'			</tr>';
+
+	echo'			<tr class="form-group">';
+	echo'				<td>Porte monnaie :</td>';
+	echo'				<td><input type="text" name="banque" class="form-control"  value='.$data['Porte_Monnaie'].' required placeholder="Saisisez la quantité d'."'".'argent dans la banque "></td>';
+	echo'			</tr>';
+
+		  }
+		  else if ($_SESSION['type_utilisateur'] == 1){
+
+	echo'			<tr class="form-group">';
+	echo'				<td>Porte monnaie :</td>';
+	echo'				<td><input type="text" name="banque" class="form-control"  value='.$data['Porte_Monnaie'].' required placeholder="Saisisez la quantité d'."'".'argent dans la banque "></td>';
+	echo'			</tr>';
+
+		  }
 
 
 	?>
-
-				
-
-				<tr class="form-group">
-					<td>mot de passe :</td>
-					<td><input type="password" name="mdp1"  id="mdp1" class="form-control" placeholder="Saisisez le mot de passe"required></td>
-				</tr>
-
-				<tr class="form-group">
-					<td>mot de passe :</td>
-					<td><input type="password" name="mdp2" id="mdp2" class="form-control" placeholder="Saisisez à nouveau le mot de passe"required></td>
-				</tr>
-
-				<tr class="form-group">
-					<td>Votre image :</td>
-					<td><input type="file" name="photo" id="photo" placeholder="votre image "required></td>
-				</tr>
-
-				<tr class="form-group">
-					<td>Catégorie :</td>
-					<td>
-						<SELECT name="categorie" id="categorie" class="form-control" onclick="loadFormulaireNewPeople()">
-						<OPTION VALUE="client" selected="selected">Client</OPTION>
-						<OPTION VALUE="vendeur" >Vendeur</OPTION>
-						</SELECT>
-					</td>
-				</tr>
-
-		</table>
-
-		</div>
-
-		<div id="formulaireDown"  class="block">
-			<table>
-
-				<tr class="form-group">
-					<td>Pays :</td>
-					<td><input type="text" name="pays" required class="form-control" placeholder="Saisisez le pays"></td>
-				</tr>
-
-				<tr class="form-group">
-					<td>Code Postal :</td>
-					<td><input type="number" name="code_postal" required class="form-control" placeholder="Saisisez le code postal"></td>
-				</tr>
-
-				<tr class="form-group">
-					<td>Ville :</td>
-					<td><input type="text" name="ville" required class="form-control" placeholder="Saisisez la ville"></td>
-				</tr>
-
-				<tr class="form-group">
-					<td>Adresse L1 :</td>
-					<td><textarea type="text" name="adresse_l1" required class="form-control" placeholder="ligne 1"></textarea> </td>
-				</tr>
-
-				<tr class="form-group">
-					<td>Adresse L2 :</td>
-					<td><textarea type="text" name="adresse_l2" required class="form-control" placeholder="ligne 2"></textarea> </td>
-				</tr>
-
-				<tr class="form-group">
-					<td>Type de carte :</td>
-					<td>
-						<SELECT name="type_carte" required class="form-control">
-						<OPTION VALUE="visa" selected="selected" >Visa </OPTION>
-						<OPTION VALUE="master">MasterCard</OPTION>
-						</SELECT>
-					</td>
-				</tr>
-
-				<tr class="form-group">
-					<td>Numéro de carte :</td>
-					<td><input type="text" name="Num_Carte" class="form-control" required placeholder="Saisisez le numero de la carte "></td>
-				</tr>
-
-				<tr class="form-group">
-					<td>nom sur la carte :</td>
-					<td><input type="text" name="Nom_Carte" class="form-control" required placeholder="Saisisez le nom écris sur la carte "></td>
-				</tr>
-
-				<tr class="form-group">
-					<td>date d'expiration de la carte :</td>
-					<td><input type="date" name="Date_Expiration_Carte" class="form-control" required placeholder="Saisisez la date d'expiration de la carte "></td>
-				</tr>
-
-				<tr class="form-group">
-					<td>code de carte :</td>
-					<td><input type="text" name="code_carte" class="form-control" required placeholder="Saisisez le code de la carte "></td>
-				</tr>
-
-				<tr class="form-group">
-					<td>Porte monnaie :</td>
-					<td><input type="text" name="banque" class="form-control" required placeholder="Saisisez la quantité d'argent dans la banque "></td>
-				</tr>
-
 			</table>
 		</div>
-
 		<tr class="form-group">
 			<td align="center"><input class="btn btn-primary" type="submit" name="Valider" onmouseover="validatePwd()"></td>
 			<td align="center"><input class="btn btn-primary" type="reset" name="Réinitialiser"></td>
 		</tr>
+
 
 	</form>
 

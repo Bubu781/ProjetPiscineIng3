@@ -19,7 +19,7 @@
 		include("header.php");
 	?>
 	<h1>Paiement</h1>
-	<form action="">
+	<form action="../back/PaimentBDD.php" method="post">
 		<table>
 			<tr>
 				<tr><td><label for="carte">Type de carte : </label></td>
