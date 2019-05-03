@@ -20,6 +20,11 @@
 		include("header.php");
 	?>
 	<h1> Mofification des informations </h1>
+
+
+
+
+
 	<form action="../back/traitementNewPeople.php" enctype="multipart/form-data" method="post">
 
 		<div id="formulaireUp" class="block">
@@ -27,33 +32,44 @@
 		
 				<tr class="form-group">
 					<td>Nom :</td>
-					<td><input type="text" name="nom" class="form-control" placeholder="Saisisez le nom"required>
+	<?php	
+		$media = sendRequest('SELECT * FROM people WHERE id = '.$_SESSION['ID_people']);
+		$data = mysqli_fetch_assoc($media);
 
-				</tr>
+	echo '<td><input type="text" name="nom" value='.$data['Nom'].' class="form-control" placeholder="Saisisez le nom"required>';
 
-				<tr class="form-group">
-					<td>Prenom :</td>
-					<td><input type="text" name="prenom" class="form-control" placeholder="Saisisez le prenom"required></td>
-				</tr>
 
-				<tr class="form-group">
-					<td>Pseudo :</td>
-					<td><input type="text" name="pseudo" class="form-control" placeholder="Saisisez le pseudo"required></td>
-				</tr>
+			echo'	</tr>';
 
-				<tr class="form-group">
-					<td>Mail :</td>
-					<td><input type="mail" name="mail" class="form-control" placeholder="Saisisez l'adresse mail"required></td>
-				</tr>
+				echo'<tr class="form-group">';
+			echo'		<td>Prenom :</td>';
+		echo'			<td><input type="text" name="prenom" value='.$data['Prenom'].'  class="form-control" placeholder="Saisisez le prenom"required></td>';
+		echo'		</tr>';
 
-				<tr class="form-group">
-					<td>Numero de telephonne :</td>
-					<td><input type="text" name="tel" class="form-control" placeholder="Saisisez le numero de telephonne"required></td>
-				</tr>
+		echo'		<tr class="form-group">';
+		echo'			<td>Pseudo :</td>';
+		echo'			<td><input type="text" name="pseudo" value='.$data['Pseudo'].'  class="form-control" placeholder="Saisisez le pseudo"required></td>';
+		echo'		</tr>';
+
+		echo'		<tr class="form-group">';
+		echo'			<td>Mail :</td>';
+		echo'			<td><input type="mail" name="mail" value='.$data['Mail'].' class="form-control" placeholder="Saisisez l'."'".'adresse mail"required></td>';
+		echo'		</tr>';
+
+		echo'		<tr class="form-group">';
+				echo'	<td>Numero de telephonne :</td>';
+				echo'	<td><input type="text" name="tel" value='.$data['N_Telephonne'].'  class="form-control" placeholder="Saisisez le numero de telephonne"required></td>';
+			echo'	</tr>';
+
+
+
+	?>
+
+				
 
 				<tr class="form-group">
 					<td>mot de passe :</td>
-					<td><input type="password" name="mdp1" id="mdp1" class="form-control" placeholder="Saisisez le mot de passe"required></td>
+					<td><input type="password" name="mdp1"  id="mdp1" class="form-control" placeholder="Saisisez le mot de passe"required></td>
 				</tr>
 
 				<tr class="form-group">
@@ -75,7 +91,6 @@
 						</SELECT>
 					</td>
 				</tr>
-
 
 		</table>
 
