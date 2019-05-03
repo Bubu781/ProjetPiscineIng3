@@ -131,9 +131,12 @@ $result = sendRequest("SELECT * FROM Item, Media WHERE '".$_GET['ID']."'=Item.Id
 
 </div>
    <script>
-				jQuery(document).ready(function(){
+
+				$(document).ready(function(){
+
   console.log("jQuery est prêt !");
-  		$('#taille').html('coocu'+
+
+  		$('.taille').html('coocu'+
 				'<tr>'+
 					'<td class="titre">Taille :</td>'+
 				'</tr>'
