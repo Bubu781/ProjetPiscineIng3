@@ -192,7 +192,7 @@
 			}	
 
 			echo '<div class="card col-sm-6"><a href="objet.php?ID=' . $data['item'] . '&amp;categorie=' . $table . '">';
-			echo '<img class="card-img-top" src="' . $data['Path1'] . '" alt="Card image">';
+			echo '<img class="card-img-top" src="' . $data['Path1'] . '" alt="Card image" width="300" height="300">';
 			echo '<div class="card-img-overlay">';
 			echo '<h4 class="card-title">' . $data['Nom'] . '</h4>';
 			echo '</div></a></div>';
