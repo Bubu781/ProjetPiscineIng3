@@ -20,14 +20,16 @@
 		include("header.php");
 	?>
 	<h1 >Votre Panier</h1>
-	<div class="block col-sm-8 row">
-		<?php
+	<form action="../back/validerPanier.php" method="post">
+		<div class="block col-sm-8 row">
+			<?php
 			displayPanier();
-		?>
-	</div>
-	<div class="block col-sm-4">
-		<a href="paiement.php"><button class="btn btn-sm" type="submit" >Payer</button></a>
-	</div>
+			?>
+		</div>
+		<div class="block col-sm-4">
+			<input class="btn btn-sm" type="submit" value="Payer">
+		</div>
+	</form>
 	<?php
 		include("footer.php");
 	?>
