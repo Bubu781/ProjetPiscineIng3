@@ -47,11 +47,6 @@ body, html{
 	width: 1.5em;
 	height: 1.8em;
 }
-#ok{
-	background-image: url(fond.jpg);
-	width: 100%;
-	height: 100%;
-}
 
 .panier{
 	border: 2px black solid ;

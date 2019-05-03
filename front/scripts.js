@@ -271,9 +271,15 @@ loadCouleurDispo = () =>{
 
 		);
     });
-		
-		
 	
+}
+
+displayTotal = () =>{
+	$Total = 0;
+	$('.prix').each(function(index, el) {
+		$Total += parseInt($(this).text())*parseInt($($('.quantite').get(index)).val());
+	});
+	$('#Total').html('Total à payer : '+$Total+'€')
 }
 
 validatePwd = () =>{
