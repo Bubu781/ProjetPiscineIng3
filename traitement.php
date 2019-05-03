@@ -7,6 +7,7 @@
 			echo '<div class="col-sm-10" ><br><span class="pobjet">' . $data['Nom'] . '</span>';
 			echo '<span> Prix : <span class="prix" value="' . $data['Prix'] . '">' . $data['Prix'] . "</span>" . '€ </span>';
 			echo '<span> Quantité : <input style="width:50px;" type="number" class="quantite" name="quantite[]" value="' . $data['Quantite'] . '"></span>';
+			echo isset($data['Taille'])?'<br><span style="margin-left:100px;"> Taille : ' . $data['Taille'] . ', Couleur : ' . $data['Couleur'] . '</span>':"";
 			echo '</div>';
 			echo '<input name="idPeople" type="hidden" value="'. $_SESSION['ID_people'] .'"><input name="id[]" type="hidden" value="'. $data['Id'] .'">';
 			echo '</div>';
