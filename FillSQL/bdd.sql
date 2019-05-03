@@ -55,6 +55,11 @@ INSERT INTO Media(Path1) VALUES( "Media/6.jpeg");
 INSERT INTO Media(Path1) VALUES( "Media/7.jpeg");
 INSERT INTO Media(Path1) VALUES( "Media/8.jpeg");
 INSERT INTO Media(Path1) VALUES( "Media/9.jpeg");
+INSERT INTO Media(Path1,Path2) VALUES( "Media/jupe1.jpg","Media/jupe2.jpg");
+INSERT INTO Media(Path1,Path2,Path3) VALUES( "Media/pull3.jpg","Media/pull1.jpg","Media/pull2.jpg");
+INSERT INTO Media(Path1,Path2) VALUES( "Media/debardeur1.jpg","Media/debardeur2.jpg");
+INSERT INTO Media(Path1) VALUES( "Media/jean1.jpg");
+
 -- Remplissage de la table Avis client
 INSERT INTO Avis_Client(Objet, Client, Note) VALUES( 5,1,4);
 
@@ -72,19 +77,26 @@ INSERT INTO Admin(people) VALUES( 2);
 
 -- TABLES OBJETS
 -- Remplissage de la table item
-INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( 'teeshirt simple', 67, 'simple en bon etat','Levis',2,1,4);
-INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( 'teeshirt double', 90, 'simple en mauvais etat','Ramon',0,0,4);
+INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( 'Teeshirt basique', 67, 'Simple, et en bon etat.','Levis',2,1,4);
+INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( 'Debardeur', 90, 'Tres chic pour vos soirees mondaines.','Ramon',10,2,13);
 INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( "Harry Potter a l'ecole des sorciers",  10, 'Livre epique','Ombre blanche',19,12,2);
 INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( "Hangover",  1, "musique d'ambiance","disque d'or",6,3,5);
-INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( "velo de course",   652, "velo de course pour debutant","decatlon",2,0,3);
+INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( "Velo de course",   652, "velo de course pour debutant","decatlon",2,0,3);
 INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( "Billie Jean", 1, "musique d'ambiance","Jackson record",24,9,6);
 INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( "La vie en rose",  1, "musique romatique","foule record",6,3,9);
 INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( "Waka Waka",  1, "musique d'ambiance","disque d'or",16,1,7);
 INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( "Bloero de Ravel", 1, "musique classique pour orchestre","cher d'orchestre",12,4,10);
 INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( "Bangarang", 1, "son clulte du compositeur skrillex","Diplo",51,6,8);
+INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( 'Jean flex', 90, 'Jean flexible. Ce jean vous fera des jambes de reve.','Ramon',0,0,13);
+INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( 'Jupe', 100, 'Se porte aussi bien en journee que pour vos soirees. Elegante','Mango',10,8,11);
+INSERT INTO Item(Nom, Prix, Description, Marque, Nb_Click, Nb_Ventes,media) VALUES( 'Pull', 100, 'Tres confortable. Se porte de preference avec un jean','Zara',50,30,12);
+
 -- Remplissage de la table Vetements
-INSERT INTO Vetements(Genre, Matiere, Type, item) VALUES( 'M', 'Lin', 'teesirt',1);
-INSERT INTO Vetements(Genre, Matiere, Type, item) VALUES( 'M', 'Coton', 'teesirt',2);
+INSERT INTO Vetements(Genre, Matiere, Type, item) VALUES( 'M', 'Lin', 'Teeshirt',1);
+INSERT INTO Vetements(Genre, Matiere, Type, item) VALUES( 'F', 'Coton', 'Debardeur',2);
+INSERT INTO Vetements(Genre, Matiere, Type, item) VALUES( 'F', 'Coton', 'Jean flex',11);
+INSERT INTO Vetements(Genre, Matiere, Type, item) VALUES( 'F', 'Laine', 'Jupe',12);
+INSERT INTO Vetements(Genre, Matiere, Type, item) VALUES( 'M', 'Coton', 'Pull',13);
 -- Remplissage de la table Livres
 INSERT INTO Livres(Auteur, Nb_Pages, Date_Sortie, Genre, Format, item) VALUES( 'JK Rolling', '203', '1997-06-26', 'Fantastique', 'Poche',3);
 -- Remplissage de la table Musiques
@@ -98,12 +110,12 @@ INSERT INTO Musiques(Auteur, Type, Duree, Style, Format, item) VALUES( "Skrillex
 INSERT INTO Sport_Et_Loisir(Code, Poids, Taille, item) VALUES( "Velo", 2.5, 1.03,5);
 
 -- TABLES DE COMMANDES 
---Remplissage de la table panier
+-- Remplissage de la table panier
 INSERT INTO Panier(Objet, Client, Quantite, Couleur, Taille) VALUES( 1,1,3,"Bleu", "XS");
 INSERT INTO Panier(Objet, Client, Quantite, Couleur, Taille) VALUES( 1,3,1,"Bleu", "XS");
---Remplissage de la table de commandes 
+-- Remplissage de la table de commandes 
 INSERT INTO Commandes(Objet, Client, Quantite, Date_Livraison, Couleur, Taille) VALUES( 1,1,1, "2019-05-06", "Bleu", "XS");
---Remplissage de la table des produits
+-- Remplissage de la table des produits
 INSERT INTO Produits(Objet, Vendeur, Quantite, Couleur, Taille) VALUES( 1,3,1, "Bleu", "XS");
 INSERT INTO Produits(Objet, Vendeur, Quantite, Couleur, Taille) VALUES( 2,3,7, "Rouge", "L");
 INSERT INTO Produits(Objet, Vendeur, Quantite) VALUES( 3,3,2);
