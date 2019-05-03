@@ -33,6 +33,7 @@ $result = sendRequest("SELECT * FROM Item, Media WHERE '".$_GET['ID']."'=Item.Id
 	<?php
 		include("header.php");
 	?>
+	<?php echo '<input type="hidden" id="ID" value="'. $_GET['ID'] .'">';?>
 	<div class="row">
 		<div id="display" class="carousel slide" data-ride="carousel">
 
@@ -109,10 +110,12 @@ $result = sendRequest("SELECT * FROM Item, Media WHERE '".$_GET['ID']."'=Item.Id
 				<td class="titre">Prix: </td>
 				<td><?php echo $Prix . '€'; ?></td>
 			<tr><td class="titre">Description:</td></tr>
-			<tr><td><div class="description"><?php echo $Description; ?></td></div>
-			</tr>
+			<tr><td><div class="description"><?php echo $Description; ?></td></tr>
 		</table>
 	</div>
+	<div class="block col-lg-6" >
+		<form action="../ajouterPanier.php" method="POST">
+			<table> 	
 	<?php
 		if($_GET['categorie'] == 0){
 			$result = sendRequest("SELECT * FROM Vetements, Item WHERE Item.Id = '" . $_GET['ID'] . "' AND Vetements.item = Item.Id");
@@ -124,30 +127,92 @@ $result = sendRequest("SELECT * FROM Item, Media WHERE '".$_GET['ID']."'=Item.Id
 				$type = isset($data['Type'])?$data['Type']:"";
 			}
 	?>
-	<div class="block col-lg-6" >
-		<form action="../ajouterPanier.php" method="POST">
-			<table>
-<div class="taille" >
+					<tr>
+					<td class="titre">Taille :</td>
+					<td>
+					<SELECT id="taille" name="Taille" class="form-control" onclick="loadCouleurDispo()">
 
-</div>
-   <script>
+				<?php
 
-				$(document).ready(function(){
 
-  console.log("jQuery est prêt !");
-
-  		$('.taille').html('coocu'+
-				'<tr>'+
-					'<td class="titre">Taille :</td>'+
-				'</tr>'
-
-			);
-});
-   </script>
-				<tr>
-					<td class="titre">Couleur :</td>
-					<td><?php echo $couleur; ?></td>
+			// Verification de si la taille XS existe
+						$result = sendRequest("SELECT produits.Taille FROM produits, item WHERE item.Id = produits.Objet AND item.id = " . $_GET['ID'] );
+						while($data = mysqli_fetch_assoc($result)){
+							$taille = isset($data['Taille'])?$data['Taille']:"";
+							if ($taille == 'XS'){
+								echo '<OPTION VALUE="XS" >XS</OPTION>';
+								break;
+							}
+						}
+			// Verification de si la taille S existe
+						$result = sendRequest("SELECT produits.Taille FROM produits, item WHERE item.Id = produits.Objet AND item.id = " . $_GET['ID'] );
+						while($data = mysqli_fetch_assoc($result)){
+							$taille = isset($data['Taille'])?$data['Taille']:"";
+							if ($taille == 'S'){
+								echo '<OPTION VALUE="S" >S</OPTION>';
+								break;
+							}
+						}
+			// Verification de si la taille M existe
+						$result = sendRequest("SELECT produits.Taille FROM produits, item WHERE item.Id = produits.Objet AND item.id = " . $_GET['ID'] );
+						while($data = mysqli_fetch_assoc($result)){
+							$taille = isset($data['Taille'])?$data['Taille']:"";
+							if ($taille == 'M'){
+								echo '<OPTION VALUE="M" >M</OPTION>';
+								break;
+							}
+						}
+			// Verification de si la taille L existe
+						$result = sendRequest("SELECT produits.Taille FROM produits, item WHERE item.Id = produits.Objet AND item.id = " . $_GET['ID'] );
+						while($data = mysqli_fetch_assoc($result)){
+							$taille = isset($data['Taille'])?$data['Taille']:"";
+							if ($taille == 'L'){
+								echo '<OPTION VALUE="L" >L</OPTION>';
+								break;
+							}
+						}
+			// Verification de si la taille XL existe
+						$result = sendRequest("SELECT produits.Taille FROM produits, item WHERE item.Id = produits.Objet AND item.id = " . $_GET['ID'] );
+						while($data = mysqli_fetch_assoc($result)){
+							$taille = isset($data['Taille'])?$data['Taille']:"";
+							if ($taille == 'XL'){
+								echo '<OPTION VALUE="XL" >XL</OPTION>';
+								break;
+							}
+						}
+			// Verification de si la taille XXL existe
+$result = sendRequest("SELECT produits.Taille FROM produits, item WHERE item.Id = produits.Objet AND item.id = " . $_GET['ID'] );
+						while($data = mysqli_fetch_assoc($result)){
+							$taille = isset($data['Taille'])?$data['Taille']:"";
+							if ($taille == 'XXL'){
+								echo '<OPTION VALUE="XXL" >XXL</OPTION>';
+								break;
+							}
+						}
+			
+				?>
+										</SELECT>
+					</td>
 				</tr>
+<!--
+// SELECT produits.Taille FROM produits, item WHERE item.Id = produits.Objet AND item.id = 1
+// SELECT produits.Couleur FROM produits, item WHERE item.Id = produits.Objet AND item.id = 1 AND produits.Taille = 'L' 
+						$result = sendRequest("SELECT produits.Couleur FROM produits, item WHERE item.Id = produits.Objet AND produits.Taille = 'L' AND item.id = " . $_GET['ID'] );
+						while($data = mysqli_fetch_assoc($result)){
+							$couldispo = isset($data['Couleur'])?$data['Couleur']:"";
+							echo '<OPTION VALUE="'.$couldispo.'" >'.$couldispo.'</OPTION>';
+						}	
+-->
+				<div id = "Color" > 
+
+
+
+
+
+
+				</div>
+
+
 				<tr>
 					<td class="titre">Genre : </td>
 					<td><?php echo $genre; ?></td>
@@ -165,6 +230,8 @@ $result = sendRequest("SELECT * FROM Item, Media WHERE '".$_GET['ID']."'=Item.Id
 						<td><input type="number" id="Qte" name="Qte" value = 1 ></td>
 				</tr>
 	<?php
+
+
 		}else if($_GET['categorie'] == 1){
 			$result = sendRequest("SELECT * FROM Musiques, Item WHERE Item.Id = '" . $_GET['ID'] . "' AND Musiques.item = Item.Id");
 			while($data = mysqli_fetch_assoc($result)){
@@ -175,9 +242,6 @@ $result = sendRequest("SELECT * FROM Item, Media WHERE '".$_GET['ID']."'=Item.Id
 				$format = isset($data['Format'])?$data['Format']:"";
 			}
 	?>
-	<div class="block col-lg-6">
-		<form action="../ajouterPanier.php" method="POST">
-		<table>
 			<tr>
 				<td class="titre">Auteur : </td>
 				<td><?php echo $auteur; ?></td>
@@ -209,10 +273,7 @@ $result = sendRequest("SELECT * FROM Item, Media WHERE '".$_GET['ID']."'=Item.Id
 				$format = isset($data['Format'])?$data['Format']:"";
 			}
 	?>
-	<div class="block col-lg-6">
-		<form action="../ajouterPanier.php" method="POST">
-		<table>
-			<tr>
+				<tr>
 				<td class="titre">Auteur : </td>
 				<td><?php echo $auteur; ?></td>
 			</tr>
@@ -241,9 +302,6 @@ $result = sendRequest("SELECT * FROM Item, Media WHERE '".$_GET['ID']."'=Item.Id
 				$taille = isset($data['Taille'])?$data['Taille']:"";
 			}
 	?>
-	<div class="block col-lg-6">
-		<form action="../ajouterPanier.php" method="POST">
-		<table>
 			<tr>
 				<td class="titre">Code : </td>
 				<td><?php echo $code; ?></td>
