@@ -131,7 +131,7 @@
 
 				<tr class="form-group">
 					<td>date d'expiration de la carte :</td>
-					<td><input type="date" name="Date_Expiration_Carte" class="form-control" required placeholder="Saisisez la date d'expiration de la carte "></td>
+					<td><input type="month" name="Date_Expiration_Carte" class="form-control" required placeholder="Saisisez la date d'expiration de la carte "></td>
 				</tr>
 
 				<tr class="form-group">
@@ -153,7 +153,9 @@
 		</tr>
 
 	</form>
-
+	<?php
+include("footer.php");
+	?>
 	
 </body>
 </html>
