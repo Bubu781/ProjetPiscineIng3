@@ -13,18 +13,18 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="styles.css"> <!-- CSS Page -->
 	<meta charset="UTF-8">
-	<title>Inscription</title>
+	<title> Mofification des informations</title>
 </head>
 <body>
 	<?php
 		include("header.php");
 	?>
-	<h1> Inscription </h1>
+	<h1> Mofification des informations </h1>
 	<form action="../back/traitementNewPeople.php" enctype="multipart/form-data" method="post">
 
 		<div id="formulaireUp" class="block">
 			<table class="was-validated">
-
+		
 				<tr class="form-group">
 					<td>Nom :</td>
 					<td><input type="text" name="nom" class="form-control" placeholder="Saisisez le nom"required>
