@@ -146,11 +146,19 @@
 
 		  }
 		  else if ($_SESSION['type_utilisateur'] == 1){
+		  			$media = sendRequest('SELECT * FROM people,vendeur WHERE people.id = '.$_SESSION['ID_people'].' AND people.id = vendeur.people');
+		$data = mysqli_fetch_assoc($media);
 
 	echo'			<tr class="form-group">';
 	echo'				<td>Porte monnaie :</td>';
 	echo'				<td><input type="text" name="banque" class="form-control"  value='.$data['Porte_Monnaie'].' required placeholder="Saisisez la quantité d'."'".'argent dans la banque "></td>';
 	echo'			</tr>';
+
+			echo'		<tr class="form-group">';
+			echo'			<td>Votre image Favorite :</td>';
+			echo'			<td><input type="file" name="photo2" id="photo2"  placeholder="votre image Favorite "></td>';
+			echo'		</tr>';
+
 
 		  }
 
