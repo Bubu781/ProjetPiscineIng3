@@ -114,10 +114,12 @@
 	?>
 	<!-- Info Vendeur -->
 	<div class="block col-lg-4" >
-	
+	<table>
+		<tr>
 			<td class="titre">Argent du compte:  </td>
 			<td><?php echo $Porte_Monnaie; ?> €</td>
-		
+		</tr>
+	</table>	
 
 	</div>
 

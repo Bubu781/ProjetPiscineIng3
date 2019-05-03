@@ -22,58 +22,58 @@
 
 	<form action="../back/traitementNewItem.php" enctype="multipart/form-data" method="post">
 
-		<div class="formulaireUp" class="block">
+		<div class="formulaireUp" class="block col-sm-6">
 			<h1>Ajouter un objet</h1>
 
 			<table>
 
 				<tr class="form-group">
-					<td>Nom :</td>
+					<td class="titre">Nom :</td>
 					<td><input type="text" id="nom" name="nom" class="form-control" placeholder="Saisissez le nom" required></td>
 				</tr>
 
 				<tr class="form-group">
-					<td>Marque :</td>
+					<td class="titre">Marque :</td>
 					<td><input type="text" id="Marque" name="Marque" class="form-control" placeholder="Saisissez la marque" required></td>
 				</tr>
 
 				<tr class="form-group">
-					<td>Descrition :</td>
+					<td class="titre">Descrition :</td>
 					<td><textarea type="text" id="description" name="description" class="form-control" placeholder="Saisissez la description ici" required></textarea> </td>
 				</tr>
 
 				<tr class="form-group">
-					<td>Prix :</td>
+					<td class="titre">Prix :</td>
 					<td><input type="number" step="0.01" id="prix" name="prix" class="form-control" placeholder="Saisissez le prix" required></td>
 				</tr>
 
 				<tr class="form-group">
-					<td>Votre image n°1 :</td>
+					<td class="titre">Votre image n°1 :</td>
 					<td><input type="file" name="photo1" id="photo1" placeholder="votre image "required></td>
 				</tr>
 
 				<tr class="form-group">
-					<td>Votre image n°2 :</td>
+					<td class="titre">Votre image n°2 :</td>
 					<td><input type="file" name="photo2" id="photo2" placeholder="votre image "></td>
 				</tr>
 
 				<tr class="form-group">
-					<td>Votre image n°3 :</td>
+					<td class="titre">Votre image n°3 :</td>
 					<td><input type="file" name="photo3" id="photo3" placeholder="votre image "></td>
 				</tr>
 
 				<tr class="form-group">
-					<td>Votre image n°4 :</td>
+					<td class="titre">Votre image n°4 :</td>
 					<td><input type="file" name="photo4" id="photo4" placeholder="votre image "></td>
 				</tr>
 
 				<tr class="form-group">
-					<td>Votre image n°5 :</td>
+					<td class="titre">Votre image n°5 :</td>
 					<td><input type="file" name="photo5" id="photo5" placeholder="votre image "></td>
 				</tr>
 
 				<tr class="form-group">
-					<td>Catégorie :</td>
+					<td class="titre">Catégorie :</td>
 					<td>
 						
 						<SELECT id="categorie" name="categorie" class="form-control" onclick="loadFormulaireNewItem()">
@@ -101,17 +101,17 @@
 
 
 					<tr class="form-group">
-						<td>Matière :</td>
+						<td class="titre">Matière :</td>
 						<td><input type="text" id="matiere" name="matiere" class="form-control" placeholder="Saisisez la matière. ex : lin" required></td>
 					</tr>
 
 					<tr class="form-group">
-						<td>type :</td>
+						<td class="titre">type :</td>
 						<td><input type="text" id="type" name="type" class="form-control" placeholder="Saisisez le type. ex : teeshirt" required></td>
 					</tr>
 
 					<tr class="form-group">
-						<td>Genre :</td>
+						<td class="titre">Genre :</td>
 						<td>
 							<SELECT id="genre" required name="genre" class="form-control">
 							<OPTION VALUE="M" selected="selected" >Homme</OPTION>
@@ -136,13 +136,15 @@
 					</tr>
 					-->
 
-			</table>
+			</table></center>
 		</div>
-		
-		<tr class="form-group">
-			<td align="center"><input class="btn btn-primary" type="submit" name="Valider" onmouseover="validatePwd()"></td>
-			<td align="center"><input class="btn btn-primary" type="reset" name="Réinitialiser"></td>
+		<table>
+		<tr class="form-group" class="block col-sm-4">
+			<td ><input class="btn btn-primary" type="submit" name="Valider" onmouseover="validatePwd()"></td>
+			<td ><input class="btn btn-primary" type="reset" name="Réinitialiser"></td>
 		</tr>
+		</table>
+	</form>
 
 	</form>
 		<?php

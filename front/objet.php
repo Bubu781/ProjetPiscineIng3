@@ -105,10 +105,10 @@ $result = sendRequest("SELECT * FROM Item, Media WHERE '".$_GET['ID']."'=Item.Id
 		</div>
 		<h1 class="nobjet"><?php echo $Nom; ; ?></h1>
 	</div>
-	<div class="block col-lg-4" >
+	<div class="block col-lg-5" >
 		<table>
-				<td class="titre">Prix: </td>
-				<td><?php echo $Prix . '€'; ?></td>
+				<td><span  class="titre">Prix:</span> 
+				<?php echo $Prix . '€'; ?></td>
 			<tr><td class="titre">Description:</td></tr>
 			<tr><td><div class="description"><?php echo $Description; ?></td></tr>
 		</table>
