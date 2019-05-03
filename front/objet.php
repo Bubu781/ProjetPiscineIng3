@@ -8,7 +8,11 @@ $result = sendRequest("SELECT * FROM Item, Media WHERE '".$_GET['ID']."'=Item.Id
 	while($data=mysqli_fetch_assoc($result)){
 		$Nom = isset($data['Nom'])? $data['Nom']:"";
 		$Description = isset($data['Description'])? $data['Description']:"";
-		$Image = isset($data['Path1'])? $data['Path1']:"";
+		$Image1 = isset($data['Path1'])? $data['Path1']:"Media/";
+		$Image2 = isset($data['Path2'])? $data['Path2']:"Media/";
+		$Image3 = isset($data['Path3'])? $data['Path3']:"Media/";
+		$Image4 = isset($data['Path4'])? $data['Path4']:"Media/";
+		$Image5 = isset($data['Path5'])? $data['Path5']:"Media/";
 		$Prix = isset($data['Prix'])? $data['Prix']:"";
 	}
 	$_POST['ID'] = $_GET['ID'];
@@ -30,7 +34,74 @@ $result = sendRequest("SELECT * FROM Item, Media WHERE '".$_GET['ID']."'=Item.Id
 		include("header.php");
 	?>
 	<div class="row">
-		<?php echo '<img src="' .$Image. '" alt="Image" width="200" height="200">'; ?>
+		<div id="display" class="carousel slide" data-ride="carousel">
+
+		  <!-- Indicators -->
+		  <ul class="carousel-indicators">
+		    <li data-target="#display" data-slide-to="0" class="active"></li>
+		    <?php
+		    	if($Image2 != "Media/"){
+		    ?>
+		    <li data-target="#display" data-slide-to="1"></li>
+		    <?php
+		    	}if($Image3 != "Media/"){
+		    ?>
+		    <li data-target="#display" data-slide-to="2"></li>
+		    <?php
+		    	}if($Image4 != "Media/"){
+		    ?>
+		    <li data-target="#display" data-slide-to="3"></li>
+		    <?php
+		    	}if($Image5 != "Media/"){
+		    ?>
+		    <li data-target="#display" data-slide-to="4"></li>
+		    <?php
+		    	}
+		    ?>
+		  </ul>
+		  
+		  <!-- The slideshow -->
+		  <div class="carousel-inner">
+		    <div class="carousel-item active">
+		      <?php echo '<img src="' .$Image1. '" alt="Image de l objet" width="200" height="200">'; ?>
+		    </div>
+		    <?php
+		    	if($Image2 != "Media/"){
+		    ?>
+		    <div class="carousel-item">
+		      <?php echo '<img src="' .$Image2. '" alt="Image de l objet" width="200" height="200">'; ?>
+		    </div>
+		    <?php
+		    	}if($Image3 != "Media/"){
+		    ?>
+		    <div class="carousel-item">
+		      <?php echo '<img src="' .$Image3. '" alt="Image de l objet" width="200" height="200">'; ?>
+		    </div>
+		    <?php
+		    	}if($Image4 != "Media/"){
+		    ?>
+		    <div class="carousel-item">
+		      <?php echo '<img src="' .$Image4. '" alt="Image de l objet" width="200" height="200">'; ?>
+		    </div>
+		    <?php
+		    	}if($Image5 != "Media/"){
+		    ?>
+		    <div class="carousel-item">
+		      <?php echo '<img src="' .$Image5. '" alt="Image de l objet" width="200" height="200">'; ?>
+		    </div>
+		    <?php
+		    	}
+		    ?>
+		  </div>
+		  
+		  <!-- Left and right controls -->
+		  <a class="carousel-control-prev" href="#display" data-slide="prev">
+		    <span class="carousel-control-prev-icon"></span>
+		  </a>
+		  <a class="carousel-control-next" href="#display" data-slide="next">
+		    <span class="carousel-control-next-icon"></span>
+		  </a>
+		</div>
 		<h1 class="nobjet"><?php echo $Nom; ; ?></h1>
 	</div>
 	<div class="block col-lg-4" >
