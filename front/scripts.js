@@ -1,4 +1,4 @@
-$(document).ready(function{
+$(document).ready(function(){
 	$('html').css('min-height',$(window).height());
 	$('body').css('min-height',$(window).height());
 })
