@@ -224,11 +224,6 @@ $result = sendRequest("SELECT produits.Taille FROM produits, item WHERE item.Id 
 				<tr>
 					<td class="titre">Type : </td>
 					<td><?php echo $type; ?></td>
-				</tr>
-					<tr class="titre">
-						<td>Quantité :</td>
-						<td><input type="number" id="Qte" name="Qte" value = 1 ></td>
-				</tr>
 	<?php
 
 
@@ -317,7 +312,11 @@ $result = sendRequest("SELECT produits.Taille FROM produits, item WHERE item.Id 
 	<?php
 		}
 	?>
-
+				</tr>
+					<tr class="titre">
+						<td>Quantité :</td>
+						<td><input type="number" id="Qte" name="Qte" value = 1 ></td>
+				</tr>
 			</table>
 			<?php echo '<input type="hidden" name="ID" value="' . $_GET['ID'] . '">'; ?>
 			<input class="bouton btn btn-dark btn-sm" type="submit" value="Ajouter au panier" />

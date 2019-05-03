@@ -37,6 +37,7 @@
 			echo '<div class="col-sm-1"><img class="card-img" src="' . $data['Path1'] . '" alt="' . $data['Nom'] .'"></div>';
 			echo '<div class="col-sm-11"><span>' . $data['Nom'] . '</span>';
 			echo '<span> 	 : ' . $data['Prix'] . '€ </span>';
+			echo isset($data['Taille'])?'<span> Taille : ' . $data['Taille'] . ', Couleur : ' . $data['Couleur'] . '</span>':"";
 			echo '<span> Quantité : ' . $data['Quantite'] ;
 			echo '</div></div>';
 		}
