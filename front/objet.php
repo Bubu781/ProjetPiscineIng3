@@ -2,6 +2,7 @@
 <?php
 	session_start();
 	include("../sendRequest.php");
+	include("../autoConnect.php");
 ?>
 <?php
 $result = sendRequest("SELECT * FROM Item, Media WHERE '".$_GET['ID']."'=Item.Id AND Media.id = item.media ");

@@ -2,6 +2,7 @@
 <?php
 	session_start();
 	include("../sendRequest.php");
+	include("../autoConnect.php");
 	include("../traitement.php");
 ?>
 
