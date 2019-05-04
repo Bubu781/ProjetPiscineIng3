@@ -5,12 +5,6 @@
 	$mdp = isset($_POST["mdp"])? $_POST["mdp"] : "";
 	$erreur = "";
 
-	if($pseudo == ""){
-		$erreur .= "Le champ pseudo  est vide. <br>";
-	} 
-	if($mdp == ""){
-		$erreur .= "Le champ mot de passe est vide. <br>";
-	}
 	if($erreur != ""){
 		header("Location: front/connexionPage.php");
 	}else{
@@ -35,6 +29,7 @@
 				setcookie('pseudo', $pseudo, time() + 365*24*3600, null, null, false, true);
 				setcookie('password', $mdp, time() + 365*24*3600, null, null, false, true);
 			}
+			$_SESSION['deconnected'] = false;
 			header("Location: front/index.php");
 		}else{
 			header("Location: front/connexionPage.php");
