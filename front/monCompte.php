@@ -2,6 +2,7 @@
 <?php
 	session_start();
 	include("../sendRequest.php");
+	include("../autoConnect.php");
 ?>
 <?php
 	if(isset($_SESSION['ID_people'])){

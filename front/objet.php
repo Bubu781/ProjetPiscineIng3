@@ -2,9 +2,11 @@
 <?php
 	session_start();
 	include("../sendRequest.php");
+	include("../autoConnect.php");
 ?>
 <?php
-$result = sendRequest("SELECT * FROM Item, Media WHERE '".$_GET['ID']."'=Item.Id AND Media.id = item.media ");
+	$result = sendRequest("SELECT * FROM Item, Media WHERE '".$_GET['ID']."'=Item.Id AND Media.id = item.media ");
+	sendRequest("UPDATE Item SET Nb_Click = Nb_Click + 1 WHERE Id = '" . $_GET['ID'] . "'");
 	while($data=mysqli_fetch_assoc($result)){
 		$Nom = isset($data['Nom'])? $data['Nom']:"";
 		$Description = isset($data['Description'])? $data['Description']:"";

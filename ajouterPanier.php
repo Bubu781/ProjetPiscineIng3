@@ -6,7 +6,6 @@
 	$Couleur = isset($_POST['Couleur'])? $_POST['Couleur']: NULL;
 	$Taille = isset($_POST['Taille'])? $_POST['Taille']: NULL;
 	if($IdObjet != NULL){
-
 		if($Couleur == NULL){
 			$result = sendRequest("SELECT * FROM Panier WHERE Client = '" . $_SESSION['ID_people'] . "' AND Objet = '" . $IdObjet . "'");
 			$data = mysqli_fetch_assoc($result);
