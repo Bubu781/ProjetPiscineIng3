@@ -58,7 +58,7 @@ INSERT INTO Media(Path1) VALUES( "Media/9.jpeg");
 INSERT INTO Media(Path1,Path2) VALUES( "Media/jupe1.jpg","Media/jupe2.jpg");
 INSERT INTO Media(Path1,Path2,Path3) VALUES( "Media/pull3.jpg","Media/pull1.jpg","Media/pull2.jpg");
 INSERT INTO Media(Path1,Path2) VALUES( "Media/debardeur1.jpg","Media/debardeur2.jpg");
-INSERT INTO Media(Path1) VALUES( "Media/jean.jpg");
+INSERT INTO Media(Path1) VALUES( "Media/jean1.jpg");
 INSERT INTO Media(Path1,Path2) VALUES( "Media/roller1.jpg","Media/roller2.jpg");
 INSERT INTO Media(Path1,Path2) VALUES( "Media/skate1.jpg","Media/roller2.jpg");
 INSERT INTO Media(Path1,Path2) VALUES( "Media/corde1.jpg","Media/corde2.jpg");
