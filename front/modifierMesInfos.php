@@ -20,7 +20,7 @@
 	<?php
 		include("header.php");
 	?>
-	<h1> Mofification des informations </h1>
+	<h1> Modification des informations </h1>
 
 
 
