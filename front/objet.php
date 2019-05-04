@@ -2,9 +2,11 @@
 <?php
 	session_start();
 	include("../sendRequest.php");
+	include("../autoConnect.php");
 ?>
 <?php
-$result = sendRequest("SELECT * FROM Item, Media WHERE '".$_GET['ID']."'=Item.Id AND Media.id = item.media ");
+	$result = sendRequest("SELECT * FROM Item, Media WHERE '".$_GET['ID']."'=Item.Id AND Media.id = item.media ");
+	sendRequest("UPDATE Item SET Nb_Click = Nb_Click + 1 WHERE Id = '" . $_GET['ID'] . "'");
 	while($data=mysqli_fetch_assoc($result)){
 		$Nom = isset($data['Nom'])? $data['Nom']:"";
 		$Description = isset($data['Description'])? $data['Description']:"";
@@ -344,7 +346,11 @@ $result = sendRequest("SELECT produits.Taille FROM produits, item WHERE item.Id 
 	<?php
 		}
 	?>
-
+				</tr>
+					<tr class="titre">
+						<td>Quantité :</td>
+						<td><input type="number" id="Qte" name="Qte" value = 1 ></td>
+				</tr>
 			</table>
 			<?php echo '<input type="hidden" name="ID" value="' . $_GET['ID'] . '">'; ?>
 			<input class="bouton btn btn-dark btn-sm" type="submit" value="Ajouter au panier" />

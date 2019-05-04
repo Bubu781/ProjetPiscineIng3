@@ -17,6 +17,7 @@
 	if($data){
 		$result = sendRequest("SELECT * FROM Panier WHERE Client ='" . $_SESSION['ID_people'] ."'");
 		while($Item = mysqli_fetch_assoc($result)){
+			sendRequest("UPDATE Item SET Nb_Ventes = Nb_Ventes +" . $Item['Quantite'] . " WHERE Id = '" . $Item['Objet'] . "'");
 			sendRequest("INSERT INTO Commandes(Objet, Client, Quantite, Date_Livraison, Couleur, Taille) VALUES( '". $Item['Objet'] ."','" . $_SESSION['ID_people'] ."','" . $Item['Quantite'] . "', '" . $date_livraison->format('Y-m-d') . "', '" . (isset($Item['Couleur'])?$Item['Couleur']:NULL) . "', '" . (isset($Item['Taille'])?$Item['Taille']:NULL) . "')");
 		}
 		sendRequest("DELETE FROM Panier WHERE Client ='" . $_SESSION['ID_people'] ."'");

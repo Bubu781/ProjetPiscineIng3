@@ -2,6 +2,7 @@
 <?php
 	session_start();
 	include("../sendRequest.php");
+	include("../autoConnect.php");
 	include("../traitement.php");
 ?>
 
@@ -14,6 +15,12 @@
 	<link rel="stylesheet" href="styles.css"> <!-- CSS Page -->
 	<meta charset="UTF-8">
 	<title>Panier</title>
+	<script>
+		$(document).ready(function(){
+			displayTotal();
+		});
+		$(document).on('change','input', function(){displayTotal()});
+	</script>
 </head>
 <body>
 	<?php
@@ -23,10 +30,16 @@
 	<form action="../back/validerPanier.php" method="post">
 		<div class="block col-sm-8 row">
 			<?php
-			displayPanier();
+				displayPanier();
 			?>
 		</div>
+			
+		
 		<div class="block col-sm-4">
+			<span id="Total">
+				
+			</span>
+			<br/>
 			<input class="btn btn-sm" type="submit" value="Payer">
 		</div>
 	</form>

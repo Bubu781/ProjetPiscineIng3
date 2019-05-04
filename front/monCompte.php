@@ -2,12 +2,13 @@
 <?php
 	session_start();
 	include("../sendRequest.php");
+	include("../autoConnect.php");
 ?>
 <?php
 	if(isset($_SESSION['ID_people'])){
 
 	}
-	$result = sendRequest("SELECT * FROM People WHERE '".$_SESSION['ID_people']."'=Id");
+	$result = sendRequest("SELECT * FROM People, Media WHERE '".$_SESSION['ID_people']."'=People.Id AND People.media = Media.Id");
 	while($data=mysqli_fetch_assoc($result)){
 		$Nom = isset($data['Nom'])? $data['Nom']:"";
 		$Pseudo = isset($data['Pseudo'])? $data['Pseudo']:"";
@@ -15,6 +16,8 @@
 		$Tel = isset($data['Tel'])? $data['Tel'] :"";
 		$Mail = isset($data['Mail'])? $data['Mail']:"";
 		$Mdp = isset($data['Mot_De_Passe'])? $data['Mot_De_Passe']:"";
+		$ImageProfil = isset($data['Path1'])?$data['Path1']:"";
+		$ImageFond = isset($data['Path2'])?$data['Path2']:"";
 	}
 	
 ?>
@@ -28,8 +31,15 @@
 	<link rel="stylesheet" href="styles.css"> <!-- CSS Page -->
 	<meta charset="UTF-8">
 	<title>Mon compte</title>
+	<style>
+		body{
+			<?php echo $ImageFond != ""?'background-image: url(' . $ImageFond . ');':'';?>
+			width: 100%;
+			height: 100%;
+		}
+	</style>
 </head>
-<body id = "ok">
+<body>
 	<?php
 		include("header.php");
 	?>
@@ -40,7 +50,7 @@
 		<tr>
 			<td>
 				<!--Photo de profil-->
-				<img class="img-responsive" src="personne.jpg" alt="Bootstrap" class="img-thumbnail" width="120" height="110"><br><br>
+				<?php echo '<img class="img-responsive" src="' . ($ImageProfil==""?$ImageProfil:"personne.jpg") . '" alt="Bootstrap" class="img-thumbnail" width="120" height="110"><br><br>'; ?>
 			</td>
 		</tr>
 			<td class="titre">Pseudo: </td>
