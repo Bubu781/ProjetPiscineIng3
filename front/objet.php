@@ -126,6 +126,7 @@ $result = sendRequest("SELECT * FROM Item, Media WHERE '".$_GET['ID']."'=Item.Id
 				$matiere = isset($data['Matiere'])?$data['Matiere']:"";
 				$type = isset($data['Type'])?$data['Type']:"";
 			}
+			if ($_SESSION['type_utilisateur'] == 2){
 	?>
 					<tr>
 					<td class="titre">Taille :</td>
@@ -211,7 +212,31 @@ $result = sendRequest("SELECT produits.Taille FROM produits, item WHERE item.Id 
 
 
 				</div>
+	<?php
+			}
+				else {
+	?>
+					<tr class="form-group">
+					<td class="titre">Couleur :</td>
+					<td><input type="text" id = "couleur" name="couleur" class="form-control" placeholder="Saisisez la couleur"required>
 
+				</tr>
+					<tr>
+						<td class="titre">Taille :</td>
+							<td>
+								<SELECT id="taille" name="Taille" class="form-control">
+									<OPTION VALUE="XS" >XS</OPTION>
+									<OPTION VALUE="S" >S</OPTION>
+									<OPTION VALUE="M" >M</OPTION>
+									<OPTION VALUE="L" >L</OPTION>
+									<OPTION VALUE="XL" >XL</OPTION>
+									<OPTION VALUE="XXL" >XXL</OPTION>
+								</SELECT>
+							</td>
+						</tr>
+<?php
+				}
+	?>
 
 				<tr>
 					<td class="titre">Genre : </td>
@@ -229,8 +254,10 @@ $result = sendRequest("SELECT produits.Taille FROM produits, item WHERE item.Id 
 						<td>Quantité :</td>
 						<td><input type="number" id="Qte" name="Qte" value = 1 ></td>
 				</tr>
-	<?php
 
+
+
+	<?php
 
 		}else if($_GET['categorie'] == 1){
 			$result = sendRequest("SELECT * FROM Musiques, Item WHERE Item.Id = '" . $_GET['ID'] . "' AND Musiques.item = Item.Id");
