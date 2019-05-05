@@ -24,8 +24,8 @@
 			echo isset($data['Couleur'])?'<span> Couleur : ' . $data['Couleur'] . ' </span>':"";
 			echo '<span> Quantité : <input style="width:70px;" type="number" name="quantite[]" value="' . $data['Quantite'] . '"></span>';
 			echo '<input type="hidden" name="id[]" value="' . $data['Id'] . '">';
-			echo '<input type="hidden" name="Taille[]" value="' . $data['Taille'] . '">';
-			echo '<input type="hidden" name="Couleur[]" value="' . $data['Couleur'] . '">';
+			echo isset($data['Taille'])?'<input type="hidden" name="Taille[]" value="' . $data['Taille'] . '">':"";
+			echo isset($data['Couleur'])?'<input type="hidden" name="Couleur[]" value="' . $data['Couleur'] . '">':"";
 			echo '</div></div>';
 		}
 	}

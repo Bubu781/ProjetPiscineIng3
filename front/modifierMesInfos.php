@@ -20,7 +20,7 @@
 	<?php
 		include("header.php");
 	?>
-	<h1> Mofification des informations </h1>
+	<h1> Modification des informations </h1>
 
 
 
@@ -108,7 +108,7 @@
 	echo'			</tr>';
 	echo'			<tr class="form-group">';
 	echo'				<td>Adresse L2 :</td>';
-	echo'				<td><textarea type="text" name="adresse_l2" required  value='.$data['Adresse_L2'].' class="form-control" placeholder="ligne 2"></textarea> </td>';
+	echo'				<td><textarea type="text" name="adresse_l2"  value='.$data['Adresse_L2'].' class="form-control" placeholder="ligne 2"></textarea> </td>';
 	echo'			</tr>';
 
 	echo'			<tr class="form-group">';

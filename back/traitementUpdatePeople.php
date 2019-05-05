@@ -1,6 +1,5 @@
 <?php
 	session_start();
-
 	include("../sendRequest.php");
 ?>
 
@@ -39,22 +38,26 @@
     }
 	}
 	else {
-	echo'coucou';
+	echo "pas d'image ajouté";
 	}
 
 	// media
-	sendRequest('INSERT INTO Media(Path1) VALUES( "Media/'.$_FILES['photo']['name'].'");');
 
+	if ($_FILES['photo']['name'] == ''){
+			sendRequest('	UPDATE people SET Nom="'.$nom.'",Prenom="'.$prenom.'",Pseudo="'.$pseudo.'",Mail="'.$mail.'",N_Telephonne="'.$tel.'",Mot_De_Passe="'.$mdp1.'" WHERE id = '.$_SESSION['ID_people']);
+			echo 'UPDATE people SET Nom="'.$nom.'",Prenom="'.$prenom.'",Pseudo="'.$pseudo.'",Mail="'.$mail.'",N_Telephonne="'.$tel.'",Mot_De_Passe="'.$mdp1.'" WHERE id = '.$_SESSION['ID_people'];
+	}
+	else {	
 
+		sendRequest('INSERT INTO Media(Path1) VALUES( "Media/'.$_FILES['photo']['name'].'");');
 
-	$media = sendRequest('SELECT MAX(Id) FROM media');
-	$data = mysqli_fetch_assoc($media);
-	$idMedia = $data['MAX(Id)'];
+		$media = sendRequest('SELECT MAX(Id) FROM media');
+		$data = mysqli_fetch_assoc($media);
+		$idMedia = $data['MAX(Id)'];
 
+			sendRequest('	UPDATE people SET Nom="'.$nom.'",Prenom="'.$prenom.'",Pseudo="'.$pseudo.'",Mail="'.$mail.'",N_Telephonne="'.$tel.'",Mot_De_Passe="'.$mdp1.'",media='.$idMedia.' WHERE id = '.$_SESSION['ID_people']);
 
-	sendRequest('	UPDATE people SET Id=[value-1],Nom="'.$nom.'",Prenom="'.$prenom.'",Pseudo="'.$pseudo.'",Mail="'.$mail.'",N_Telephonne="'.$tel.'",Mot_De_Passe="'.$mdp1.'",media='.$idMedia.' WHERE id = '.$_SESSION[Id_People]);
-	$media = sendRequest('SELECT MAX(Id) FROM People');
-	$data = mysqli_fetch_assoc($media);
+	}
 
 
 
