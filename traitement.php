@@ -57,7 +57,7 @@
 
 			if (!isset($_SESSION['type_utilisateur']) || $_SESSION['type_utilisateur'] == 2 )
 			{
-				$result = sendRequest("SELECT * FROM " . $nomCategorie . ", Item, Media, produits WHERE " . $nomCategorie . ".item = Item.Id AND Item.media = Media.id AND produits.Objet = item.Id");
+				$result = sendRequest("SELECT * FROM " . $nomCategorie . ", Item, Media, produits WHERE " . $nomCategorie . ".item = Item.Id AND Item.media = Media.id AND produits.Objet = item.Id GROUP BY produits.Objet");
 			}
 			else {
 				$result = sendRequest("SELECT * FROM " . $nomCategorie . ", Item, Media WHERE " . $nomCategorie . ".item = Item.Id AND Item.media = Media.id");
@@ -144,7 +144,7 @@
 	}
 
 	function displayRecherche($Item){
-		$result = sendRequest("SELECT * FROM Media, Item WHERE Item.Nom LIKE '%" . $Item . "%' AND Item.media = Media.id");
+		$result = sendRequest("SELECT * FROM Media, Item WHERE Item.Nom LIKE '%" . $Item . "%' AND Item.media = Media.id ");
 		while($data = mysqli_fetch_assoc($result)){
 			$test = sendRequest("SELECT Id FROM Item, Vetements WHERE Item.Id = ".$data['Id']." AND vetements.item = item.Id ");
 			if (mysqli_fetch_assoc($test) != NULL){$categorie = 0;}
@@ -168,7 +168,7 @@
 	function displayCards($table){
 		if (!isset($_SESSION['type_utilisateur']) || $_SESSION['type_utilisateur'] == 2 )
 			{
-				$result = sendRequest("SELECT * FROM " . $table . ", Item, Media, produits WHERE " . $table . ".item = Item.Id AND Item.media = Media.id AND produits.Objet = item.Id ORDER BY Item.Nb_Ventes DESC");
+				$result = sendRequest("SELECT * FROM " . $table . ", Item, Media, produits WHERE " . $table . ".item = Item.Id AND Item.media = Media.id AND produits.Objet = item.Id GROUP BY produits.Objet ORDER BY Item.Nb_Ventes DESC ");
 			}
 			else {
 				$result = sendRequest("SELECT * FROM " . $table . ", Item, Media WHERE " . $table . ".item = Item.Id AND Item.media = Media.id ORDER BY Item.Nb_Ventes DESC");
