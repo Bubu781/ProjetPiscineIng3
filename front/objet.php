@@ -220,7 +220,7 @@ $result = sendRequest("SELECT produits.Taille FROM produits, item WHERE item.Id 
 	?>
 					<tr class="form-group">
 					<td class="titre">Couleur :</td>
-					<td><input type="text" id = "couleur" name="couleur" class="form-control" placeholder="Saisisez la couleur"required>
+					<td><input type="text" id = "couleur" name="Couleur" class="form-control" placeholder="Saisisez la couleur"required>
 
 				</tr>
 					<tr>
@@ -251,10 +251,6 @@ $result = sendRequest("SELECT produits.Taille FROM produits, item WHERE item.Id 
 				<tr>
 					<td class="titre">Type : </td>
 					<td><?php echo $type; ?></td>
-				</tr>
-					<tr class="titre">
-						<td>Quantité :</td>
-						<td><input type="number" id="Qte" name="Qte" value = 1 ></td>
 				</tr>
 
 
