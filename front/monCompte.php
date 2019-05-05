@@ -16,8 +16,8 @@
 		$Tel = isset($data['N_Telephonne'])? $data['N_Telephonne'] :"";
 		$Mail = isset($data['Mail'])? $data['Mail']:"";
 		$Mdp = isset($data['Mot_De_Passe'])? $data['Mot_De_Passe']:"";
-		$ImageProfil = isset($data['Path1'])?$data['Path1']:"";
-		$ImageFond = isset($data['Path2'])?$data['Path2']:"";
+		$ImageProfil = isset($data['Path1'])?$data['Path1']:NULL;
+		$ImageFond = isset($data['Path2'])?$data['Path2']:NULL;
 	}
 	
 ?>
@@ -33,7 +33,7 @@
 	<title>Mon compte</title>
 	<style>
 		body{
-			<?php echo $ImageFond != ""?'background-image: url(' . $ImageFond . ');':'';?>
+			<?php echo $ImageFond?'background-image: url(' . $ImageFond . ');':'';?>
 			width: 100%;
 			height: 100%;
 		}
@@ -50,7 +50,7 @@
 		<tr>
 			<td>
 				<!--Photo de profil-->
-				<?php echo '<img class="img-responsive" src="' . ($ImageProfil==""?$ImageProfil:"personne.jpg") . '" alt="Bootstrap" class="img-thumbnail" width="120" height="110"><br><br>'; ?>
+				<?php echo '<img class="img-responsive" src="' . ($ImageProfil?$ImageProfil:"personne.jpg") . '" alt="Bootstrap" class="img-thumbnail" width="120" height="110"><br><br>'; ?>
 			</td>
 		</tr>
 			<td class="titre">Pseudo: </td>
