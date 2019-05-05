@@ -75,7 +75,7 @@
 		}else{
 			if (!isset($_SESSION['type_utilisateur']) || $_SESSION['type_utilisateur'] == 2 )
 			{
-				$result = sendRequest("SELECT * FROM   Media,Item, produits WHERE Item.media = Media.id AND produits.Objet = item.Id");
+				$result = sendRequest("SELECT * FROM   Media,Item, produits WHERE Item.media = Media.id AND produits.Objet = item.Id GROUP BY produits.Objet ");
 			}
 			else {
 				$result = sendRequest("SELECT * FROM Media, Item  WHERE Item.media = Media.id");

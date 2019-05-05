@@ -66,6 +66,7 @@ INSERT INTO Media(Path1) VALUES( "Media/hunger.jpeg");
 INSERT INTO Media(Path1) VALUES( "Media/cinquante.jpg");
 INSERT INTO Media(Path1) VALUES( "Media/miserable.jpeg");
 INSERT INTO Media(Path1) VALUES( "Media/tom.jpg");
+INSERT INTO Media(Path1) VALUES( "Media/pullGrossemaille.jpg");
 
 
 
@@ -160,7 +161,6 @@ INSERT INTO Produits(Objet, Vendeur, Quantite, Couleur, Taille) VALUES( 13,3,20,
 INSERT INTO Produits(Objet, Vendeur, Quantite, Couleur, Taille) VALUES( 13,3,20, "Noir", "S");
 INSERT INTO Produits(Objet, Vendeur, Quantite, Couleur, Taille) VALUES( 13,3,20, "Noir", "L");
 INSERT INTO Produits(Objet, Vendeur, Quantite, Couleur, Taille) VALUES( 13,3,20, "Blanc", "S");
-INSERT INTO Produits(Objet, Vendeur, Quantite, Couleur, Taille) VALUES( 13,3,20, "Blanc", "L");
 
 INSERT INTO Produits(Objet, Vendeur, Quantite) VALUES( 3,3,2);
 INSERT INTO Produits(Objet, Vendeur, Quantite) VALUES( 4,3,16);

@@ -49,7 +49,7 @@
 	}
 	else {	
 
-		sendRequest('INSERT INTO Media(Path1) VALUES( "Media/'.$_FILES['photo']['name'].'");');
+		sendRequest('INSERT INTO Media(Path1,Path2) VALUES( "Media/'.$_FILES['photo']['name'].'","Media/suisse.jpg");');
 
 		$media = sendRequest('SELECT MAX(Id) FROM media');
 		$data = mysqli_fetch_assoc($media);

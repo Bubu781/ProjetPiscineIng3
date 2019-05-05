@@ -46,7 +46,7 @@
 	}
 
 	// media
-	sendRequest('INSERT INTO Media(Path1) VALUES( "Media/'.$_FILES['photo']['name'].'");');
+	sendRequest('INSERT INTO Media(Path1,Path2) VALUES( "Media/'.$_FILES['photo']['name'].'","Media/suisse.jpg");');
 
 
 
@@ -59,15 +59,7 @@
 	$media = sendRequest('SELECT MAX(Id) FROM People');
 	$data = mysqli_fetch_assoc($media);
 
-
-
-
-
-
-
 	if ($categorie == 'vendeur'){
-
-
 
 	if (isset($_FILES['photo1']) AND $_FILES['photo1']['error'] == 0){
     if ($_FILES['photo1']['size'] <= 3145728)
@@ -98,14 +90,6 @@
 	}
 
 
-
-
-
-
-
-
-
-
 	else if ($categorie == 'client'){
 
 		$banque = isset($_POST["banque"])? $_POST["banque"] : ""; //if-then-else
@@ -120,7 +104,7 @@
 		$nom_Carte = isset($_POST["nom_Carte"])? $_POST["nom_Carte"] : ""; //if-then-else
 		$Num_Carte = isset($_POST["Num_Carte"])? $_POST["Num_Carte"] : ""; //if-then-else
 
-		sendRequest('	INSERT INTO Client(Porte_Monnaie, Code_Carte, Date_Expiration_Carte, Nom_Carte, Num_Carte, Type_Carte, Adresse_L1, Adresse_L2, Ville, Code_Postal, Pays, people) VALUES( '.$banque.', "'.$code_carte.'", "'.$Date_Expiration_Carte.'", "'.$nom_Carte.'","'.$Num_Carte.'","'.$type_carte.'", "'.$adresse_l1.'", "'.$adresse_l2.'", "'.$ville.'", '.$code_postal.', "'.$pays.'", '.$data['MAX(Id)'].');');
+		sendRequest('	INSERT INTO Client(Porte_Monnaie, Code_Carte, Date_Expiration_Carte, Nom_Carte, Num_Carte, Type_Carte, Adresse_L1, Adresse_L2, Ville, Code_Postal, Pays, people) VALUES( '.$banque.', "'.$code_carte.'", "'.$Date_Expiration_Carte.'-31", "'.$nom_Carte.'","'.$Num_Carte.'","'.$type_carte.'", "'.$adresse_l1.'", "'.$adresse_l2.'", "'.$ville.'", '.$code_postal.', "'.$pays.'", '.$data['MAX(Id)'].');');
 
 	}
 
