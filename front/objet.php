@@ -28,7 +28,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="styles.css"> <!-- CSS Page -->
 	<meta charset="UTF-8">
-	<title>Mon compte</title>
+	<title>Article : <?php echo $Nom ?> </title>
 </head>
 <body>
 
@@ -220,7 +220,7 @@ $result = sendRequest("SELECT produits.Taille FROM produits, item WHERE item.Id 
 	?>
 					<tr class="form-group">
 					<td class="titre">Couleur :</td>
-					<td><input type="text" id = "couleur" name="couleur" class="form-control" placeholder="Saisisez la couleur"required>
+					<td><input type="text" id = "couleur" name="Couleur" class="form-control" placeholder="Saisisez la couleur"required>
 
 				</tr>
 					<tr>
@@ -251,10 +251,6 @@ $result = sendRequest("SELECT produits.Taille FROM produits, item WHERE item.Id 
 				<tr>
 					<td class="titre">Type : </td>
 					<td><?php echo $type; ?></td>
-				</tr>
-					<tr class="titre">
-						<td>Quantité :</td>
-						<td><input type="number" id="Qte" name="Qte" value = 1 ></td>
 				</tr>
 
 

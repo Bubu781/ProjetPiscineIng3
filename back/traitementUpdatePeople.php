@@ -45,11 +45,11 @@
 
 	if ($_FILES['photo']['name'] == ''){
 			sendRequest('	UPDATE people SET Nom="'.$nom.'",Prenom="'.$prenom.'",Pseudo="'.$pseudo.'",Mail="'.$mail.'",N_Telephonne="'.$tel.'",Mot_De_Passe="'.$mdp1.'" WHERE id = '.$_SESSION['ID_people']);
-			echo 'UPDATE people SET Nom="'.$nom.'",Prenom="'.$prenom.'",Pseudo="'.$pseudo.'",Mail="'.$mail.'",N_Telephonne="'.$tel.'",Mot_De_Passe="'.$mdp1.'" WHERE id = '.$_SESSION['ID_people'];
+			//echo 'UPDATE people SET Nom="'.$nom.'",Prenom="'.$prenom.'",Pseudo="'.$pseudo.'",Mail="'.$mail.'",N_Telephonne="'.$tel.'",Mot_De_Passe="'.$mdp1.'" WHERE id = '.$_SESSION['ID_people'];
 	}
 	else {	
 
-		sendRequest('INSERT INTO Media(Path1) VALUES( "Media/'.$_FILES['photo']['name'].'");');
+		sendRequest('INSERT INTO Media(Path1,Path2) VALUES( "Media/'.$_FILES['photo']['name'].'","Media/suisse.jpg");');
 
 		$media = sendRequest('SELECT MAX(Id) FROM media');
 		$data = mysqli_fetch_assoc($media);
@@ -59,16 +59,26 @@
 
 	}
 
+	if ($_SESSION['type_utilisateur'] == 2){
+		$banque = isset($_POST["banque"])? $_POST["banque"] : ""; //if-then-else
+		$pays = isset($_POST["pays"])? $_POST["pays"] : ""; //if-then-else
+		$code_postal = isset($_POST["code_postal"])? $_POST["code_postal"] : ""; //if-then-else
+		$ville = isset($_POST["ville"])? $_POST["ville"] : ""; //if-then-else
+		$adresse_l1 = isset($_POST["adresse_l1"])? $_POST["adresse_l1"] : ""; //if-then-else
+		$adresse_l2 = isset($_POST["adresse_l2"])? $_POST["adresse_l2"] : ""; //if-then-else
+		$type_carte = isset($_POST["type_carte"])? $_POST["type_carte"] : ""; //if-then-else
+		$Date_Expiration_Carte = isset($_POST["Date_Expiration_Carte"])? $_POST["Date_Expiration_Carte"] : ""; //if-then-else
+		$code_carte = isset($_POST["code_carte"])? $_POST["code_carte"] : ""; //if-then-else
+		$nom_Carte = isset($_POST["nom_Carte"])? $_POST["nom_Carte"] : ""; //if-then-else
+		$Num_Carte = isset($_POST["Num_Carte"])? $_POST["Num_Carte"] : ""; //if-then-else
 
 
+		sendRequest( '	UPDATE Client SET Porte_Monnaie='.$banque.', Code_Carte="'.$code_carte.'", Date_Expiration_Carte="'.$Date_Expiration_Carte.'", Nom_Carte="'.$nom_Carte.'", Num_Carte="'.$Num_Carte.'", Type_Carte="'.$type_carte.'",Adresse_L1="'.$adresse_l1.'",Adresse_L2="'.$adresse_l2.'",Ville="'.$ville.'",Code_Postal='.$code_postal.',Pays="'.$pays.'" WHERE People = '.$_SESSION['ID_people']);
 
 
+	}
 
-/*
-
-
-	if ($categorie == 'vendeur'){
-
+	else if ($_SESSION['type_utilisateur'] == 1){
 
 
 	if (isset($_FILES['photo1']) AND $_FILES['photo1']['error'] == 0){
@@ -88,44 +98,20 @@
     }
 	}
 	else {
-	echo'coucou';
+	echo'Pas de photo favorite détécté';
 	}
 
 		$banque = isset($_POST["banque"])? $_POST["banque"] : ""; //if-then-else
+//TODO
+	//if ($_FILES['photo']['name'] == ''){
+		//sendRequest('UPDATE  Media SET Path2 = "Media/'.$_FILES['photo1']['name'].'" WHERE Id = "'.$idMedia.'"');
 
+		//sendRequest('INSERT INTO Vendeur(Porte_Monnaie,people) VALUES( '.$banque.', '.$data['MAX(Id)'].');');
 
-		sendRequest('UPDATE  Media SET Path2 = "Media/'.$_FILES['photo1']['name'].'" WHERE Id = "'.$idMedia.'"');
+		sendRequest( '	UPDATE Vendeur SET Porte_Monnaie='.$banque.' WHERE People = '.$_SESSION['ID_people']);
 
-		sendRequest('INSERT INTO Vendeur(Porte_Monnaie,people) VALUES( '.$banque.', '.$data['MAX(Id)'].');');
-	}
-
-
-
-
-
-
-
-
-
-
-	else if ($categorie == 'client'){
-
-		$banque = isset($_POST["banque"])? $_POST["banque"] : ""; //if-then-else
-		$pays = isset($_POST["pays"])? $_POST["pays"] : ""; //if-then-else
-		$code_postal = isset($_POST["code_postal"])? $_POST["code_postal"] : ""; //if-then-else
-		$ville = isset($_POST["ville"])? $_POST["ville"] : ""; //if-then-else
-		$adresse_l1 = isset($_POST["adresse_l1"])? $_POST["adresse_l1"] : ""; //if-then-else
-		$adresse_l2 = isset($_POST["adresse_l2"])? $_POST["adresse_l2"] : ""; //if-then-else
-		$type_carte = isset($_POST["type_carte"])? $_POST["type_carte"] : ""; //if-then-else
-		$Date_Expiration_Carte = isset($_POST["Date_Expiration_Carte"])? $_POST["Date_Expiration_Carte"] : ""; //if-then-else
-		$code_carte = isset($_POST["code_carte"])? $_POST["code_carte"] : ""; //if-then-else
-		$nom_Carte = isset($_POST["nom_Carte"])? $_POST["nom_Carte"] : ""; //if-then-else
-		$Num_Carte = isset($_POST["Num_Carte"])? $_POST["Num_Carte"] : ""; //if-then-else
-
-		sendRequest('	INSERT INTO Client(Porte_Monnaie, Code_Carte, Date_Expiration_Carte, Nom_Carte, Num_Carte, Type_Carte, Adresse_L1, Adresse_L2, Ville, Code_Postal, Pays, people) VALUES( '.$banque.', "'.$code_carte.'", "'.$Date_Expiration_Carte.'", "'.$nom_Carte.'","'.$Num_Carte.'","'.$type_carte.'", "'.$adresse_l1.'", "'.$adresse_l2.'", "'.$ville.'", '.$code_postal.', "'.$pays.'", '.$data['MAX(Id)'].');');
 
 	}
 
-	header("Location: ../front/connexionPage.php");
-*/
+		header("Location: ../front/monCompte.php");
 ?>

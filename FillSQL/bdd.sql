@@ -65,6 +65,8 @@ INSERT INTO Media(Path1,Path2) VALUES( "Media/corde1.jpg","Media/corde2.jpg");
 INSERT INTO Media(Path1) VALUES( "Media/hunger.jpeg");
 INSERT INTO Media(Path1) VALUES( "Media/cinquante.jpg");
 INSERT INTO Media(Path1) VALUES( "Media/miserable.jpeg");
+INSERT INTO Media(Path1) VALUES( "Media/tom.jpg");
+INSERT INTO Media(Path1) VALUES( "Media/pullGrossemaille.jpg");
 
 
 
@@ -76,10 +78,12 @@ INSERT INTO Avis_Client(Objet, Client, Note) VALUES( 5,1,4);
 INSERT INTO People(Nom, Prenom, Pseudo, Mail, N_Telephonne, Mot_De_Passe,media) VALUES( 'Tordjman', 'Ilana', 'Nana', 'ilana.tordjman@edu.ece.fr','0678549871','motdepasse',1);
 INSERT INTO People(Nom, Prenom, Pseudo, Mail, N_Telephonne, Mot_De_Passe,media) VALUES( 'Adrien', 'Buot', 'bubu', 'adrien.buot@edu.ece.fr','0636548167','petimac',1);
 INSERT INTO People(Nom, Prenom, Pseudo, Mail, N_Telephonne, Mot_De_Passe,media) VALUES( 'Guicharnaud', 'Leo', 'Lightman', 'leo.guicharnaud@edu.ece.fr','0675848197','pclgiflceplcifla',1);
+INSERT INTO People(Nom, Prenom, Pseudo, Mail, N_Telephonne, Mot_De_Passe,media) VALUES( 'Cruz', 'Tom', 'Tomtom', 'tom.cruz@edu.ece.fr','0656848197','film',21);
 -- Remplissage de la table Client
 INSERT INTO Client(Porte_Monnaie, Code_Carte, Date_Expiration_Carte, Nom_Carte, Num_Carte, Type_Carte,Adresse_L1,Adresse_L2,Ville,Code_Postal,Pays,people) VALUES( 1692, '632', '2021-05-31', 'Tordjman','5483265493150001','Visa', '1 rue de la paix', '', 'Paris', 75015, 'France', 1);
 -- Remplissage de la table Vendeur
 INSERT INTO Vendeur(Porte_Monnaie,people) VALUES( 17072, 3);
+INSERT INTO Vendeur(Porte_Monnaie,people) VALUES( 17072, 4);
 -- Remplissage de la table Administrateur
 INSERT INTO Admin(people) VALUES( 2);
 
@@ -136,8 +140,28 @@ INSERT INTO Panier(Objet, Client, Quantite, Couleur, Taille) VALUES( 1,3,1,"Bleu
 -- Remplissage de la table de commandes 
 INSERT INTO Commandes(Objet, Client, Quantite, Date_Livraison, Couleur, Taille) VALUES( 1,1,1, "2019-05-06", "Bleu", "XS");
 -- Remplissage de la table des produits
-INSERT INTO Produits(Objet, Vendeur, Quantite, Couleur, Taille) VALUES( 1,3,1, "Bleu", "XS");
-INSERT INTO Produits(Objet, Vendeur, Quantite, Couleur, Taille) VALUES( 2,3,7, "Rouge", "L");
+INSERT INTO Produits(Objet, Vendeur, Quantite, Couleur, Taille) VALUES( 1,3,19, "Bleu", "XS");
+INSERT INTO Produits(Objet, Vendeur, Quantite, Couleur, Taille) VALUES( 1,3,19, "Rouge", "S");
+INSERT INTO Produits(Objet, Vendeur, Quantite, Couleur, Taille) VALUES( 1,3,18, "Bleu", "L");
+INSERT INTO Produits(Objet, Vendeur, Quantite, Couleur, Taille) VALUES( 1,3,17, "Orange", "L");
+INSERT INTO Produits(Objet, Vendeur, Quantite, Couleur, Taille) VALUES( 1,3,7, "Noir", "L");
+INSERT INTO Produits(Objet, Vendeur, Quantite, Couleur, Taille) VALUES( 1,3,13, "Noir", "S");
+INSERT INTO Produits(Objet, Vendeur, Quantite, Couleur, Taille) VALUES( 12,3,19, "Bleu", "S");
+INSERT INTO Produits(Objet, Vendeur, Quantite, Couleur, Taille) VALUES( 12,3,10, "Bleu", "M");
+INSERT INTO Produits(Objet, Vendeur, Quantite, Couleur, Taille) VALUES( 12,3,19, "Noir", "XL");
+INSERT INTO Produits(Objet, Vendeur, Quantite, Couleur, Taille) VALUES( 12,3,20, "Noir", "XS");
+INSERT INTO Produits(Objet, Vendeur, Quantite, Couleur, Taille) VALUES( 2,3,20, "Argent", "M");
+INSERT INTO Produits(Objet, Vendeur, Quantite, Couleur, Taille) VALUES( 2,3,20, "Or", "M");	
+INSERT INTO Produits(Objet, Vendeur, Quantite, Couleur, Taille) VALUES( 2,3,20, "Or", "S");
+INSERT INTO Produits(Objet, Vendeur, Quantite, Couleur, Taille) VALUES( 2,3,20, "Argent", "L");
+INSERT INTO Produits(Objet, Vendeur, Quantite, Couleur, Taille) VALUES( 12,3,20, "Noir", "M");
+INSERT INTO Produits(Objet, Vendeur, Quantite, Couleur, Taille) VALUES( 1,3,20, "Noir", "M");
+INSERT INTO Produits(Objet, Vendeur, Quantite, Couleur, Taille) VALUES( 2,3,20, "Noir", "M");
+INSERT INTO Produits(Objet, Vendeur, Quantite, Couleur, Taille) VALUES( 13,3,20, "Noir", "M");
+INSERT INTO Produits(Objet, Vendeur, Quantite, Couleur, Taille) VALUES( 13,3,20, "Noir", "S");
+INSERT INTO Produits(Objet, Vendeur, Quantite, Couleur, Taille) VALUES( 13,3,20, "Noir", "L");
+INSERT INTO Produits(Objet, Vendeur, Quantite, Couleur, Taille) VALUES( 13,3,20, "Blanc", "S");
+
 INSERT INTO Produits(Objet, Vendeur, Quantite) VALUES( 3,3,2);
 INSERT INTO Produits(Objet, Vendeur, Quantite) VALUES( 4,3,16);
 INSERT INTO Produits(Objet, Vendeur, Quantite) VALUES( 5,3,4);
