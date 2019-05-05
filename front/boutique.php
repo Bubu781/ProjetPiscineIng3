@@ -14,7 +14,19 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="styles.css"> <!-- CSS Page -->
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<?php 
+		if($_GET['categorie'] == "0"){
+			echo '<title>Vêtements</title>';
+		}else if($_GET['categorie'] == "1"){
+			echo '<title>Musiques</title>';
+		}else if($_GET['categorie'] == "2"){
+			echo '<title>Livres</title>';
+		}else if($_GET['categorie'] == "3"){
+			echo '<title>Sports et loisirs</title>';
+		}else{
+			echo '<title>toutes catégories</title>';
+		}
+	?>
 </head>
 <body>
 	<?php

@@ -14,13 +14,13 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="styles.css"> <!-- CSS Page -->
 	<meta charset="UTF-8">
-	<title>Gérer les items</title>
+	<title>Gérer les objets</title>
 </head>
 <body>
 	<?php
 		include("header.php");
 	?>
-	<h1>Gérer les items</h1>
+	<h1>Gérer les objets</h1>
 	<div id="container">
 		<?php
 			displayGestionItems();
